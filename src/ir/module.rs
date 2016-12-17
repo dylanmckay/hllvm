@@ -1,4 +1,5 @@
 use ir::{Context, FunctionType, Attribute, Value, Function};
+use Upcast;
 
 use sys;
 use std::marker;

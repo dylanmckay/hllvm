@@ -1,5 +1,9 @@
 //! LLVM bindings for Rust
 
+pub use self::upcast::Upcast;
+
+#[macro_use]
+pub mod upcast;
 pub mod ir;
 
 /// The C FFI library.

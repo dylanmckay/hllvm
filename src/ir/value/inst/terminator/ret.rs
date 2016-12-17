@@ -15,3 +15,5 @@ impl<'ctx> ReturnInst<'ctx>
         ReturnInst(Value::new(val))
     }
 }
+
+impl_upcast!(ReturnInst => Value);

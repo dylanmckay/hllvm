@@ -1,4 +1,5 @@
 use ir::{Value, FunctionType, Module};
+use Upcast;
 use sys;
 
 use std::ffi;
@@ -27,12 +28,6 @@ impl<'ctx> Function<'ctx>
     pub fn from_value(val: Value<'ctx>) -> Self {
         Function(val)
     }
-
-    pub fn upcast_ref(&self) -> &Value<'ctx> { &self.0 }
-    pub fn upcast(self) -> Value<'ctx> { self.0 }
 }
 
-impl<'a> AsRef<Value<'a>> for Function<'a>
-{
-    fn as_ref(&self) -> &Value<'a> { &self.0 }
-}
+impl_upcast!(Function => Value);

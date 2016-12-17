@@ -1,4 +1,5 @@
 use ir::{Value, Context, Function};
+use Upcast;
 use sys;
 
 use std::{ptr, ffi};
@@ -25,12 +26,6 @@ impl<'ctx> Block<'ctx>
 
         Block(Value::new(ty))
     }
-
-    pub fn upcast_ref(&self) -> &Value<'ctx> { &self.0 }
-    pub fn upcast(self) -> Value<'ctx> { self.0 }
 }
 
-impl<'a> AsRef<Value<'a>> for Block<'a>
-{
-    fn as_ref(&self) -> &Value<'a> { &self.0 }
-}
+impl_upcast!(Block => Value);

@@ -19,12 +19,6 @@ impl<'ctx> FunctionType<'ctx>
 
         FunctionType(Type::new(inner))
     }
-
-    pub fn upcast_ref(&self) -> &Type<'ctx> { &self.0 }
-    pub fn upcast(self) -> Type<'ctx> { self.0 }
 }
 
-impl<'a> AsRef<Type<'a>> for FunctionType<'a>
-{
-    fn as_ref(&self) -> &Type<'a> { &self.0 }
-}
+impl_upcast!(FunctionType => Type);

@@ -13,12 +13,6 @@ impl<'ctx> IntegerType<'ctx>
                                                          num_bits as _) };
         IntegerType(Type::new(inner))
     }
-
-    pub fn upcast_ref(&self) -> &Type<'ctx> { &self.0 }
-    pub fn upcast(self) -> Type<'ctx> { self.0 }
 }
 
-impl<'a> AsRef<Type<'a>> for IntegerType<'a>
-{
-    fn as_ref(&self) -> &Type<'a> { &self.0 }
-}
+impl_upcast!(IntegerType => Type);
