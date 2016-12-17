@@ -1,11 +1,11 @@
 #include "../llvm.h"
 
 extern "C" {
-  void LLVMRustValueDump(LLVMValueRef Val) {
-    unwrap(Val)->dump();
+  void LLVMRustValueDump(llvm::Value *Val) {
+    Val->dump();
   }
 
-  LLVMTypeRef LLVMRustValueGetType(LLVMValueRef Val) {
-    return wrap(unwrap(Val)->getType());
+  llvm::Type *LLVMRustValueGetType(llvm::Value *Val) {
+    return Val->getType();
   }
 }

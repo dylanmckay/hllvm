@@ -3,11 +3,11 @@
 #include <llvm/IR/Constants.h>
 
 extern "C" {
-  LLVMValueRef LLVMRustConstantIntGetTrue(LLVMContextRef Ctx) {
-    return wrap(llvm::ConstantInt::getTrue(*unwrap(Ctx)));
+  llvm::Value *LLVMRustConstantIntGetTrue(llvm::LLVMContext *Ctx) {
+    return llvm::ConstantInt::getTrue(*Ctx);
   }
 
-  LLVMValueRef LLVMRustConstantIntGetFalse(LLVMContextRef Ctx) {
-    return wrap(llvm::ConstantInt::getFalse(*unwrap(Ctx)));
+  llvm::Value *LLVMRustConstantIntGetFalse(llvm::LLVMContext *Ctx) {
+    return llvm::ConstantInt::getFalse(*Ctx);
   }
 }

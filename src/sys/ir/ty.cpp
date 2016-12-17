@@ -1,15 +1,15 @@
 #include "../llvm.h"
 
 extern "C" {
-  LLVMTypeRef LLVMRustTypeGetVoidTy(LLVMContextRef Ctx) {
-    return wrap(llvm::Type::getVoidTy(*unwrap(Ctx)));
+  llvm::Type *LLVMRustTypeGetVoidTy(llvm::LLVMContext *Ctx) {
+    return llvm::Type::getVoidTy(*Ctx);
   }
 
-  void LLVMRustTypeDump(LLVMTypeRef Ty) {
-    unwrap(Ty)->dump();
+  void LLVMRustTypeDump(llvm::Type *Ty) {
+    Ty->dump();
   }
 
-  LLVMTypeRef LLVMRustIntegerTypeGet(LLVMContextRef Ctx, unsigned NumBits) {
-    return wrap(llvm::IntegerType::get(*unwrap(Ctx), NumBits));
+  llvm::Type *LLVMRustIntegerTypeGet(llvm::LLVMContext *Ctx, unsigned NumBits) {
+    return llvm::IntegerType::get(*Ctx, NumBits);
   }
 }
