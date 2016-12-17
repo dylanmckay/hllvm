@@ -4,6 +4,7 @@
 
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/IR/Type.h>
+#include <llvm/IR/DerivedTypes.h>
 #include <llvm/IR/Value.h>
 
 #define DEFINE_PTR_CONVERSION_FUNCTIONS(DOWNSTREAM, UPSTREAM) \

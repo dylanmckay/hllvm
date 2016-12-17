@@ -9,6 +9,7 @@ build = "build.rs"
 path = "lib.rs"
 
 [dependencies]
+libc = "0.2"
 ncurses = "5.84" # Required to link LLVM
 
 [build-dependencies]

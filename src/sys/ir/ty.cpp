@@ -8,4 +8,8 @@ extern "C" {
   void LLVMRustTypeDump(LLVMTypeRef Ty) {
     unwrap(Ty)->dump();
   }
+
+  LLVMTypeRef LLVMRustIntegerTypeGet(LLVMContextRef Ctx, unsigned NumBits) {
+    return wrap(llvm::IntegerType::get(*unwrap(Ctx), NumBits));
+  }
 }

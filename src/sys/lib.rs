@@ -2,6 +2,8 @@ pub use self::ir::*;
 
 pub mod ir;
 
+extern crate libc;
+
 // Required to link LLVM
 extern crate ncurses;
 // Required to link LLVM
