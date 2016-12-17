@@ -11,3 +11,12 @@ extern crate ncurses;
 
 #[cfg(test)]
 pub mod test_support;
+
+pub enum OpaqueContext { }
+pub type ContextRef = *mut OpaqueContext;
+
+pub enum OpaqueType { }
+pub type TypeRef = *mut OpaqueType;
+
+pub enum OpaqueValue { }
+pub type ValueRef = *mut OpaqueValue;

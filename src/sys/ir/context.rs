@@ -1,5 +1,4 @@
-pub enum OpaqueContext { }
-pub type ContextRef = *mut OpaqueContext;
+use ContextRef;
 
 extern "C" {
     pub fn LLVMRustCreateContext() -> ContextRef;

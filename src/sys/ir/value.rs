@@ -1,7 +1,4 @@
-use TypeRef;
-
-pub enum OpaqueValue { }
-pub type ValueRef = *mut OpaqueValue;
+use {ValueRef, TypeRef};
 
 extern "C" {
     pub fn LLVMRustValueDump(_: ValueRef);

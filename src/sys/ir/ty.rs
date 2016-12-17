@@ -1,14 +1,11 @@
-use ir;
+use {TypeRef, ContextRef};
+
 use libc;
 
-pub enum OpaqueType { }
-
-pub type TypeRef = *mut OpaqueType;
-
 extern "C" {
-    pub fn LLVMRustTypeGetVoidTy(ctx: ir::ContextRef) -> TypeRef;
+    pub fn LLVMRustTypeGetVoidTy(ctx: ContextRef) -> TypeRef;
     pub fn LLVMRustTypeDump(ty: TypeRef);
-    pub fn LLVMRustIntegerTypeGet(ctx: ir::ContextRef, NumBits: libc::c_int) -> TypeRef;
+    pub fn LLVMRustIntegerTypeGet(ctx: ContextRef, NumBits: libc::c_int) -> TypeRef;
 }
 
 #[cfg(test)]
