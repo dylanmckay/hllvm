@@ -12,4 +12,12 @@ extern "C" {
   llvm::Type *LLVMRustIntegerTypeGet(llvm::LLVMContext *Ctx, unsigned NumBits) {
     return llvm::IntegerType::get(*Ctx, NumBits);
   }
+
+  llvm::Type *LLVMRustFunctionTypeGet(llvm::Type *Result,
+                                      llvm::Type **ParamTypes,
+                                      unsigned ParamCount,
+                                      bool IsVarArg) {
+    auto Params = llvm::ArrayRef<llvm::Type*>(ParamTypes, ParamCount);
+    return llvm::FunctionType::get(Result, Params, IsVarArg);
+  }
 }
