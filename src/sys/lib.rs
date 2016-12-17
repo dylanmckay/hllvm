@@ -6,3 +6,6 @@ pub mod ir;
 extern crate ncurses;
 // Required to link LLVM
 #[link(name = "ffi")] extern {}
+
+#[cfg(test)]
+pub mod test_support;

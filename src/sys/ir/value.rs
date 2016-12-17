@@ -10,14 +10,15 @@ extern "C" {
 
 #[cfg(test)]
 mod test {
+    use test_support::Context;
+
     #[test]
     fn can_get_type_from_constant() {
-        unsafe {
-            let ctx = ::LLVMRustCreateContext();
-            let val = ::LLVMRustConstantIntGetTrue(ctx);
-            ::LLVMRustValueGetType(val);
+        let ctx = Context::new();
 
-            ::LLVMRustDestroyContext(ctx);
+        unsafe {
+            let val = ::LLVMRustConstantIntGetTrue(ctx.inner);
+            ::LLVMRustValueGetType(val);
         }
     }
 }

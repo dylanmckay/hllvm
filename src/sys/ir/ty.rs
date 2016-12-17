@@ -12,15 +12,15 @@ extern "C" {
 #[cfg(test)]
 mod test {
     use super::*;
+    use test_support::Context;
 
     #[test]
     fn can_dump_void_type() {
-        unsafe {
-            let ctx = ::LLVMRustCreateContext();
-            let ty = ::LLVMRustTypeGetVoidTy(ctx);
-            ::LLVMRustTypeDump(ty);
+        let ctx = Context::new();
 
-            ::LLVMRustDestroyContext(ctx);
+        unsafe {
+            let ty = ::LLVMRustTypeGetVoidTy(ctx.inner);
+            ::LLVMRustTypeDump(ty);
         }
     }
 }
