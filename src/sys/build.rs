@@ -29,6 +29,7 @@ fn main() {
         .file("ir/function.cpp")
         .file("ir/block.cpp")
         .file("ir/ty.cpp")
+        .file("ir/inst.cpp")
         .file("ir/context.cpp")
         .file("ir/module.cpp")
         .compile("libllvm-sys.a");
