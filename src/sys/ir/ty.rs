@@ -15,6 +15,12 @@ mod test {
 
     #[test]
     fn can_dump_void_type() {
-        // let ty = unsafe { LLVMRustTypeGetVoidTy() };
+        unsafe {
+            let ctx = ::LLVMRustCreateContext();
+            let ty = ::LLVMRustTypeGetVoidTy(ctx);
+            ::LLVMRustTypeDump(ty);
+
+            ::LLVMRustDestroyContext(ctx);
+        }
     }
 }
