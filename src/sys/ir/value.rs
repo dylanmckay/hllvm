@@ -1,9 +1,9 @@
 pub enum OpaqueValue { }
 
-type ValueRef = *mut OpaqueValue;
+pub type ValueRef = *mut OpaqueValue;
 
 extern "C" {
-    pub fn LLVMRustIRValueDump(_: ValueRef);
+    pub fn LLVMRustValueDump(_: ValueRef);
 }
 
 #[cfg(test)]

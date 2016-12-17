@@ -2,7 +2,7 @@ use ir;
 
 pub enum OpaqueType { }
 
-type TypeRef = *mut OpaqueType;
+pub type TypeRef = *mut OpaqueType;
 
 extern "C" {
     pub fn LLVMRustTypeGetVoidTy(ctx: ir::ContextRef) -> TypeRef;
