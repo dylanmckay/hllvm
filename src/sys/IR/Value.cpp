@@ -1,4 +1,4 @@
-#include "Value.h"
+#include "../llvm.h"
 
 extern "C" {
   void LLVMRustIRValueDump(const ValueRef Val) {
