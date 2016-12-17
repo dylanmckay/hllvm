@@ -22,7 +22,6 @@ fn main() {
     gcc::Config::new()
         .cpp(true)
         .flag("-std=c++11")
-        .file("lib.cpp")
         .file("ir/value.cpp")
         .file("ir/constants.cpp")
         .file("ir/attributes.cpp")
