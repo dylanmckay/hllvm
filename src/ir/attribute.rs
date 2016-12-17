@@ -1,0 +1,2 @@
+/// Unimplemented.
+pub enum Attribute { }

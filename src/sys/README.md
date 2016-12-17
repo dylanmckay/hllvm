@@ -39,3 +39,8 @@ LLVMRustValueGet
 ```
 
 Static functions are not capitalized differently than standard methods.
+
+# Overloaded functions
+
+When there is an overloaded method, and the additional overloads are solely
+for convienence, only implement the most general method.
