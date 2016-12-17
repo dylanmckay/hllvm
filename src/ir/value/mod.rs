@@ -1,3 +1,7 @@
+pub use self::block::Block;
+
+pub mod block;
+
 use sys;
 
 use std::marker;

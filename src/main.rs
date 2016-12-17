@@ -14,5 +14,7 @@ fn main() {
     let func_ty = ir::FunctionType::new(&int8.as_ref(), &[], false);
     let func = module.get_or_insert_function("my_func", &func_ty, &[]);
 
+    let block = ir::Block::new(&context, Some("entry"), Some(&func), None);
+
     module.dump();
 }

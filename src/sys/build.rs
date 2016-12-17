@@ -26,6 +26,7 @@ fn main() {
         .file("ir/value.cpp")
         .file("ir/constants.cpp")
         .file("ir/attributes.cpp")
+        .file("ir/block.cpp")
         .file("ir/ty.cpp")
         .file("ir/context.cpp")
         .file("ir/module.cpp")
