@@ -1,6 +1,8 @@
 pub use self::func::FunctionType;
+pub use self::integer::IntegerType;
 
 pub mod func;
+pub mod integer;
 
 use ir::Context;
 use sys;
@@ -19,14 +21,6 @@ impl<'ctx> Type<'ctx>
     /// Gets the `void` type.
     pub fn void(context: &Context) -> Self {
         let inner = unsafe { sys::LLVMRustTypeGetVoidTy(context.inner()) };
-        Type::new(inner)
-    }
-
-    /// Gets an integer type.
-    pub fn integer(num_bits: usize,
-                   context: &Context) -> Self {
-        let inner = unsafe { sys::LLVMRustIntegerTypeGet(context.inner(),
-                                                         num_bits as _) };
         Type::new(inner)
     }
 

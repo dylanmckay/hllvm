@@ -26,3 +26,8 @@ impl<'ctx> FunctionType<'ctx>
     pub fn upcast_ref(&self) -> &Type<'ctx> { &self.ty }
     pub fn upcast(self) -> Type<'ctx> { self.ty }
 }
+
+impl<'a> AsRef<Type<'a>> for FunctionType<'a>
+{
+    fn as_ref(&self) -> &Type<'a> { &self.ty }
+}
