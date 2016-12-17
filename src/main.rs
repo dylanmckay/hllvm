@@ -2,3 +2,6 @@
 
 /// The C FFI library.
 extern crate llvm_sys as sys;
+
+fn main() {
+}
