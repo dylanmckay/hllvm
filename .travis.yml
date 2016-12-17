@@ -5,4 +5,15 @@ rust:
   - stable
   - beta
 
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - clang
+    - llvm-dev
+
+install:
+- export CXX="clang++" CC="clang"
+
 script: cargo test --all
