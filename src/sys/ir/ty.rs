@@ -30,8 +30,6 @@ mod test {
     fn can_get_u22_type() {
         let ctx = Context::new();
 
-        unsafe {
-            let ty = LLVMRustIntegerTypeGet(ctx.inner, 22);
-        }
+        unsafe { LLVMRustIntegerTypeGet(ctx.inner, 22) };
     }
 }

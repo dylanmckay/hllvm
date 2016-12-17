@@ -27,6 +27,7 @@ fn main() {
         .file("ir/constants.cpp")
         .file("ir/ty.cpp")
         .file("ir/context.cpp")
+        .file("ir/module.cpp")
         .compile("libllvm-sys.a");
 
     println!("cargo:rustc-link-search=native=/usr/local/Cellar/llvm/3.9.0/lib");
