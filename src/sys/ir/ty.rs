@@ -8,7 +8,7 @@ extern "C" {
     pub fn LLVMRustIntegerTypeGet(ctx: ContextRef, NumBits: libc::c_int) -> TypeRef;
 
     pub fn LLVMRustFunctionTypeGet(result: TypeRef,
-                                   param_types: *mut *mut TypeRef,
+                                   param_types: *mut TypeRef,
                                    param_count: libc::c_uint,
                                    is_var_arg: bool) -> TypeRef;
 }

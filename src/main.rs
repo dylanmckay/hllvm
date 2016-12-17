@@ -9,4 +9,6 @@ fn main() {
     let context = ir::Context::new();
     let module = ir::Module::new("mymodule", &context);
     module.dump();
+
+    ir::Type::integer(8, &context).dump();
 }
