@@ -2,10 +2,7 @@ use ir::Type;
 use sys;
 
 /// A type representing a function.
-pub struct FunctionType<'ctx>
-{
-    ty: Type<'ctx>,
-}
+pub struct FunctionType<'ctx>(Type<'ctx>);
 
 impl<'ctx> FunctionType<'ctx>
 {
@@ -20,14 +17,14 @@ impl<'ctx> FunctionType<'ctx>
                 params.as_mut_ptr(), params.len() as _, is_var_arg)
         };
 
-        FunctionType { ty: Type::new(inner) }
+        FunctionType(Type::new(inner))
     }
 
-    pub fn upcast_ref(&self) -> &Type<'ctx> { &self.ty }
-    pub fn upcast(self) -> Type<'ctx> { self.ty }
+    pub fn upcast_ref(&self) -> &Type<'ctx> { &self.0 }
+    pub fn upcast(self) -> Type<'ctx> { self.0 }
 }
 
 impl<'a> AsRef<Type<'a>> for FunctionType<'a>
 {
-    fn as_ref(&self) -> &Type<'a> { &self.ty }
+    fn as_ref(&self) -> &Type<'a> { &self.0 }
 }

@@ -4,10 +4,7 @@ use sys;
 use std::ffi;
 
 /// A function.
-pub struct Function<'ctx>
-{
-    val: Value<'ctx>,
-}
+pub struct Function<'ctx>(Value<'ctx>);
 
 impl<'ctx> Function<'ctx>
 {
@@ -24,18 +21,18 @@ impl<'ctx> Function<'ctx>
                                         module.inner())
         };
 
-        Function { val: Value::new(val) }
+        Function(Value::new(val))
     }
 
     pub fn from_value(val: Value<'ctx>) -> Self {
-        Function { val: val }
+        Function(val)
     }
 
-    pub fn upcast_ref(&self) -> &Value<'ctx> { &self.val }
-    pub fn upcast(self) -> Value<'ctx> { self.val }
+    pub fn upcast_ref(&self) -> &Value<'ctx> { &self.0 }
+    pub fn upcast(self) -> Value<'ctx> { self.0 }
 }
 
 impl<'a> AsRef<Value<'a>> for Function<'a>
 {
-    fn as_ref(&self) -> &Value<'a> { &self.val }
+    fn as_ref(&self) -> &Value<'a> { &self.0 }
 }
