@@ -24,7 +24,7 @@ fn main() {
         .flag("-std=c++11")
         .file("lib.cpp")
         .file("ir/value.cpp")
-        .file("ir/type.cpp")
+        .file("ir/ty.cpp")
         .file("ir/context.cpp")
         .compile("libllvm-sys.a");
 
