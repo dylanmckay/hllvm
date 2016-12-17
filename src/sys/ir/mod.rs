@@ -5,6 +5,7 @@ pub use self::constants::*;
 pub use self::module::*;
 pub use self::attributes::*;
 pub use self::block::*;
+pub use self::function::*;
 
 pub mod ty;
 pub mod value;
@@ -13,3 +14,4 @@ pub mod constants;
 pub mod module;
 pub mod attributes;
 pub mod block;
+pub mod function;

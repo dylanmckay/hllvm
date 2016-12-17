@@ -1,4 +1,4 @@
-use ir::{Value, Context};
+use ir::{Value, Context, Function};
 use sys;
 
 use std::{ptr, ffi};
@@ -13,8 +13,7 @@ impl<'ctx> Block<'ctx>
 {
     pub fn new(context: &Context,
                name: Option<&str>,
-               // FIXME: make this `Function`
-               parent: Option<&Value>,
+               parent: Option<&Function>,
                insert_before: Option<&Self>) -> Self {
         let insert_before = insert_before.map_or(ptr::null_mut(), |b| b.ty.inner());
 
@@ -23,7 +22,7 @@ impl<'ctx> Block<'ctx>
         let ty = unsafe {
             sys::LLVMRustBasicBlockCreate(context.inner(),
                                           name.as_ptr(),
-                                          parent.map_or(ptr::null_mut(), Value::inner),
+                                          parent.map_or(ptr::null_mut(), |f| f.upcast_ref().inner()),
                                           insert_before)
         };
 

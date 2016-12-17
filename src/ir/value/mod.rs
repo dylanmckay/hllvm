@@ -1,6 +1,8 @@
 pub use self::block::Block;
+pub use self::func::Function;
 
 pub mod block;
+pub mod func;
 
 use sys;
 

@@ -1,4 +1,4 @@
-use ir::{Context, FunctionType, Attribute, Value};
+use ir::{Context, FunctionType, Attribute, Value, Function};
 
 use sys;
 use std::marker;
@@ -28,7 +28,7 @@ impl<'ctx> Module<'ctx>
     pub fn get_or_insert_function(&self,
                                   name: &str,
                                   func_ty: &FunctionType,
-                                  attributes: &[Attribute]) -> Value {
+                                  attributes: &[Attribute]) -> Function {
         let name = ffi::CString::new(name).unwrap();
         let mut attrs: Vec<_> = attributes.iter().map(Attribute::inner).collect();
 
@@ -40,11 +40,14 @@ impl<'ctx> Module<'ctx>
                                                    attrs.len())
         };
 
-        Value::new(func)
+        Function::from_value(Value::new(func))
     }
 
     /// Dumps the module to standard error.
     pub fn dump(&self) {
         unsafe { sys::LLVMRustModuleDump(self.inner) }
     }
+
+    /// Gets the inner module reference.
+    pub fn inner(&self) -> sys::ModuleRef { self.inner }
 }
