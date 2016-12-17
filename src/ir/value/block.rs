@@ -1,4 +1,4 @@
-use ir::{Value, Context, Function};
+use ir::{Value, Context, Function, Instruction};
 use Upcast;
 use sys;
 
@@ -25,6 +25,12 @@ impl<'ctx> Block<'ctx>
         };
 
         Block(Value::new(ty))
+    }
+
+    pub fn append(&self, inst: &Instruction) {
+        unsafe {
+            sys::LLVMRustInstructionAppend(inst.upcast_ref().inner(), self.0.inner());
+        }
     }
 }
 
