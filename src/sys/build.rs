@@ -23,9 +23,9 @@ fn main() {
         .cpp(true)
         .flag("-std=c++11")
         .file("lib.cpp")
-        .file("IR/Value.cpp")
-        .file("IR/Type.cpp")
-        .file("IR/context.cpp")
+        .file("ir/Value.cpp")
+        .file("ir/Type.cpp")
+        .file("ir/context.cpp")
         .compile("libllvm-sys.a");
 
     println!("cargo:rustc-link-search=native=/usr/local/Cellar/llvm/3.9.0/lib");
