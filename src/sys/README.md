@@ -29,3 +29,13 @@ Examples:
 * `LLVMRustCreateContext`
 * `LLVMRustDestroyContext`
 * `LLVMRustCreateValue`
+
+# Methods and static functions
+
+If we have a `get` function on `Value`, the FFI function should look like
+
+```rust
+LLVMRustValueGet
+```
+
+Static functions are not capitalized differently than standard methods.
