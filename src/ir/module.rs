@@ -15,6 +15,7 @@ pub struct Module<'ctx>
 
 impl<'ctx> Module<'ctx>
 {
+    /// Creates a new module.
     pub fn new(id: &str, context: &'ctx Context) -> Self {
         let id = ffi::CString::new(id).unwrap();
 
@@ -22,5 +23,10 @@ impl<'ctx> Module<'ctx>
             inner: unsafe { sys::LLVMRustCreateModule(id.as_ptr(), context.inner()) },
             phantom: marker::PhantomData,
         }
+    }
+
+    /// Dumps the module to standard error.
+    pub fn dump(&self) {
+        unsafe { sys::LLVMRustModuleDump(self.inner) }
     }
 }

@@ -8,4 +8,5 @@ extern crate llvm_sys as sys;
 fn main() {
     let context = ir::Context::new();
     let module = ir::Module::new("mymodule", &context);
+    module.dump();
 }

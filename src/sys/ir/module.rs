@@ -7,6 +7,8 @@ pub type ModuleRef = *mut OpaqueModule;
 extern "C" {
     pub fn LLVMRustCreateModule(id: *const libc::c_char,
                                 ctx: ContextRef) -> ModuleRef;
+
+    pub fn LLVMRustModuleDump(_: ModuleRef);
 }
 
 #[cfg(test)]
