@@ -1,3 +1,7 @@
+pub use self::func::FunctionType;
+
+pub mod func;
+
 use ir::Context;
 use sys;
 
@@ -23,19 +27,6 @@ impl<'ctx> Type<'ctx>
                    context: &Context) -> Self {
         let inner = unsafe { sys::LLVMRustIntegerTypeGet(context.inner(),
                                                          num_bits as _) };
-        Type::new(inner)
-    }
-
-    /// Gets a function type.
-    pub fn function(result: &Self,
-                    params: &[Self],
-                    is_var_arg: bool) -> Self {
-        let mut params: Vec<sys::TypeRef> = params.iter().map(Type::inner).collect();
-
-        let inner = unsafe {
-            sys::LLVMRustFunctionTypeGet(result.inner(),
-                params.as_mut_ptr(), params.len() as _, is_var_arg)
-        };
         Type::new(inner)
     }
 

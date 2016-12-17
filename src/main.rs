@@ -11,7 +11,7 @@ fn main() {
 
     let int8 = ir::Type::integer(8, &context);
 
-    let func_ty = ir::Type::function(&int8, &[], false);
+    let func_ty = ir::FunctionType::new(&int8, &[], false);
     let func = module.get_or_insert_function("my_func", &func_ty, &[]);
 
     module.dump();

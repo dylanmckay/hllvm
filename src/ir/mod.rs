@@ -2,7 +2,7 @@
 
 pub use self::context::Context;
 pub use self::module::Module;
-pub use self::ty::Type;
+pub use self::ty::{Type, FunctionType};
 pub use self::attribute::Attribute;
 pub use self::value::Value;
 

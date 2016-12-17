@@ -1,4 +1,4 @@
-use ir::{Context, Type, Attribute, Value};
+use ir::{Context, FunctionType, Attribute, Value};
 
 use sys;
 use std::marker;
@@ -27,7 +27,7 @@ impl<'ctx> Module<'ctx>
 
     pub fn get_or_insert_function(&self,
                                   name: &str,
-                                  func_ty: &Type,
+                                  func_ty: &FunctionType,
                                   attributes: &[Attribute]) -> Value {
         let name = ffi::CString::new(name).unwrap();
         let mut attrs: Vec<_> = attributes.iter().map(Attribute::inner).collect();
@@ -35,7 +35,7 @@ impl<'ctx> Module<'ctx>
         let func = unsafe {
             sys::LLVMRustModuleGetOrInsertFunction(self.inner,
                                                    name.as_ptr(),
-                                                   func_ty.inner(),
+                                                   func_ty.upcast_ref().inner(),
                                                    attrs.as_mut_ptr(),
                                                    attrs.len())
         };
