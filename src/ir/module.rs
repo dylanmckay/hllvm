@@ -1,4 +1,4 @@
-use ir::Context;
+use ir::{Context, Type, Attribute, Value};
 
 use sys;
 use std::marker;
@@ -23,6 +23,24 @@ impl<'ctx> Module<'ctx>
             inner: unsafe { sys::LLVMRustCreateModule(id.as_ptr(), context.inner()) },
             phantom: marker::PhantomData,
         }
+    }
+
+    pub fn get_or_insert_function(&self,
+                                  name: &str,
+                                  func_ty: &Type,
+                                  attributes: &[Attribute]) -> Value {
+        let name = ffi::CString::new(name).unwrap();
+        let mut attrs: Vec<_> = attributes.iter().map(Attribute::inner).collect();
+
+        let func = unsafe {
+            sys::LLVMRustModuleGetOrInsertFunction(self.inner,
+                                                   name.as_ptr(),
+                                                   func_ty.inner(),
+                                                   attrs.as_mut_ptr(),
+                                                   attrs.len())
+        };
+
+        Value::new(func)
     }
 
     /// Dumps the module to standard error.

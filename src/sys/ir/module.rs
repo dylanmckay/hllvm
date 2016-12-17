@@ -1,4 +1,4 @@
-use ContextRef;
+use {ContextRef, ValueRef, TypeRef, AttributeRef};
 use libc;
 
 pub enum OpaqueModule { }
@@ -7,6 +7,12 @@ pub type ModuleRef = *mut OpaqueModule;
 extern "C" {
     pub fn LLVMRustCreateModule(id: *const libc::c_char,
                                 ctx: ContextRef) -> ModuleRef;
+
+    pub fn LLVMRustModuleGetOrInsertFunction(_: ModuleRef,
+                                             name: *const libc::c_char,
+                                             func_ty: TypeRef,
+                                             attributes: *mut AttributeRef,
+                                             attr_count: libc::size_t) -> ValueRef;
 
     pub fn LLVMRustModuleDump(_: ModuleRef);
 }
