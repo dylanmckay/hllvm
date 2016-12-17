@@ -8,6 +8,7 @@ extern "C" {
 #[cfg(test)]
 mod test {
     use super::*;
+    use test_support::Context;
 
     #[test]
     fn can_get_and_dump_constant_int_true() {
@@ -24,6 +25,18 @@ mod test {
             let context = ::LLVMRustCreateContext();
             let val = LLVMRustConstantIntGetFalse(context);
             ::LLVMRustValueDump(val);
+        }
+    }
+
+    #[test]
+    fn false_and_true_are_same_ty() {
+        let ctx = Context::new();
+
+        unsafe {
+            let t = ::LLVMRustConstantIntGetTrue(ctx.inner);
+            let f = ::LLVMRustConstantIntGetFalse(ctx.inner);
+
+            assert_eq!(::LLVMRustValueGetType(t), ::LLVMRustValueGetType(f));
         }
     }
 }

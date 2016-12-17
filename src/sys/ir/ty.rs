@@ -19,7 +19,7 @@ mod test {
         let ctx = Context::new();
 
         unsafe {
-            let ty = ::LLVMRustTypeGetVoidTy(ctx.inner);
+            let ty = LLVMRustTypeGetVoidTy(ctx.inner);
             ::LLVMRustTypeDump(ty);
         }
     }
