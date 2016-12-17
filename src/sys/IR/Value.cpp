@@ -1,7 +1,7 @@
 #include "../llvm.h"
 
 extern "C" {
-  void LLVMRustIRValueDump(const ValueRef Val) {
+  void LLVMRustIRValueDump(const LLVMValueRef Val) {
     unwrap(Val)->dump();
   }
 }
