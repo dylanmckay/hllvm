@@ -27,6 +27,7 @@ impl<'ctx> Value<'ctx>
         Value { inner: inner, phantom: marker::PhantomData }
     }
 
+    /// Get the type of the value.
     pub fn ty(&self) -> Type {
         unsafe { Type::new(sys::LLVMRustValueGetType(self.inner)) }
     }
@@ -40,4 +41,18 @@ impl<'ctx> Value<'ctx>
 
     /// Gets the underlying reference to the value.
     pub fn inner(&self) -> sys::ValueRef { self.inner }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    use Upcast;
+    use ir;
+
+    #[test]
+    fn can_get_ty_of_true() {
+        let context = ir::Context::new();
+
+        ir::ConstantInt::boolean_true(&context).ty();
+    }
 }

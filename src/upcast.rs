@@ -23,5 +23,15 @@ macro_rules! impl_upcast {
         {
             fn as_ref(&self) -> &$parent<'a> { &self.0 }
         }
+
+        impl<'a> ::std::ops::Deref for $ty<'a> {
+            type Target = $parent<'a>;
+
+            fn deref(&self) -> &Self::Target { &self.0 }
+        }
+
+        impl<'a> ::std::ops::DerefMut for $ty<'a> {
+            fn deref_mut(&mut self) -> &mut Self::Target { &mut self.0 }
+        }
     }
 }
