@@ -1,6 +1,8 @@
 pub use self::ir::*;
+pub use self::target::*;
 
 pub mod ir;
+pub mod target;
 
 extern crate libc;
 
@@ -34,6 +36,7 @@ macro_rules! define_boxed_type {
 define_borrowed_type!(ContextRef, OpaqueContext);
 define_borrowed_type!(TypeRef, OpaqueType);
 define_borrowed_type!(ValueRef, OpaqueValue);
+define_borrowed_type!(TargetRef, OpaqueTarget);
 
 define_boxed_type!(AttributeRef, OpaqueAttribute);
 

@@ -30,6 +30,8 @@ fn main() {
         .file("ir/inst.cpp")
         .file("ir/context.cpp")
         .file("ir/module.cpp")
+        .file("target/registry.cpp")
+        .file("target/target.cpp")
         .include(find_llvm_include_dir())
         .compile("libllvm-sys.a");
 
@@ -38,4 +40,6 @@ fn main() {
     for library in llvm_link_libraries() {
         println!("cargo:rustc-link-lib=static={}", library);
     }
+
+    println!("cargo:rustc-link-lib=dylib={}", "z");
 }

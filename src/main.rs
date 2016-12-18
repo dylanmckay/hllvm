@@ -5,9 +5,12 @@ pub use self::upcast::Upcast;
 #[macro_use]
 pub mod upcast;
 pub mod ir;
+pub mod target;
 
 /// The C FFI library.
 extern crate llvm_sys as sys;
+#[macro_use]
+extern crate lazy_static;
 
 fn main() {
     let context = ir::Context::new();
@@ -23,4 +26,8 @@ fn main() {
     block.append(ir::ReturnInst::new(None, &context).as_ref().as_ref());
 
     module.dump();
+
+    for target in target::Registry::get().targets() {
+        println!("got target: {:?}", target);
+    }
 }
