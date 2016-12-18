@@ -1,4 +1,4 @@
-#include "../llvm.h"
+#include "../support.h"
 
 #include <llvm/Support/TargetRegistry.h>
 #include <llvm/Support/TargetSelect.h>
