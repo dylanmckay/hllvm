@@ -1,10 +1,12 @@
 pub use self::block::Block;
 pub use self::func::Function;
 pub use self::inst::*;
+pub use self::consts::*;
 
 pub mod block;
 pub mod func;
 pub mod inst;
+pub mod consts;
 
 use sys;
 
