@@ -30,6 +30,7 @@ fn main() {
         .file("ir/inst.cpp")
         .file("ir/context.cpp")
         .file("ir/module.cpp")
+        .file("ir/passes.cpp")
         .file("target/registry.cpp")
         .file("target/target.cpp")
         .include(find_llvm_include_dir())

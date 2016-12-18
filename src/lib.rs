@@ -6,6 +6,7 @@ pub use self::upcast::Upcast;
 pub mod upcast;
 pub mod ir;
 pub mod target;
+pub mod pass;
 
 /// The C FFI library.
 extern crate llvm_sys as sys;

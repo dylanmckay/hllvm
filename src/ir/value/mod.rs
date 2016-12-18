@@ -45,8 +45,6 @@ impl<'ctx> Value<'ctx>
 
 #[cfg(test)]
 mod test {
-    use super::*;
-    use Upcast;
     use ir;
 
     #[test]

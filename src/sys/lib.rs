@@ -37,7 +37,9 @@ define_borrowed_type!(ContextRef, OpaqueContext);
 define_borrowed_type!(TypeRef, OpaqueType);
 define_borrowed_type!(ValueRef, OpaqueValue);
 define_borrowed_type!(TargetRef, OpaqueTarget);
+
 define_borrowed_type!(TargetMachineRef, OpaqueTargetMachine);
+define_borrowed_type!(PassManagerRef, OpaquePassManager);
 
 define_boxed_type!(AttributeRef, OpaqueAttribute);
 

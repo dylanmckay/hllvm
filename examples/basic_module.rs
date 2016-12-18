@@ -1,6 +1,6 @@
 extern crate llvm;
 
-use llvm::{ir, target};
+use llvm::ir;
 
 fn main() {
     let context = ir::Context::new();
