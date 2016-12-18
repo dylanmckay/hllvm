@@ -1,8 +1,10 @@
 pub use self::func::FunctionType;
 pub use self::integer::IntegerType;
+pub use self::composite::*;
 
 pub mod func;
 pub mod integer;
+pub mod composite;
 
 use ir::Context;
 use sys;

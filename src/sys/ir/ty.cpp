@@ -20,4 +20,10 @@ extern "C" {
     auto Params = llvm::ArrayRef<llvm::Type*>(ParamTypes, ParamCount);
     return llvm::FunctionType::get(Result, Params, IsVarArg);
   }
+
+  llvm::Type *LLVMRustStructTypeGet(llvm::LLVMContext *Ctx,
+                                    Array<llvm::Type*> Elements,
+                                    bool IsPacked) {
+    return llvm::StructType::get(*Ctx, Elements.ref(), IsPacked);
+  }
 }

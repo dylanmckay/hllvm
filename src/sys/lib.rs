@@ -19,9 +19,44 @@ macro_rules! define_borrowed_type {
     }
 }
 
+/// We don't know the sizes of many LLVM types, and they can change.
+///
+/// To work around this, we box up values from C++ and deal with the boxed
+/// pointers in Rust, and then dereference to get back to the inner value in C++ again.
+macro_rules! define_boxed_type {
+    ($name:ident, $opaque_name:ident) => {
+        #[derive(Clone)]
+        pub enum $opaque_name { }
+        pub type $name = CppBox<$opaque_name>;
+    }
+}
+
 define_borrowed_type!(ContextRef, OpaqueContext);
 define_borrowed_type!(TypeRef, OpaqueType);
 define_borrowed_type!(ValueRef, OpaqueValue);
+
+define_boxed_type!(AttributeRef, OpaqueAttribute);
+
+/// An array passed from Rust to C.
+///
+/// This is useful because that way we don't have to pass heaps of
+/// `ptr` and `count` fields to C++.
+#[repr(C, packed)]
+pub struct Array<T>
+{
+    ptr: *mut T,
+    count: libc::size_t,
+}
+
+impl<T> Array<T>
+{
+    pub fn from_slice(slice: &mut [T]) -> Self {
+        Array {
+            ptr: slice.as_mut_ptr(),
+            count: slice.len(),
+        }
+    }
+}
 
 /// A boxed value, allocated from C++.
 /// We own the value and free it ourselves.
@@ -51,17 +86,3 @@ impl<T: Clone> Clone for CppBox<T> {
         }
     }
 }
-
-/// We don't know the sizes of many LLVM types, and they can change.
-///
-/// To work around this, we box up values from C++ and deal with the boxed
-/// pointers in Rust, and then dereference to get back to the inner value in C++ again.
-macro_rules! define_boxed_type {
-    ($name:ident, $opaque_name:ident) => {
-        #[derive(Clone)]
-        pub enum $opaque_name { }
-        pub type $name = CppBox<$opaque_name>;
-    }
-}
-
-define_boxed_type!(AttributeRef, OpaqueAttribute);
