@@ -1,4 +1,4 @@
-use ir::{Context, Value, Constant};
+use ir::{Context, Value, Type, Constant};
 use sys;
 
 pub struct ConstantInt<'ctx>(Constant<'ctx>);
@@ -21,12 +21,28 @@ impl<'ctx> ConstantInt<'ctx>
             ConstantInt(Constant(Value::new(val)))
         }
     }
+
+    /// Gets a signed integer of some type.
+    pub fn signed(ty: &Type, value: i64) -> Self {
+        unsafe {
+            let val = sys::LLVMRustConstantIntGetSigned(ty.inner(), value);
+            ConstantInt(Constant(Value::new(val)))
+        }
+    }
+
+    /// Gets an unsigned integer of some type.
+    pub fn unsigned(ty: &Type, value: u64) -> Self {
+        unsafe {
+            let val = sys::LLVMRustConstantIntGetUnsigned(ty.inner(), value);
+            ConstantInt(Constant(Value::new(val)))
+        }
+    }
 }
 
 #[cfg(test)]
 mod test {
     use super::*;
-    use ir::Context;
+    use ir::{Context, IntegerType};
     use Upcast;
 
     #[test]
@@ -41,7 +57,15 @@ mod test {
     fn true_is_eq_to_true() {
         let context = Context::new();
 
-        assert_eq!(ConstantInt::boolean_true(&context).0.upcast_ref().inner(),
-                ConstantInt::boolean_true(&context).0.upcast_ref().inner());
+        assert_eq!(ConstantInt::boolean_true(&context).inner(),
+                   ConstantInt::boolean_true(&context).inner());
+    }
+
+    #[test]
+    fn true_is_i1_1() {
+        let context = Context::new();
+
+        assert_eq!(ConstantInt::boolean_true(&context).inner(),
+                   ConstantInt::unsigned(&IntegerType::new(1, &context), 1).inner());
     }
 }

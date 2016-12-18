@@ -7,8 +7,8 @@ pub struct IntegerType<'ctx>(Type<'ctx>);
 impl<'ctx> IntegerType<'ctx>
 {
     /// Gets an integer type.
-    pub fn integer(num_bits: usize,
-                   context: &Context) -> Self {
+    pub fn new(num_bits: usize,
+               context: &Context) -> Self {
         unsafe {
             let inner = sys::LLVMRustIntegerTypeGet(context.inner(),
                                                     num_bits as _);

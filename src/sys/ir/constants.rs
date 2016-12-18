@@ -1,8 +1,10 @@
-use {ValueRef, ContextRef};
+use {ValueRef, ContextRef, TypeRef};
 
 extern "C" {
   pub fn LLVMRustConstantIntGetTrue(_: ContextRef) -> ValueRef;
   pub fn LLVMRustConstantIntGetFalse(_: ContextRef) -> ValueRef;
+  pub fn LLVMRustConstantIntGetSigned(ty: TypeRef, val: i64) -> ValueRef;
+  pub fn LLVMRustConstantIntGetUnsigned(ty: TypeRef, val: u64) -> ValueRef;
 }
 
 #[cfg(test)]
