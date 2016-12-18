@@ -1,8 +1,12 @@
 pub use self::block::Block;
+pub use self::argument::Argument;
+pub use self::inlineasm::InlineAsm;
 pub use self::inst::*;
 pub use self::consts::*;
 
 pub mod block;
+pub mod argument;
+pub mod inlineasm;
 pub mod inst;
 pub mod consts;
 
