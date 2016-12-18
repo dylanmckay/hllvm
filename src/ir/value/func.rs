@@ -15,14 +15,10 @@ impl<'ctx> Function<'ctx>
                module: &Module) -> Self {
         let name = ffi::CString::new(name).unwrap();
 
-        let val = unsafe {
-            sys::LLVMRustFunctionCreate(ty.upcast_ref().inner(),
-                                        linkage as _,
-                                        name.as_ptr(),
-                                        module.inner())
-        };
-
-        Function(Value::new(val))
+        unsafe {
+            Function(Value::new(sys::LLVMRustFunctionCreate(ty.upcast_ref().inner(),
+                linkage as _, name.as_ptr(), module.inner())))
+        }
     }
 
     pub fn from_value(val: Value<'ctx>) -> Self {

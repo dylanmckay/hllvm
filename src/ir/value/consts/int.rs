@@ -8,14 +8,18 @@ impl<'ctx> ConstantInt<'ctx>
 {
     /// Gets the integer constant representing boolean 'true'
     pub fn boolean_true(context: &Context) -> Self {
-        let val = unsafe { sys::LLVMRustConstantIntGetTrue(context.inner()) };
-        ConstantInt(Constant(Value::new(val)))
+        unsafe {
+            let val = sys::LLVMRustConstantIntGetTrue(context.inner());
+            ConstantInt(Constant(Value::new(val)))
+        }
     }
 
     /// Gets the integer constant representing boolean 'false'
     pub fn boolean_false(context: &Context) -> Self {
-        let val = unsafe { sys::LLVMRustConstantIntGetFalse(context.inner()) };
-        ConstantInt(Constant(Value::new(val)))
+        unsafe {
+            let val = sys::LLVMRustConstantIntGetFalse(context.inner());
+            ConstantInt(Constant(Value::new(val)))
+        }
     }
 }
 

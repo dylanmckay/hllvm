@@ -12,12 +12,11 @@ impl<'ctx> FunctionType<'ctx>
                is_var_arg: bool) -> Self {
         let mut params: Vec<sys::TypeRef> = params.iter().map(Type::inner).collect();
 
-        let inner = unsafe {
-            sys::LLVMRustFunctionTypeGet(result.inner(),
-                params.as_mut_ptr(), params.len() as _, is_var_arg)
-        };
-
-        FunctionType(Type::new(inner))
+        unsafe {
+            let inner = sys::LLVMRustFunctionTypeGet(result.inner(),
+                params.as_mut_ptr(), params.len() as _, is_var_arg);
+            FunctionType(Type::new(inner))
+        }
     }
 }
 

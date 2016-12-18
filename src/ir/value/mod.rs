@@ -8,6 +8,7 @@ pub mod func;
 pub mod inst;
 pub mod consts;
 
+use ir::Type;
 use sys;
 
 use std::marker;
@@ -21,9 +22,13 @@ pub struct Value<'ctx>
 
 impl<'ctx> Value<'ctx>
 {
-    /// Creates a value from a reference to an LLVM value.
-    pub fn new(inner: sys::ValueRef) -> Self {
+    /// Creates a value from a reference to an `llvm::Value` object.
+    pub unsafe fn new(inner: sys::ValueRef) -> Self {
         Value { inner: inner, phantom: marker::PhantomData }
+    }
+
+    pub fn ty(&self) -> Type {
+        unsafe { Type::new(sys::LLVMRustValueGetType(self.inner)) }
     }
 
     /// Dumps the value to standard error.

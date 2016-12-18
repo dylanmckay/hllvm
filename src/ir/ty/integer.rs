@@ -9,9 +9,11 @@ impl<'ctx> IntegerType<'ctx>
     /// Gets an integer type.
     pub fn integer(num_bits: usize,
                    context: &Context) -> Self {
-        let inner = unsafe { sys::LLVMRustIntegerTypeGet(context.inner(),
-                                                         num_bits as _) };
-        IntegerType(Type::new(inner))
+        unsafe {
+            let inner = sys::LLVMRustIntegerTypeGet(context.inner(),
+                                                    num_bits as _);
+            IntegerType(Type::new(inner))
+        }
     }
 }
 

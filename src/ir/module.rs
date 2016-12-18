@@ -33,15 +33,14 @@ impl<'ctx> Module<'ctx>
         let name = ffi::CString::new(name).unwrap();
         let mut attrs: Vec<_> = attributes.iter().map(Attribute::inner).collect();
 
-        let func = unsafe {
-            sys::LLVMRustModuleGetOrInsertFunction(self.inner,
+        unsafe {
+            let func = sys::LLVMRustModuleGetOrInsertFunction(self.inner,
                                                    name.as_ptr(),
                                                    func_ty.upcast_ref().inner(),
                                                    attrs.as_mut_ptr(),
-                                                   attrs.len())
-        };
-
-        Function::from_value(Value::new(func))
+                                                   attrs.len());
+            Function::from_value(Value::new(func))
+        }
     }
 
     /// Dumps the module to standard error.

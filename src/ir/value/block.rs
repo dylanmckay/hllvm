@@ -14,17 +14,14 @@ impl<'ctx> Block<'ctx>
                parent: Option<&Function>,
                insert_before: Option<&Self>) -> Self {
         let insert_before = insert_before.map_or(ptr::null_mut(), |b| b.0.inner());
-
         let name = ffi::CString::new(name.unwrap_or("")).unwrap();
 
-        let ty = unsafe {
-            sys::LLVMRustBasicBlockCreate(context.inner(),
-                                          name.as_ptr(),
-                                          parent.map_or(ptr::null_mut(), |f| f.upcast_ref().inner()),
-                                          insert_before)
-        };
-
-        Block(Value::new(ty))
+        unsafe {
+            Block(Value::new(sys::LLVMRustBasicBlockCreate(context.inner(),
+                                                           name.as_ptr(),
+                                                           parent.map_or(ptr::null_mut(), |f| f.upcast_ref().inner()),
+                                                           insert_before)))
+        }
     }
 
     pub fn append(&self, inst: &Instruction) {
