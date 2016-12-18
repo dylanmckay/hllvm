@@ -2,8 +2,8 @@
 
 pub use self::context::Context;
 pub use self::module::Module;
-pub use self::ty::{Type, FunctionType, IntegerType};
 pub use self::attribute::Attribute;
+pub use self::ty::*;
 pub use self::value::*;
 
 pub mod context;
