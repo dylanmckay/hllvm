@@ -1,4 +1,4 @@
-use ir::{Context, Instruction, Value, TerminatorInst};
+use ir::{User, Context, Instruction, Value, TerminatorInst};
 use sys;
 
 use std::ptr;
@@ -13,7 +13,7 @@ impl<'ctx> ReturnInst<'ctx>
 
         unsafe {
             let val = sys::LLVMRustCreateReturnInst(context.inner(), ret_val);
-            ReturnInst(TerminatorInst(Instruction(Value::new(val))))
+            ReturnInst(TerminatorInst(Instruction(User(Value::new(val)))))
         }
     }
 }

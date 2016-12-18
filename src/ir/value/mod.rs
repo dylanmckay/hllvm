@@ -1,14 +1,12 @@
 pub use self::block::Block;
 pub use self::argument::Argument;
 pub use self::inlineasm::InlineAsm;
-pub use self::inst::*;
-pub use self::consts::*;
+pub use self::user::*;
 
 pub mod block;
 pub mod argument;
 pub mod inlineasm;
-pub mod inst;
-pub mod consts;
+pub mod user;
 
 use ir::Type;
 use sys;
