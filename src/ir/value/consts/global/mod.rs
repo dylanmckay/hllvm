@@ -1,6 +1,6 @@
-pub use self::func::Function;
+pub use self::obj::*;
 
-pub mod func;
+pub mod obj;
 
 use ir::Constant;
 
