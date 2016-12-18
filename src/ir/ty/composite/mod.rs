@@ -1,6 +1,10 @@
+//! Composite types.
+
 pub use self::strukt::StructType;
+pub use self::seq::*;
 
 pub mod strukt;
+pub mod seq;
 
 use ir::Type;
 
