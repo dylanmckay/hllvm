@@ -1,5 +1,5 @@
 //! The pass infrastructure.
 
-pub use self::manager::PassManager;
+pub use self::manager::Manager;
 
 pub mod manager;

@@ -1,8 +1,10 @@
 pub use self::ir::*;
 pub use self::target::*;
+pub use self::support::*;
 
 pub mod ir;
 pub mod target;
+pub mod support;
 
 extern crate libc;
 
@@ -40,6 +42,7 @@ define_borrowed_type!(TargetRef, OpaqueTarget);
 
 define_borrowed_type!(TargetMachineRef, OpaqueTargetMachine);
 define_borrowed_type!(PassManagerRef, OpaquePassManager);
+define_borrowed_type!(RawPWriteStreamRef, OpaqueRawPWriteStream);
 
 define_boxed_type!(AttributeRef, OpaqueAttribute);
 

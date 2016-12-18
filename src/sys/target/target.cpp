@@ -1,6 +1,8 @@
 #include "../support.h"
 
+#include <llvm/IR/LegacyPassManager.h>
 #include <llvm/Support/TargetRegistry.h>
+#include <llvm/Target/TargetMachine.h>
 #include <llvm/Target/TargetOptions.h>
 
 extern "C" {
@@ -31,5 +33,12 @@ extern "C" {
     llvm::TargetOptions Opts;
     llvm::Optional<llvm::Reloc::Model> RM;
     return Target->createTargetMachine(TT, CPU, Features, Opts, RM);
+  }
+
+  bool LLVMRustTargetMachineAddPassesToEmitFile(llvm::TargetMachine *TM,
+                                                llvm::legacy::PassManager *PM,
+                                                llvm::raw_pwrite_stream* Stream,
+                                                unsigned CodeGenFileType) {
+    return TM->addPassesToEmitFile(*PM, *Stream, (llvm::TargetMachine::CodeGenFileType)CodeGenFileType);
   }
 }

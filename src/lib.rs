@@ -7,8 +7,10 @@ pub mod upcast;
 pub mod ir;
 pub mod target;
 pub mod pass;
+pub mod support;
 
 /// The C FFI library.
 extern crate llvm_sys as sys;
 #[macro_use]
 extern crate lazy_static;
+extern crate libc;

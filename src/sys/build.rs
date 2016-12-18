@@ -33,6 +33,7 @@ fn main() {
         .file("ir/passes.cpp")
         .file("target/registry.cpp")
         .file("target/target.cpp")
+        .file("support/io.cpp")
         .include(find_llvm_include_dir())
         .compile("libllvm-sys.a");
 

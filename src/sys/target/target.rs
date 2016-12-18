@@ -1,4 +1,4 @@
-use {TargetRef, TargetMachineRef};
+use {TargetRef, TargetMachineRef, PassManagerRef, RawPWriteStreamRef};
 use libc;
 
 extern "C" {
@@ -13,4 +13,9 @@ extern "C" {
                              tt: *const libc::c_char,
                              cpu: *const libc::c_char,
                              features: *const libc::c_char) -> TargetMachineRef;
+
+    pub fn LLVMRustTargetMachineAddPassesToEmitFile(_: TargetMachineRef,
+                                                    pm: PassManagerRef,
+                                                    stream: RawPWriteStreamRef,
+                                                    file_type: libc::c_uint) -> bool;
 }

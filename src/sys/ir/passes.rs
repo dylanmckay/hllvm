@@ -1,8 +1,11 @@
-use PassManagerRef;
+use {PassManagerRef, ModuleRef};
 
 extern "C" {
     pub fn LLVMRustCreateLegacyPassManager() -> PassManagerRef;
     pub fn LLVMRustDestroyLegacyPassManager(_: PassManagerRef);
+
+    pub fn LLVMRustLegacyPassManagerRun(_: PassManagerRef,
+                                        m: ModuleRef) -> bool;
 }
 
 #[cfg(test)]

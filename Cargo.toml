@@ -8,3 +8,4 @@ authors = ["Dylan McKay <dylanmckay34@gmail.com>"]
 [dependencies]
 llvm-sys = { path = "src/sys" }
 lazy_static = "0.1"
+libc = "0.2"
