@@ -1,6 +1,8 @@
 pub use self::func::Function;
+pub use self::variable::GlobalVariable;
 
 pub mod func;
+pub mod variable;
 
 use ir::GlobalValue;
 
