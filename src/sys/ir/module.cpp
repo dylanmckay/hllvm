@@ -1,5 +1,7 @@
 #include "../llvm.h"
 
+#include <llvm/IR/Module.h>
+
 extern "C" {
   llvm::Module *LLVMRustCreateModule(const char *ModuleID,
                                      llvm::LLVMContext *Ctx) {

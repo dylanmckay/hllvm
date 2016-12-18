@@ -1,5 +1,7 @@
 #include "../llvm.h"
 
+#include <llvm/IR/Module.h>
+
 extern "C" {
   llvm::Function *LLVMRustFunctionCreate(llvm::Type *Ty,
                                          unsigned Linkage,

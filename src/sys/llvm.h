@@ -2,11 +2,7 @@
 
 //! Core C++ include file.
 
-#include <llvm/IR/DerivedTypes.h>
-#include <llvm/IR/LLVMContext.h>
-#include <llvm/IR/Module.h>
-#include <llvm/IR/Type.h>
-#include <llvm/IR/Value.h>
+#include <llvm/ADT/ArrayRef.h>
 
 /// An array which can be passed from Rust to C++.
 /// This is basically identical to a slice, but we can

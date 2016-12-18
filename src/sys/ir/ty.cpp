@@ -1,5 +1,8 @@
 #include "../llvm.h"
 
+#include <llvm/IR/Module.h>
+#include <llvm/IR/LLVMContext.h>
+
 extern "C" {
   llvm::Type *LLVMRustTypeGetVoidTy(llvm::LLVMContext *Ctx) {
     return llvm::Type::getVoidTy(*Ctx);

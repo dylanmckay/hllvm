@@ -1,5 +1,7 @@
 #include "../llvm.h"
 
+#include <llvm/IR/Value.h>
+
 extern "C" {
   void LLVMRustValueDump(llvm::Value *Val) {
     Val->dump();

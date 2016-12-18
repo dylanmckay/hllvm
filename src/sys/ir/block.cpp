@@ -1,5 +1,7 @@
 #include "../llvm.h"
 
+#include <llvm/IR/Module.h>
+
 extern "C" {
   llvm::BasicBlock *LLVMRustBasicBlockCreate(llvm::LLVMContext *Ctx,
                                              const char *Name,
