@@ -1,4 +1,5 @@
 use {ValueRef, ContextRef, TypeRef};
+use libc;
 
 cpp! {
     #include "support.h"
@@ -36,6 +37,33 @@ cpp! {
     pub fn LLVMRustConstantAggregateZeroGet(ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return llvm::ConstantAggregateZero::get(ty);
+    }
+
+    pub fn LLVMRustConstantFPGetDouble(ty: TypeRef as "llvm::Type*",
+                                       value: f64 as "double")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ConstantFP::get(ty, value);
+    }
+
+    pub fn LLVMRustConstantFPGetString(ty: TypeRef as "llvm::Type*",
+                                       value: *const libc::c_char as "const char*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ConstantFP::get(ty, value);
+    }
+
+    pub fn LLVMRustConstantPointerNullGet(ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ConstantPointerNull::get(
+            support::cast<llvm::PointerType>(ty));
+    }
+
+    pub fn LLVMRustConstantStructGet(ty: TypeRef as "llvm::Type*",
+                                     elements: &[ValueRef] as "support::Slice<llvm::Value*>")
+        -> ValueRef as "llvm::Value*" {
+        support::Slice<llvm::Constant*> elems = elements.cast<llvm::Constant*>();
+
+        return llvm::ConstantStruct::get(
+            support::cast<llvm::StructType>(ty), elems.ref());
     }
 }
 

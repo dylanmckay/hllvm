@@ -36,6 +36,17 @@ public:
   T *Ptr;
   uintptr_t Len;
 
+  template<typename C>
+  Slice<C> cast() {
+#if SUPPORT_DO_EXPENSIVE_CHECKS
+    for (T elem : this->ref()) {
+      // FIXME: Implement this
+      // assert(llvm::isa<C>(elem) && "not all elements are the correct class");
+    }
+#endif
+    return Slice<C> { (C*) this->Ptr, this->Len};
+  }
+
   llvm::ArrayRef<T> ref() {
     return llvm::ArrayRef<T>(this->Ptr, this->Len);
   }
