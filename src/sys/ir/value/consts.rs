@@ -1,6 +1,8 @@
 use {ValueRef, ContextRef, TypeRef};
 
 cpp! {
+    #include "support.h"
+
     #include "llvm/IR/Constants.h"
     #include "llvm/IR/LLVMContext.h"
 
@@ -26,11 +28,9 @@ cpp! {
         return llvm::ConstantInt::get(ty, val);
     }
 
-    pub fn LLVMRustBlockAddressGet(block_val: ValueRef as "llvm::Value*")
+    pub fn LLVMRustBlockAddressGet(block: ValueRef as "llvm::Value*")
         -> ValueRef as "llvm::Value*" {
-        llvm::BasicBlock* block = llvm::dyn_cast<llvm::BasicBlock>(block_val);
-        assert(block && "value is not a block");
-        return llvm::BlockAddress::get(block);
+        return llvm::BlockAddress::get(support::cast<llvm::BasicBlock>(block));
     }
 }
 

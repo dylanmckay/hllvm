@@ -2,6 +2,8 @@ use {ValueRef, TypeRef, ModuleRef};
 use libc;
 
 cpp! {
+    #include "support.h"
+
     #include "llvm/IR/Module.h"
 
     pub fn LLVMRustFunctionCreate(ty: TypeRef as "llvm::Type*",
@@ -9,9 +11,7 @@ cpp! {
                                   name: *const libc::c_char as "const char*",
                                   module: ModuleRef as "llvm::Module*")
         -> ValueRef as "llvm::Value*" {
-        llvm::FunctionType *fn_ty = llvm::dyn_cast<llvm::FunctionType>(ty);
-        assert(fn_ty && "type is not a function");
-
-        return llvm::Function::Create(fn_ty, (llvm::GlobalValue::LinkageTypes)linkage, name, module);
+        return llvm::Function::Create(support::cast<llvm::FunctionType>(ty),
+            (llvm::GlobalValue::LinkageTypes)linkage, name, module);
     }
 }

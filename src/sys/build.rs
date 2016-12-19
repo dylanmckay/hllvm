@@ -1,6 +1,7 @@
 extern crate cpp;
 
 use std::process;
+use std::env;
 
 fn llvm_config(args: &[&str]) -> String {
     let output = process::Command::new("llvm-config").args(args).output().unwrap();
@@ -17,6 +18,10 @@ fn llvm_link_libraries() -> Vec<String> {
         .collect()
 }
 
+fn get_crate_root() -> String {
+    env::var("CARGO_MANIFEST_DIR").unwrap()
+}
+
 fn main() {
     println!("cargo:rustc-link-search=native={}", find_llvm_lib_dir());
 
@@ -29,5 +34,6 @@ fn main() {
     cpp::build("lib.rs", "llvm-sys", |cfg| {
         cfg.flag("-std=c++11");
         cfg.include(find_llvm_include_dir());
+        cfg.include(format!("{}", get_crate_root()));
     });
 }
