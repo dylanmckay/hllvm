@@ -7,6 +7,8 @@ pub mod target;
 pub mod support;
 
 extern crate libc;
+#[macro_use]
+extern crate cpp;
 
 // Required to link LLVM
 extern crate ncurses;
@@ -45,27 +47,6 @@ define_borrowed_type!(PassManagerRef, OpaquePassManager);
 define_borrowed_type!(RawPWriteStreamRef, OpaqueRawPWriteStream);
 
 define_boxed_type!(AttributeRef, OpaqueAttribute);
-
-/// An array passed from Rust to C.
-///
-/// This is useful because that way we don't have to pass heaps of
-/// `ptr` and `count` fields to C++.
-#[repr(C, packed)]
-pub struct Array<T>
-{
-    ptr: *mut T,
-    count: libc::size_t,
-}
-
-impl<T> Array<T>
-{
-    pub fn from_slice(slice: &mut [T]) -> Self {
-        Array {
-            ptr: slice.as_mut_ptr(),
-            count: slice.len(),
-        }
-    }
-}
 
 /// A boxed value, allocated from C++.
 /// We own the value and free it ourselves.

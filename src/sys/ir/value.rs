@@ -1,8 +1,16 @@
 use {ValueRef, TypeRef};
 
-extern "C" {
-    pub fn LLVMRustValueDump(_: ValueRef);
-    pub fn LLVMRustValueGetType(_: ValueRef) -> TypeRef;
+cpp! {
+    #include "llvm/IR/Value.h"
+
+    pub fn LLVMRustValueDump(value: ValueRef as "llvm::Value*") {
+        value->dump();
+    }
+
+    pub fn LLVMRustValueGetType(value: ValueRef as "llvm::Value*")
+        -> TypeRef as "llvm::Type*" {
+        return value->getType();
+    }
 }
 
 #[cfg(test)]
