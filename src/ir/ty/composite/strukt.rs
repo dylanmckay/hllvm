@@ -10,11 +10,10 @@ impl<'ctx> StructType<'ctx>
     pub fn new(elements: &[&Type],
                is_packed: bool,
                context: &Context) -> Self {
-        let mut elements: Vec<_> = elements.iter().map(|t| t.inner()).collect();
+        let elements: Vec<_> = elements.iter().map(|t| t.inner()).collect();
 
         unsafe {
-            let inner = sys::LLVMRustStructTypeGet(context.inner(),
-                elements.as_mut_ptr(), elements.len() as _, is_packed);
+            let inner = sys::LLVMRustStructTypeGet(context.inner(), &elements, is_packed);
             StructType(CompositeType(Type::from_inner(inner)))
         }
     }

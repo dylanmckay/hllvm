@@ -3,6 +3,8 @@ use {TypeRef, ContextRef};
 use libc;
 
 cpp! {
+    #include "support.h"
+
     #include "llvm/IR/Module.h"
     #include "llvm/IR/LLVMContext.h"
 
@@ -31,12 +33,10 @@ cpp! {
     }
 
     pub fn LLVMRustStructTypeGet(context: ContextRef as "llvm::LLVMContext*",
-                                 elements: *mut TypeRef as "llvm::Type**",
-                                 element_count: libc::c_uint as "unsigned",
+                                 elements: &[TypeRef] as "support::Slice<llvm::Type*>",
                                  is_packed: bool as "bool")
         -> TypeRef as "llvm::Type*" {
-        llvm::ArrayRef<llvm::Type*> elems(elements, element_count);
-        return llvm::StructType::get(*context, elems, is_packed);
+        return llvm::StructType::get(*context, elements.ref(), is_packed);
     }
 }
 
