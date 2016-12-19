@@ -1,11 +1,21 @@
 use {PassManagerRef, ModuleRef};
 
-extern "C" {
-    pub fn LLVMRustCreateLegacyPassManager() -> PassManagerRef;
-    pub fn LLVMRustDestroyLegacyPassManager(_: PassManagerRef);
+cpp! {
+    #include "llvm/IR/LegacyPassManager.h"
 
-    pub fn LLVMRustLegacyPassManagerRun(_: PassManagerRef,
-                                        m: ModuleRef) -> bool;
+    pub fn LLVMRustCreateLegacyPassManager()
+        -> PassManagerRef as "llvm::legacy::PassManager*" {
+        return new llvm::legacy::PassManager();
+    }
+
+    pub fn LLVMRustDestroyLegacyPassManager(pm: PassManagerRef as "llvm::legacy::PassManager*") {
+        delete pm;
+    }
+
+    pub fn LLVMRustLegacyPassManagerRun(pm: PassManagerRef as "llvm::legacy::PassManager*",
+                                        m: ModuleRef as "llvm::Module*") -> bool as "bool" {
+        return pm->run(*m);
+    }
 }
 
 #[cfg(test)]

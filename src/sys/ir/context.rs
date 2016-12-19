@@ -1,8 +1,15 @@
 use ContextRef;
 
-extern "C" {
-    pub fn LLVMRustCreateContext() -> ContextRef;
-    pub fn LLVMRustDestroyContext(_: ContextRef);
+cpp! {
+    #include "llvm/IR/LLVMContext.h"
+
+    pub fn LLVMRustCreateContext() -> ContextRef as "llvm::LLVMContext*" {
+        return new llvm::LLVMContext();
+    }
+
+    pub fn LLVMRustDestroyContext(ctx: ContextRef as "llvm::LLVMContext*") {
+        delete ctx;
+    }
 }
 
 #[cfg(test)]
