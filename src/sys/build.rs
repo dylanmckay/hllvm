@@ -1,4 +1,3 @@
-extern crate gcc;
 extern crate cpp;
 
 use std::process;
