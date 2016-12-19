@@ -71,6 +71,11 @@ cpp! {
         support::Slice<llvm::Constant*> vals = values.cast<llvm::Constant*>();
         return llvm::ConstantVector::get(vals.ref());
     }
+
+    pub fn LLVMRustUndefValueGet(ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::UndefValue::get(ty);
+    }
 }
 
 #[cfg(test)]
