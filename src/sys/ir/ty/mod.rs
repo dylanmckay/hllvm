@@ -36,6 +36,12 @@ cpp! {
         -> TypeRef as "llvm::Type*" {
         return llvm::StructType::get(*context, elements.ref(), is_packed);
     }
+
+    pub fn LLVMRustArrayTypeGet(element_type: TypeRef as "llvm::Type*",
+                                num_elements: u64 as "uint64_t")
+        -> TypeRef as "llvm::Type*" {
+        return llvm::ArrayType::get(element_type, num_elements);
+    }
 }
 
 #[cfg(test)]
