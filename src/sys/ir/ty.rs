@@ -45,7 +45,6 @@ mod test {
     use super::*;
     use test_support::Context;
     use std::ptr;
-    use Array;
 
     #[test]
     fn can_dump_void_type() {
@@ -74,15 +73,14 @@ mod test {
         }
     }
 
-    // #[test]
-    // fn can_get_struct_type() {
-    //     let ctx = Context::new();
-    //
-    //     let i33 = unsafe { LLVMRustIntegerTypeGet(ctx.inner, 33) };
-    //     let elems = Array::from_slice(&mut [i33]);
-    //
-    //     unsafe {
-    //         LLVMRustStructTypeGet(ctx.inner, elems, false);
-    //     }
-    // }
+    #[test]
+    fn can_get_struct_type() {
+        let ctx = Context::new();
+
+        let mut i33 = unsafe { LLVMRustIntegerTypeGet(ctx.inner, 33) };
+
+        unsafe {
+            LLVMRustStructTypeGet(ctx.inner, &mut i33 as *mut _, 1, false);
+        }
+    }
 }

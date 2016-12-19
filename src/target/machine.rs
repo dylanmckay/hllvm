@@ -1,3 +1,4 @@
+use target::FileType;
 use support::OutputStream;
 use pass;
 
@@ -16,7 +17,7 @@ impl Machine
     pub fn add_passes_to_emit_file(&self,
                                    pass_manager: &pass::Manager,
                                    stream: &OutputStream,
-                                   file_type: u32) -> bool {
+                                   file_type: FileType) -> bool {
         unsafe {
             sys::LLVMRustTargetMachineAddPassesToEmitFile(self.0,
                                                           pass_manager.inner(),

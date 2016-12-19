@@ -3,6 +3,9 @@
 pub use self::registry::Registry;
 pub use self::machine::Machine;
 
+// Reexports.
+pub use sys::target::FileType;
+
 pub mod registry;
 pub mod machine;
 

@@ -20,16 +20,20 @@ fn build_module(context: &ir::Context) -> ir::Module {
     module
 }
 
-fn main() {
-    let context = ir::Context::new();
-    let module = build_module(&context);
-    module.dump();
-
+fn compile_module(module: ir::Module, file_type: target::FileType) {
     let target = target::Registry::get().targets().find(|t| t.name() == "x86-64").expect("doesn't support X86-64");
     let machine = target.create_machine("", "", "");
     let stdout = support::FileOutputStream::stdout(false);
     let pm = pass::Manager::new();
 
-    machine.add_passes_to_emit_file(&pm, stdout.as_ref(), 0);
+    machine.add_passes_to_emit_file(&pm, stdout.as_ref(), file_type);
     pm.run(module);
+}
+
+fn main() {
+    let context = ir::Context::new();
+    let module = build_module(&context);
+
+    module.dump();
+    compile_module(module, target::FileType::Assembly);
 }
