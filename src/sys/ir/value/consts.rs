@@ -32,6 +32,11 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::BlockAddress::get(support::cast<llvm::BasicBlock>(block));
     }
+
+    pub fn LLVMRustConstantAggregateZeroGet(ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ConstantAggregateZero::get(ty);
+    }
 }
 
 #[cfg(test)]
