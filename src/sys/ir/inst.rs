@@ -23,4 +23,13 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::ReturnInst::Create(*context, ret_val);
     }
+
+    pub fn LLVMRustCreateBranchInst(on_true: ValueRef as "llvm::Value*",
+                                    on_false: ValueRef as "llvm::Value*",
+                                    condition: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::BranchInst::Create(
+            support::cast<llvm::BasicBlock>(on_true), support::cast<llvm::BasicBlock>(on_false),
+            condition);
+    }
 }
