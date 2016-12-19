@@ -22,7 +22,7 @@ impl Machine
             sys::LLVMRustTargetMachineAddPassesToEmitFile(self.0,
                                                           pass_manager.inner(),
                                                           stream.inner(),
-                                                          file_type as _)
+                                                          file_type)
         }
     }
 }

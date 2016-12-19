@@ -1,4 +1,4 @@
-use {TargetRef, TargetMachineRef, PassManagerRef, RawPWriteStreamRef};
+use {FileType, TargetRef, TargetMachineRef, PassManagerRef, RawPWriteStreamRef};
 use libc;
 
 cpp! {
@@ -45,7 +45,7 @@ cpp! {
     pub fn LLVMRustTargetMachineAddPassesToEmitFile(tm: TargetMachineRef as "llvm::TargetMachine*",
                                                     pm: PassManagerRef as "llvm::legacy::PassManager*",
                                                     stream: RawPWriteStreamRef as "llvm::raw_pwrite_stream*",
-                                                    file_type: libc::c_uint as "unsigned")
+                                                    file_type: FileType as "unsigned")
         -> bool as "bool" {
         return tm->addPassesToEmitFile(*pm, *stream, (llvm::TargetMachine::CodeGenFileType)file_type);
     }
