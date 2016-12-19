@@ -1,3 +1,6 @@
+pub use self::consts::*;
+pub mod consts;
+
 use {ValueRef, TypeRef};
 
 cpp! {
