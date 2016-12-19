@@ -25,6 +25,13 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::ConstantInt::get(ty, val);
     }
+
+    pub fn LLVMRustBlockAddressGet(block_val: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        llvm::BasicBlock* block = llvm::dyn_cast<llvm::BasicBlock>(block_val);
+        assert(block && "value is not a block");
+        return llvm::BlockAddress::get(block);
+    }
 }
 
 #[cfg(test)]
