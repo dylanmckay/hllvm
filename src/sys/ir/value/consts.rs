@@ -65,6 +65,12 @@ cpp! {
         return llvm::ConstantStruct::get(
             support::cast<llvm::StructType>(ty), elems.ref());
     }
+
+    pub fn LLVMRustConstantVectorGet(values: &[ValueRef] as "support::Slice<llvm::Value*>")
+        -> ValueRef as "llvm::Value*" {
+        support::Slice<llvm::Constant*> vals = values.cast<llvm::Constant*>();
+        return llvm::ConstantVector::get(vals.ref());
+    }
 }
 
 #[cfg(test)]

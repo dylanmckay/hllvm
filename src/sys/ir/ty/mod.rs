@@ -60,7 +60,6 @@ cpp! {
 mod test {
     use super::*;
     use test_support::Context;
-    use std::ptr;
 
     #[test]
     fn can_dump_void_type() {
@@ -85,7 +84,7 @@ mod test {
 
         unsafe {
             let void = LLVMRustTypeGetVoidTy(ctx.inner);
-            LLVMRustFunctionTypeGet(void, ptr::null_mut(), 0, false);
+            LLVMRustFunctionTypeGet(void, &[], false);
         }
     }
 
@@ -93,10 +92,10 @@ mod test {
     fn can_get_struct_type() {
         let ctx = Context::new();
 
-        let mut i33 = unsafe { LLVMRustIntegerTypeGet(ctx.inner, 33) };
+        let i33 = unsafe { LLVMRustIntegerTypeGet(ctx.inner, 33) };
 
         unsafe {
-            LLVMRustStructTypeGet(ctx.inner, &mut i33 as *mut _, 1, false);
+            LLVMRustStructTypeGet(ctx.inner, &[i33], false);
         }
     }
 }
