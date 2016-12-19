@@ -6,6 +6,9 @@ pub use self::attribute::Attribute;
 pub use self::ty::*;
 pub use self::value::*;
 
+// Reexports
+pub use sys::Linkage;
+
 pub mod context;
 pub mod module;
 pub mod ty;

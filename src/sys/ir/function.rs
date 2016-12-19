@@ -1,4 +1,4 @@
-use {ValueRef, TypeRef, ModuleRef};
+use {Linkage, ValueRef, TypeRef, ModuleRef};
 use libc;
 
 cpp! {
@@ -7,7 +7,7 @@ cpp! {
     #include "llvm/IR/Module.h"
 
     pub fn LLVMRustFunctionCreate(ty: TypeRef as "llvm::Type*",
-                                  linkage: libc::c_uint as "unsigned",
+                                  linkage: Linkage as "unsigned",
                                   name: *const libc::c_char as "const char*",
                                   module: ModuleRef as "llvm::Module*")
         -> ValueRef as "llvm::Value*" {

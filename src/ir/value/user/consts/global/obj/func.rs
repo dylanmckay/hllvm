@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject};
+use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject, Linkage};
 use sys;
 
 use std::ffi;
@@ -11,14 +11,14 @@ impl<'ctx> Function<'ctx>
 {
     /// Creates a new function.
     pub fn new(ty: &FunctionType,
-               linkage: u64,
+               linkage: Linkage,
                name: &str,
                module: &Module) -> Self {
         let name = ffi::CString::new(name).unwrap();
 
         unsafe {
             let inner = sys::LLVMRustFunctionCreate(ty.inner(),
-                            linkage as _, name.as_ptr(), module.inner());
+                            linkage, name.as_ptr(), module.inner());
             Function::from_value(Value::from_inner(inner))
         }
     }
