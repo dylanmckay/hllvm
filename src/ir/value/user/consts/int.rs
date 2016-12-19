@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{Context, Value, Type, Constant};
 use sys;
 
@@ -10,7 +11,7 @@ impl<'ctx> ConstantInt<'ctx>
     pub fn boolean_true(context: &Context) -> Self {
         unsafe {
             let val = sys::LLVMRustConstantIntGetTrue(context.inner());
-            ConstantInt(Constant(Value::new(val)))
+            ConstantInt(Constant(Value::from_inner(val)))
         }
     }
 
@@ -18,7 +19,7 @@ impl<'ctx> ConstantInt<'ctx>
     pub fn boolean_false(context: &Context) -> Self {
         unsafe {
             let val = sys::LLVMRustConstantIntGetFalse(context.inner());
-            ConstantInt(Constant(Value::new(val)))
+            ConstantInt(Constant(Value::from_inner(val)))
         }
     }
 
@@ -26,7 +27,7 @@ impl<'ctx> ConstantInt<'ctx>
     pub fn signed(ty: &Type, value: i64) -> Self {
         unsafe {
             let val = sys::LLVMRustConstantIntGetSigned(ty.inner(), value);
-            ConstantInt(Constant(Value::new(val)))
+            ConstantInt(Constant(Value::from_inner(val)))
         }
     }
 
@@ -34,7 +35,7 @@ impl<'ctx> ConstantInt<'ctx>
     pub fn unsigned(ty: &Type, value: u64) -> Self {
         unsafe {
             let val = sys::LLVMRustConstantIntGetUnsigned(ty.inner(), value);
-            ConstantInt(Constant(Value::new(val)))
+            ConstantInt(Constant(Value::from_inner(val)))
         }
     }
 }

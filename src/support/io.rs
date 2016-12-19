@@ -1,3 +1,4 @@
+use SafeWrapper;
 use sys;
 use std::os::raw;
 use std::os::unix::io::IntoRawFd;
@@ -14,8 +15,6 @@ impl OutputStream
     pub unsafe fn from_ref(inner: sys::RawPWriteStreamRef) -> Self {
         OutputStream(inner)
     }
-
-    pub fn inner(&self) -> sys::RawPWriteStreamRef { self.0 }
 }
 
 impl FileOutputStream {
@@ -49,6 +48,14 @@ impl FileOutputStream {
         let inner = sys::LLVMRustCreateRawFdOStream(fd, should_close, unbuffered);
         FileOutputStream(OutputStream::from_ref(inner))
     }
+}
+
+impl SafeWrapper for OutputStream
+{
+    type Inner = sys::RawPWriteStreamRef;
+
+    unsafe fn from_inner(inner: sys::RawPWriteStreamRef) -> Self { OutputStream(inner) }
+    fn inner(&self) -> sys::RawPWriteStreamRef { self.0 }
 }
 
 impl Drop for OutputStream

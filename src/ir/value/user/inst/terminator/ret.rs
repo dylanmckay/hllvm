@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{User, Context, Instruction, Value, TerminatorInst};
 use sys;
 
@@ -13,7 +14,7 @@ impl<'ctx> ReturnInst<'ctx>
 
         unsafe {
             let val = sys::LLVMRustCreateReturnInst(context.inner(), ret_val);
-            ReturnInst(TerminatorInst(Instruction(User(Value::new(val)))))
+            ReturnInst(TerminatorInst(Instruction(User(Value::from_inner(val)))))
         }
     }
 }

@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{Context, FunctionType, Attribute, Value, Function};
 use Upcast;
 
@@ -39,7 +40,7 @@ impl<'ctx> Module<'ctx>
                                                    func_ty.upcast_ref().inner(),
                                                    attrs.as_mut_ptr(),
                                                    attrs.len());
-            Function::from_value(Value::new(func))
+            Function::from_value(Value::from_inner(func))
         }
     }
 
@@ -47,7 +48,15 @@ impl<'ctx> Module<'ctx>
     pub fn dump(&self) {
         unsafe { sys::LLVMRustModuleDump(self.inner) }
     }
+}
 
-    /// Gets the inner module reference.
-    pub fn inner(&self) -> sys::ModuleRef { self.inner }
+impl<'ctx> SafeWrapper for Module<'ctx>
+{
+    type Inner = sys::ModuleRef;
+
+    unsafe fn from_inner(inner: sys::ModuleRef) -> Self {
+        Module { inner: inner, phantom: marker::PhantomData }
+    }
+
+    fn inner(&self) -> sys::ModuleRef { self.inner }
 }

@@ -8,6 +8,7 @@ pub mod argument;
 pub mod inlineasm;
 pub mod user;
 
+use SafeWrapper;
 use ir::Type;
 use sys;
 
@@ -22,14 +23,9 @@ pub struct Value<'ctx>
 
 impl<'ctx> Value<'ctx>
 {
-    /// Creates a value from a reference to an `llvm::Value` object.
-    pub unsafe fn new(inner: sys::ValueRef) -> Self {
-        Value { inner: inner, phantom: marker::PhantomData }
-    }
-
     /// Get the type of the value.
     pub fn ty(&self) -> Type {
-        unsafe { Type::new(sys::LLVMRustValueGetType(self.inner)) }
+        unsafe { Type::from_inner(sys::LLVMRustValueGetType(self.inner)) }
     }
 
     /// Dumps the value to standard error.
@@ -38,9 +34,17 @@ impl<'ctx> Value<'ctx>
             sys::LLVMRustValueDump(self.inner);
         }
     }
+}
 
-    /// Gets the underlying reference to the value.
-    pub fn inner(&self) -> sys::ValueRef { self.inner }
+impl<'ctx> SafeWrapper for Value<'ctx>
+{
+    type Inner = sys::ValueRef;
+
+    unsafe fn from_inner(inner: sys::ValueRef) -> Self {
+        Value { inner: inner, phantom: marker::PhantomData }
+    }
+
+    fn inner(&self) -> sys::ValueRef { self.inner }
 }
 
 #[cfg(test)]

@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{Value, Context, Function, Instruction};
 use Upcast;
 use sys;
@@ -17,10 +18,10 @@ impl<'ctx> Block<'ctx>
         let name = ffi::CString::new(name.unwrap_or("")).unwrap();
 
         unsafe {
-            Block(Value::new(sys::LLVMRustBasicBlockCreate(context.inner(),
-                                                           name.as_ptr(),
-                                                           parent.map_or(ptr::null_mut(), |f| f.upcast_ref().inner()),
-                                                           insert_before)))
+            Block(Value::from_inner(sys::LLVMRustBasicBlockCreate(context.inner(),
+                name.as_ptr(),
+                parent.map_or(ptr::null_mut(), |f| f.inner()),
+                insert_before)))
         }
     }
 

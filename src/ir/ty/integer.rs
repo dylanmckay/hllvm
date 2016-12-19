@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{Type, Context};
 use sys;
 
@@ -12,7 +13,7 @@ impl<'ctx> IntegerType<'ctx>
         unsafe {
             let inner = sys::LLVMRustIntegerTypeGet(context.inner(),
                                                     num_bits as _);
-            IntegerType(Type::new(inner))
+            IntegerType(Type::from_inner(inner))
         }
     }
 }

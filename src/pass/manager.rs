@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir;
 use sys;
 
@@ -8,13 +9,10 @@ impl Manager
 {
     /// Creates a new pass manager.
     pub fn new() -> Self {
-        let inner = unsafe { sys::LLVMRustCreateLegacyPassManager() };
-        Manager(inner)
-    }
-
-    /// Creates a pass manager from a reference to an LLVM pass manager.
-    pub unsafe fn from_ref(inner: sys::PassManagerRef) -> Self {
-        Manager(inner)
+        unsafe {
+            let inner = sys::LLVMRustCreateLegacyPassManager();
+            Manager::from_inner(inner)
+        }
     }
 
     /// Run passes on a module.
@@ -24,8 +22,14 @@ impl Manager
         }
         module
     }
+}
 
-    pub fn inner(&self) -> sys::PassManagerRef { self.0 }
+impl SafeWrapper for Manager
+{
+    type Inner = sys::PassManagerRef;
+
+    unsafe fn from_inner(inner: sys::PassManagerRef) -> Self { Manager(inner) }
+    fn inner(&self) -> sys::PassManagerRef { self.0 }
 }
 
 impl Drop for Manager

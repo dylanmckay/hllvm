@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::Context;
 use sys;
 
@@ -15,14 +16,14 @@ pub struct Attribute<'ctx>
 impl<'ctx> Attribute<'ctx>
 {
     /// Creates a new integer-valued attribute.
-    /// TODO: create an enum for `kind`
+    /// FIXME: create an enum for `kind`
     pub fn integer(kind: u32,
                    value: u64,
                    context: &Context) -> Self {
-        let inner = unsafe {
-            sys::LLVMRustAttributeGetInteger(context.inner(), kind as _, value)
-        };
-        Attribute::new(inner)
+        unsafe {
+            let inner = sys::LLVMRustAttributeGetInteger(context.inner(), kind as _, value);
+            Attribute::from_inner(inner)
+        }
     }
 
     /// Creates a new string-valued attribute.
@@ -32,16 +33,20 @@ impl<'ctx> Attribute<'ctx>
         let kind = ffi::CString::new(kind).unwrap();
         let value = ffi::CString::new(value).unwrap();
 
-        let inner = unsafe {
-            sys::LLVMRustAttributeGetString(context.inner(), kind.as_ptr(), value.as_ptr())
-        };
-        Attribute::new(inner)
+        unsafe {
+            let inner = sys::LLVMRustAttributeGetString(context.inner(), kind.as_ptr(), value.as_ptr());
+            Attribute::from_inner(inner)
+        }
     }
+}
 
-    /// Gets the inner attribute reference.
-    pub fn inner(&self) -> sys::AttributeRef { self.inner.clone() }
+impl<'ctx> SafeWrapper for Attribute<'ctx>
+{
+    type Inner = sys::AttributeRef;
 
-    fn new(inner: sys::AttributeRef) -> Self {
+    unsafe fn from_inner(inner: sys::AttributeRef) -> Self {
         Attribute { inner: inner, phantom: marker::PhantomData }
     }
+
+    fn inner(&self) -> sys::AttributeRef { self.inner.clone() }
 }

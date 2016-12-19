@@ -1,3 +1,4 @@
+use SafeWrapper;
 use target::FileType;
 use support::OutputStream;
 use pass;
@@ -9,11 +10,6 @@ pub struct Machine(sys::TargetMachineRef);
 
 impl Machine
 {
-    /// Creates a target machine from a pointer to an LLVM `TargetMachine`.
-    pub unsafe fn new(inner: sys::TargetMachineRef) -> Self {
-        Machine(inner)
-    }
-
     pub fn add_passes_to_emit_file(&self,
                                    pass_manager: &pass::Manager,
                                    stream: &OutputStream,
@@ -25,4 +21,15 @@ impl Machine
                                                           file_type)
         }
     }
+}
+
+impl SafeWrapper for Machine
+{
+    type Inner = sys::TargetMachineRef;
+
+    unsafe fn from_inner(inner: sys::TargetMachineRef) -> Self {
+        Machine(inner)
+    }
+
+    fn inner(&self) -> sys::TargetMachineRef { self.0 }
 }

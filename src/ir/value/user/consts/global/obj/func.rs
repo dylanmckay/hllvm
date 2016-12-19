@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject};
 use sys;
 
@@ -18,7 +19,7 @@ impl<'ctx> Function<'ctx>
         unsafe {
             let inner = sys::LLVMRustFunctionCreate(ty.inner(),
                             linkage as _, name.as_ptr(), module.inner());
-            Function::from_value(Value::new(inner))
+            Function::from_value(Value::from_inner(inner))
         }
     }
 

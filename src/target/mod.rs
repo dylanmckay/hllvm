@@ -9,6 +9,7 @@ pub use sys::target::FileType;
 pub mod registry;
 pub mod machine;
 
+use SafeWrapper;
 use sys;
 
 use std::{ffi, fmt};
@@ -18,11 +19,6 @@ pub struct Target(sys::TargetRef);
 
 impl Target
 {
-    /// Creates a target object from a pointer to an `llvm::Target`.
-    pub unsafe fn new(inner: sys::TargetRef) -> Self {
-        Target(inner)
-    }
-
     /// Gets the name of the target.
     pub fn name(&self) -> String {
         unsafe {
@@ -51,7 +47,7 @@ impl Target
         unsafe {
             let inner = sys::LLVMRustTargetCreateTargetMachine(self.0,
                 triple.as_ptr(), cpu.as_ptr(), features.as_ptr());
-            Machine::new(inner)
+            Machine::from_inner(inner)
         }
     }
 
@@ -69,9 +65,14 @@ impl Target
     pub fn has_jit(&self) -> bool {
         unsafe { sys::LLVMRustTargetHasJIT(self.0) }
     }
+}
 
-    /// Gets the reference to the `llvm::Target` object.
-    pub fn inner(&self) -> sys::TargetRef { self.0 }
+impl SafeWrapper for Target
+{
+    type Inner = sys::TargetRef;
+
+    unsafe fn from_inner(inner: sys::TargetRef) -> Self { Target(inner) }
+    fn inner(&self) -> sys::TargetRef { self.0 }
 }
 
 impl fmt::Debug for Target

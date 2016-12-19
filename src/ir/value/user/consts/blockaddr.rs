@@ -1,5 +1,6 @@
 //! Basic block address.
 
+use SafeWrapper;
 use ir::{Constant, Value, Block};
 use sys;
 
@@ -13,7 +14,7 @@ impl<'ctx> BlockAddress<'ctx>
     pub fn new(block: &Block) -> Self {
         unsafe {
             let inner = sys::LLVMRustBlockAddressGet(block.inner());
-            BlockAddress(Constant(Value::new(inner)))
+            BlockAddress(Constant(Value::from_inner(inner)))
         }
     }
 }

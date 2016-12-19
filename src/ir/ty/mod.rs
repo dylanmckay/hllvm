@@ -6,6 +6,7 @@ pub mod func;
 pub mod integer;
 pub mod composite;
 
+use SafeWrapper;
 use ir::Context;
 use sys;
 
@@ -20,21 +21,24 @@ pub struct Type<'ctx>
 
 impl<'ctx> Type<'ctx>
 {
-    /// Builds a type from a reference to an `llvm::Type` object.
-    pub unsafe fn new(inner: sys::TypeRef) -> Self {
-        Type { inner: inner, phantom: marker::PhantomData }
-    }
-
     /// Gets the `void` type.
     pub fn void(context: &Context) -> Self {
-        unsafe { Type::new(sys::LLVMRustTypeGetVoidTy(context.inner())) }
+        unsafe { Type::from_inner(sys::LLVMRustTypeGetVoidTy(context.inner())) }
     }
 
     /// Dump the type to standard error.
     pub fn dump(&self) {
         unsafe { sys::LLVMRustTypeDump(self.inner); }
     }
+}
 
-    /// Gets the inner type reference.
-    pub fn inner(&self) -> sys::TypeRef { self.inner }
+impl<'ctx> SafeWrapper for Type<'ctx>
+{
+    type Inner = sys::TypeRef;
+
+    unsafe fn from_inner(inner: sys::TypeRef) -> Self {
+        Type { inner: inner, phantom: marker::PhantomData }
+    }
+
+    fn inner(&self) -> sys::TypeRef { self.inner }
 }

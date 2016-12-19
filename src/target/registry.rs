@@ -1,3 +1,4 @@
+use SafeWrapper;
 use target::Target;
 use sys;
 
@@ -35,7 +36,7 @@ impl Registry
 
             let target_refs = &buffer[0..target_count];
 
-            let vec: Vec<_> = target_refs.iter().map(|&r| Target::new(r)).collect();
+            let vec: Vec<_> = target_refs.iter().map(|&r| Target::from_inner(r)).collect();
             vec.into_iter()
         }
     }

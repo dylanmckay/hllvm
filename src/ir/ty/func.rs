@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::Type;
 use sys;
 
@@ -15,7 +16,7 @@ impl<'ctx> FunctionType<'ctx>
         unsafe {
             let inner = sys::LLVMRustFunctionTypeGet(result.inner(),
                 params.as_mut_ptr(), params.len() as _, is_var_arg);
-            FunctionType(Type::new(inner))
+            FunctionType(Type::from_inner(inner))
         }
     }
 }

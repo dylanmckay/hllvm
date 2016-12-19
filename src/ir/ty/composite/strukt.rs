@@ -1,3 +1,4 @@
+use SafeWrapper;
 use ir::{Context, Type, CompositeType};
 use sys;
 
@@ -14,7 +15,7 @@ impl<'ctx> StructType<'ctx>
         unsafe {
             let inner = sys::LLVMRustStructTypeGet(context.inner(),
                 elements.as_mut_ptr(), elements.len() as _, is_packed);
-            StructType(CompositeType(Type::new(inner)))
+            StructType(CompositeType(Type::from_inner(inner)))
         }
     }
 }
