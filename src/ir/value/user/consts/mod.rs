@@ -20,7 +20,7 @@ pub mod strukt;
 pub mod undef;
 pub mod global;
 
-use ir::Value;
+use ir::User;
 
-pub struct Constant<'ctx>(Value<'ctx>);
-impl_upcast!(Constant => Value);
+pub struct Constant<'ctx>(User<'ctx>);
+impl_upcast!(Constant => User);

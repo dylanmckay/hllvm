@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject, Linkage};
+use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject, Linkage, User};
 use sys;
 
 use std::ffi;
@@ -24,7 +24,7 @@ impl<'ctx> Function<'ctx>
     }
 
     pub unsafe fn from_value(val: Value<'ctx>) -> Self {
-        Function(GlobalObject(GlobalValue(Constant(val))))
+        Function(GlobalObject(GlobalValue(Constant(User(val)))))
     }
 }
 

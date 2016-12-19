@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Constant, Type, Value};
+use ir::{Constant, Type, Value, User};
 use sys;
 
 use std::ffi;
@@ -17,7 +17,7 @@ impl<'ctx> ConstantFP<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustConstantFPGetString(ty.inner(), value.as_ptr());
-            ConstantFP(Constant(Value::from_inner(inner)))
+            ConstantFP(Constant(User(Value::from_inner(inner))))
         }
     }
 
@@ -25,7 +25,7 @@ impl<'ctx> ConstantFP<'ctx>
     pub fn new(ty: &Type, value: f64) -> Self {
         unsafe {
             let inner = sys::LLVMRustConstantFPGetDouble(ty.inner(), value);
-            ConstantFP(Constant(Value::from_inner(inner)))
+            ConstantFP(Constant(User(Value::from_inner(inner))))
         }
     }
 }

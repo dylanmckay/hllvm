@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Constant, Value};
+use ir::{Constant, Value, User};
 use sys;
 
 pub struct ConstantVector<'ctx>(Constant<'ctx>);
@@ -12,7 +12,7 @@ impl<'ctx> ConstantVector<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustConstantVectorGet(&values);
-            ConstantVector(Constant(Value::from_inner(inner)))
+            ConstantVector(Constant(User(Value::from_inner(inner))))
         }
     }
 }

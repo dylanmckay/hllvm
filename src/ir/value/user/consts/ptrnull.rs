@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Constant, Value, PointerType};
+use ir::{Constant, Value, PointerType, User};
 use sys;
 
 /// A constant null pointer.
@@ -12,7 +12,7 @@ impl<'ctx> ConstantPointerNull<'ctx>
     pub fn new(ty: &PointerType) -> Self {
         unsafe {
             let inner = sys::LLVMRustConstantPointerNullGet(ty.inner());
-            ConstantPointerNull(Constant(Value::from_inner(inner)))
+            ConstantPointerNull(Constant(User(Value::from_inner(inner))))
         }
     }
 }
