@@ -18,12 +18,11 @@ cpp! {
     pub fn LLVMRustModuleGetOrInsertFunction(module: ModuleRef as "llvm::Module*",
                                              name: *const libc::c_char as "const char*",
                                              func_ty: TypeRef as "llvm::Type*",
-                                             attributes: *mut AttributeRef as "llvm::Attribute**",
-                                             attr_count: libc::size_t as "size_t")
+                                             attributes: &[AttributeRef] as "support::Slice<llvm::Attribute*>")
         -> ValueRef as "llvm::Value*" {
         llvm::AttributeSet AttrSet;
 
-        for (size_t i=0; i<attr_count; ++i) {
+        for (size_t i=0; i<attributes.len(); ++i) {
           AttrSet.addAttribute(func_ty->getContext(), i, *attributes[i]);
         }
 

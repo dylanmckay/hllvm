@@ -39,6 +39,11 @@ public:
   llvm::ArrayRef<T> ref() {
     return llvm::ArrayRef<T>(this->Ptr, this->Len);
   }
+
+  T &operator[](size_t index) { return this->Ptr[index]; }
+  const T &operator[](size_t index) const { return this->Ptr[index]; }
+
+  size_t len() const { return this->Len; }
 };
 
 } // end namespace support

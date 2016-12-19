@@ -32,14 +32,13 @@ impl<'ctx> Module<'ctx>
                                   func_ty: &FunctionType,
                                   attributes: &[Attribute]) -> Function {
         let name = ffi::CString::new(name).unwrap();
-        let mut attrs: Vec<_> = attributes.iter().map(Attribute::inner).collect();
+        let attrs: Vec<_> = attributes.iter().map(Attribute::inner).collect();
 
         unsafe {
             let func = sys::LLVMRustModuleGetOrInsertFunction(self.inner,
                                                    name.as_ptr(),
                                                    func_ty.upcast_ref().inner(),
-                                                   attrs.as_mut_ptr(),
-                                                   attrs.len());
+                                                   &attrs);
             Function::from_value(Value::from_inner(func))
         }
     }

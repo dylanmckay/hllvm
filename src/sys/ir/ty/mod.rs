@@ -24,12 +24,10 @@ cpp! {
     }
 
     pub fn LLVMRustFunctionTypeGet(result: TypeRef as "llvm::Type*",
-                                   param_types: *mut TypeRef as "llvm::Type**",
-                                   param_count: libc::c_uint as "unsigned",
+                                   params: &[TypeRef] as "support::Slice<llvm::Type*>",
                                    is_var_arg: bool as "bool")
         -> TypeRef as "llvm::Type*" {
-        auto params = llvm::ArrayRef<llvm::Type*>(param_types, param_count);
-        return llvm::FunctionType::get(result, params, is_var_arg);
+        return llvm::FunctionType::get(result, params.ref(), is_var_arg);
     }
 
     pub fn LLVMRustStructTypeGet(context: ContextRef as "llvm::LLVMContext*",
