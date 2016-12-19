@@ -42,6 +42,18 @@ cpp! {
         -> TypeRef as "llvm::Type*" {
         return llvm::ArrayType::get(element_type, num_elements);
     }
+
+    pub fn LLVMRustVectorTypeGet(element_type: TypeRef as "llvm::Type*",
+                                 num_elements: u64 as "uint64_t")
+        -> TypeRef as "llvm::Type*" {
+        return llvm::VectorType::get(element_type, num_elements);
+    }
+
+    pub fn LLVMRustPointerTypeGet(element_type: TypeRef as "llvm::Type*",
+                                  address_space: libc::c_uint as "unsigned")
+        -> TypeRef as "llvm::Type*" {
+        return llvm::PointerType::get(element_type, address_space);
+    }
 }
 
 #[cfg(test)]
