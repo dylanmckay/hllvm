@@ -80,4 +80,16 @@ cpp! {
         else
             return llvm::GetElementPtrInst::Create(pointee_ty, ptr, indices.ref());
     }
+
+    pub fn LLVMRustCreateExtractElementInst(vector: ValueRef as "llvm::Value*",
+                                            index: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ExtractElementInst::Create(vector, index);
+    }
+
+    pub fn LLVMRustCreateExtractValueInst(aggregate: ValueRef as "llvm::Value*",
+                                          indices: &[libc::c_uint] as "support::Slice<unsigned>")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ExtractValueInst::Create(aggregate, indices.ref());
+    }
 }
