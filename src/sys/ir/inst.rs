@@ -68,4 +68,16 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::LoadInst(ptr, llvm::Twine(), is_volatile, align, atomic_ordering, sync_scope);
     }
+
+    pub fn LLVMRustCreateGetElementPtrInst(pointee_ty: TypeRef as "llvm::Type*",
+                                           ptr: ValueRef as "llvm::Value*",
+                                           indices: &[ValueRef] as "support::Slice<llvm::Value*>",
+                                           in_bounds: bool as "bool")
+        -> ValueRef as "llvm::Value*" {
+
+        if (in_bounds)
+            return llvm::GetElementPtrInst::CreateInBounds(pointee_ty, ptr, indices.ref());
+        else
+            return llvm::GetElementPtrInst::Create(pointee_ty, ptr, indices.ref());
+    }
 }

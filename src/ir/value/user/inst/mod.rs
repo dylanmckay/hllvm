@@ -1,10 +1,12 @@
 pub use self::call::CallInst;
 pub use self::store::StoreInst;
+pub use self::gep::GetElementPtrInst;
 pub use self::terminator::*;
 pub use self::unary::*;
 
 pub mod call;
 pub mod store;
+pub mod gep;
 pub mod terminator;
 pub mod unary;
 
@@ -34,7 +36,6 @@ define_unimplemented_inst!(FenceInst);
 define_unimplemented_inst!(FuncletPadInst);
 define_unimplemented_inst!(CatchPadInst);
 define_unimplemented_inst!(CleanupPadInst);
-define_unimplemented_inst!(GetElementPtrInst);
 define_unimplemented_inst!(InsertElementInst);
 define_unimplemented_inst!(InsertValueInst);
 define_unimplemented_inst!(LandingPadInst);
