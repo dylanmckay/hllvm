@@ -5,6 +5,7 @@ pub use self::insert_elem::InsertElementInst;
 pub use self::insert_value::InsertValueInst;
 pub use self::select::SelectInst;
 pub use self::fence::FenceInst;
+pub use self::binop::BinaryOperatorInst;
 pub use self::call::*;
 pub use self::terminator::*;
 pub use self::unary::*;
@@ -16,6 +17,7 @@ pub mod insert_elem;
 pub mod insert_value;
 pub mod select;
 pub mod fence;
+pub mod binop;
 pub mod call;
 pub mod terminator;
 pub mod unary;
@@ -36,7 +38,6 @@ macro_rules! define_unimplemented_inst {
 
 define_unimplemented_inst!(AtomicCmpXchgInst);
 define_unimplemented_inst!(AtomicRMWInst);
-define_unimplemented_inst!(BinaryOperator);
 define_unimplemented_inst!(IntrinsicInst);
 define_unimplemented_inst!(CmpInst);
 define_unimplemented_inst!(FCmpInst);

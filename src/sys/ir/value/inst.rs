@@ -132,4 +132,32 @@ cpp! {
         return new llvm::FenceInst(*context, (llvm::AtomicOrdering)ordering,
             (llvm::SynchronizationScope)sync_scope);
     }
+
+    pub fn LLVMRustCreateBinaryOperator(opcode: libc::c_uint as "unsigned",
+                                        lhs: ValueRef as "llvm::Value*",
+                                        rhs: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::BinaryOperator::Create((llvm::Instruction::BinaryOps)opcode, lhs, rhs);
+    }
+
+    pub fn LLVMRustCreateBinaryOperatorNSW(opcode: libc::c_uint as "unsigned",
+                                           lhs: ValueRef as "llvm::Value*",
+                                           rhs: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::BinaryOperator::CreateNSW((llvm::Instruction::BinaryOps)opcode, lhs, rhs);
+    }
+
+    pub fn LLVMRustCreateBinaryOperatorNUW(opcode: libc::c_uint as "unsigned",
+                                           lhs: ValueRef as "llvm::Value*",
+                                           rhs: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::BinaryOperator::CreateNUW((llvm::Instruction::BinaryOps)opcode, lhs, rhs);
+    }
+
+    pub fn LLVMRustCreateBinaryOperatorExact(opcode: libc::c_uint as "unsigned",
+                                           lhs: ValueRef as "llvm::Value*",
+                                           rhs: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::BinaryOperator::CreateExact((llvm::Instruction::BinaryOps)opcode, lhs, rhs);
+    }
 }
