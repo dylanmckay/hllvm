@@ -51,13 +51,14 @@ pub enum Linkage
 #[repr(C)]
 pub enum AtomicOrdering
 {
-    NotAtomic,
-    Unordered,
-    Monotonic,
-    Acquire,
-    Release,
-    AcquireRelease,
-    SequentiallyConsistent,
+    NotAtomic = 0,
+    Unordered = 1,
+    Monotonic = 2,
+    // 3 is not implemented yet.
+    Acquire = 4,
+    Release = 5,
+    AcquireRelease = 6,
+    SequentiallyConsistent = 7,
 }
 
 /// Synchronization scope.
@@ -65,8 +66,20 @@ pub enum AtomicOrdering
 #[repr(C)]
 pub enum SynchronizationScope
 {
-    SingleThread,
-    CrossThread,
+    SingleThread = 0,
+    CrossThread = 1,
+}
+
+/// Thread local mode.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(C)]
+pub enum ThreadLocalMode
+{
+    NotThreadLocal = 0,
+    GeneralDynamic,
+    LocalDynamic,
+    InitialExec,
+    LocalExec,
 }
 
 #[cfg(test)]

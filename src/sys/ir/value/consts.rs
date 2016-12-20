@@ -1,4 +1,4 @@
-use {ValueRef, ContextRef, TypeRef};
+use {ValueRef, ContextRef, TypeRef, Linkage, ThreadLocalMode};
 use libc;
 
 cpp! {
@@ -75,6 +75,19 @@ cpp! {
     pub fn LLVMRustUndefValueGet(ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return llvm::UndefValue::get(ty);
+    }
+
+    pub fn LLVMRustCreateGlobalVariable(ty: TypeRef as "llvm::Type*",
+                                        is_constant: bool as "bool",
+                                        linkage: Linkage as "unsigned",
+                                        initializer: ValueRef as "llvm::Value*",
+                                        tls_mode: ThreadLocalMode as "unsigned",
+                                        address_space: libc::c_uint as "unsigned",
+                                        is_externally_initialized: bool as "bool")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::GlobalVariable(ty, is_constant, (llvm::GlobalValue::LinkageTypes)linkage,
+            support::cast<llvm::Constant>(initializer), "", (llvm::GlobalValue::ThreadLocalMode)tls_mode, address_space,
+            is_externally_initialized);
     }
 }
 
