@@ -1,5 +1,8 @@
 pub use self::consts::*;
+pub use self::inst::*;
+
 pub mod consts;
+pub mod inst;
 
 use {ValueRef, TypeRef};
 

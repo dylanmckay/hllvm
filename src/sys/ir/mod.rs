@@ -6,7 +6,6 @@ pub use self::module::*;
 pub use self::attributes::*;
 pub use self::block::*;
 pub use self::function::*;
-pub use self::inst::*;
 pub use self::passes::*;
 
 pub mod opcode;
@@ -17,7 +16,6 @@ pub mod module;
 pub mod attributes;
 pub mod block;
 pub mod function;
-pub mod inst;
 pub mod passes;
 
 /// An enumeration for the kinds of linkage for global values.
