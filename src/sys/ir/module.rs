@@ -29,6 +29,26 @@ cpp! {
         return module->getOrInsertFunction(name, support::cast<llvm::FunctionType>(func_ty), AttrSet);
     }
 
+    pub fn LLVMRustModuleAddGlobal(module: ModuleRef as "llvm::Module*",
+                                   global: ValueRef as "llvm::Value*") {
+        module->getGlobalList().addNodeToList(support::cast<llvm::GlobalVariable>(global));
+    }
+
+    pub fn LLVMRustModuleRemoveGlobal(module: ModuleRef as "llvm::Module*",
+                                      global: ValueRef as "llvm::Value*") {
+        module->getGlobalList().removeNodeFromList(support::cast<llvm::GlobalVariable>(global));
+    }
+
+    pub fn LLVMRustModuleAddFunction(module: ModuleRef as "llvm::Module*",
+                                     func: ValueRef as "llvm::Value*") {
+        module->getFunctionList().addNodeToList(support::cast<llvm::Function>(func));
+    }
+
+    pub fn LLVMRustModuleRemoveFunction(module: ModuleRef as "llvm::Module*",
+                                        func: ValueRef as "llvm::Value*") {
+        module->getFunctionList().removeNodeFromList(support::cast<llvm::Function>(func));
+    }
+
     pub fn LLVMRustModuleDump(module: ModuleRef as "llvm::Module*") {
         module->dump();
     }

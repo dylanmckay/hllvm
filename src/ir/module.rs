@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Context, FunctionType, Attribute, Value, Function};
+use ir::{Context, FunctionType, Attribute, Value, Function, GlobalVariable};
 use Upcast;
 
 use sys;
@@ -41,6 +41,26 @@ impl<'ctx> Module<'ctx>
                                                    &attrs);
             Function::from_value(Value::from_inner(func))
         }
+    }
+
+    /// Adds a global variable to the module.
+    pub fn add_global(&mut self, global: &GlobalVariable) {
+        unsafe { sys::LLVMRustModuleAddGlobal(self.inner(), global.inner()) }
+    }
+
+    /// Removes a global variable from the module.
+    pub fn remove_global(&mut self, global: &GlobalVariable) {
+        unsafe { sys::LLVMRustModuleRemoveGlobal(self.inner(), global.inner()) }
+    }
+
+    /// Adds a function to the module.
+    pub fn add_function(&mut self, function: &Function) {
+        unsafe { sys::LLVMRustModuleAddFunction(self.inner(), function.inner()) }
+    }
+
+    /// Removes a function from the module.
+    pub fn remove_function(&mut self, function: &Function) {
+        unsafe { sys::LLVMRustModuleRemoveFunction(self.inner(), function.inner()) }
     }
 
     /// Dumps the module to standard error.
