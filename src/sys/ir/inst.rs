@@ -59,4 +59,13 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::StoreInst(value, ptr, is_volatile, align, atomic_ordering, sync_scope);
     }
+
+    pub fn LLVMRustCreateLoadInst(ptr: ValueRef as "llvm::Value*",
+                                  is_volatile: bool as "bool",
+                                  align: libc::c_uint as "unsigned",
+                                  atomic_ordering: AtomicOrdering as "llvm::AtomicOrdering",
+                                  sync_scope: SynchronizationScope as "llvm::SynchronizationScope")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::LoadInst(ptr, llvm::Twine(), is_volatile, align, atomic_ordering, sync_scope);
+    }
 }

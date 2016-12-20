@@ -62,5 +62,4 @@ define_unimplemented_inst!(TruncInst);
 define_unimplemented_inst!(UIToFPInst);
 define_unimplemented_inst!(ZExtInst);
 define_unimplemented_inst!(ExtractValueInst);
-define_unimplemented_inst!(LoadInst);
 define_unimplemented_inst!(VAArgInst);
