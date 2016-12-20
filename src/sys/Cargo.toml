@@ -3,6 +3,13 @@ name = "hllvm-sys"
 version = "0.1.0"
 authors = ["Dylan McKay <dylanmckay34@gmail.com>"]
 
+description = "FFI wrapper around the LLVM C++ library"
+license = "MIT"
+documentation = "https://docs.rs/hllvm-sys"
+repository = "https://github.com/dylanmckay/hllvm"
+
+keywords = ["llvm", "compiler"]
+
 build = "build.rs"
 
 [lib]

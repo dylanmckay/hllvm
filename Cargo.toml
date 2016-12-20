@@ -3,6 +3,14 @@ name = "hllvm"
 version = "0.1.0"
 authors = ["Dylan McKay <dylanmckay34@gmail.com>"]
 
+description = "Idiomatic bindings to the LLVM compiler suite"
+license = "MIT"
+documentation = "https://docs.rs/hllvm"
+repository = "https://github.com/dylanmckay/hllvm"
+readme = "README.md"
+
+keywords = ["llvm", "compiler"]
+
 [workspace]
 
 [dependencies]
