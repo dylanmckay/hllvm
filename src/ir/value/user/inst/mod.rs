@@ -59,8 +59,6 @@ define_unimplemented_inst!(FPExtInst);
 define_unimplemented_inst!(FPToSIInst);
 define_unimplemented_inst!(FPToUIInst);
 define_unimplemented_inst!(FPTruncInst);
-define_unimplemented_inst!(IntToPtrInst);
-define_unimplemented_inst!(PtrToIntInst);
 define_unimplemented_inst!(SExtInst);
 define_unimplemented_inst!(SIToFPInst);
 define_unimplemented_inst!(TruncInst);

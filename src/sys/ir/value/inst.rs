@@ -155,9 +155,21 @@ cpp! {
     }
 
     pub fn LLVMRustCreateBinaryOperatorExact(opcode: libc::c_uint as "unsigned",
-                                           lhs: ValueRef as "llvm::Value*",
-                                           rhs: ValueRef as "llvm::Value*")
+                                             lhs: ValueRef as "llvm::Value*",
+                                             rhs: ValueRef as "llvm::Value*")
         -> ValueRef as "llvm::Value*" {
         return llvm::BinaryOperator::CreateExact((llvm::Instruction::BinaryOps)opcode, lhs, rhs);
+    }
+
+    pub fn LLVMRustCreatePtrToIntInst(value: ValueRef as "llvm::Value*",
+                                      ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::PtrToIntInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateIntToPtrInst(value: ValueRef as "llvm::Value*",
+                                      ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::IntToPtrInst(value, ty);
     }
 }
