@@ -1,0 +1,2 @@
+# 'cargo publish' stores files in this folder, not in crate root
+target/package
