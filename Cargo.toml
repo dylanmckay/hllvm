@@ -1,11 +1,11 @@
 [package]
-name = "llvm"
+name = "hllvm"
 version = "0.1.0"
 authors = ["Dylan McKay <dylanmckay34@gmail.com>"]
 
 [workspace]
 
 [dependencies]
-llvm-sys = { path = "src/sys" }
+hllvm-sys = { version = "0.1.0", path = "src/sys" }
 lazy_static = "0.1"
 libc = "0.2"
