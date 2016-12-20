@@ -9,6 +9,7 @@ pub use self::value::*;
 // Reexports
 pub use sys::{Linkage, SynchronizationScope, AtomicOrdering,
               ThreadLocalMode};
+pub use sys::ir::opcode::*;
 
 pub mod context;
 pub mod module;

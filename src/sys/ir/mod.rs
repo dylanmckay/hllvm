@@ -1,3 +1,4 @@
+pub use self::opcode::*;
 pub use self::ty::*;
 pub use self::value::*;
 pub use self::context::*;
@@ -8,6 +9,7 @@ pub use self::function::*;
 pub use self::inst::*;
 pub use self::passes::*;
 
+pub mod opcode;
 pub mod ty;
 pub mod value;
 pub mod context;
