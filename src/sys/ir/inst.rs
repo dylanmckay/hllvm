@@ -92,4 +92,18 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::ExtractValueInst::Create(aggregate, indices.ref());
     }
+
+    pub fn LLVMRustCreateInsertElementInst(vector: ValueRef as "llvm::Value*",
+                                           new_element: ValueRef as "llvm::Value*",
+                                           index: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::InsertElementInst::Create(vector, new_element, index);
+    }
+
+    pub fn LLVMRustCreateInsertValueInst(aggregate: ValueRef as "llvm::Value*",
+                                         new_value: ValueRef as "llvm::Value*",
+                                         indices: &[libc::c_uint] as "support::Slice<unsigned>")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::InsertValueInst::Create(aggregate, new_value, indices.ref());
+    }
 }
