@@ -1,6 +1,6 @@
-extern crate llvm;
+extern crate hllvm;
 
-use llvm::target;
+use hllvm::target;
 
 fn main() {
     for target in target::Registry::get().targets() {

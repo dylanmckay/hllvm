@@ -1,6 +1,6 @@
-extern crate llvm;
+extern crate hllvm;
 
-use llvm::{ir, target, support, pass};
+use hllvm::{ir, target, support, pass};
 
 fn build_module(context: &ir::Context) -> ir::Module {
     let module = ir::Module::new("mymodule", context);
