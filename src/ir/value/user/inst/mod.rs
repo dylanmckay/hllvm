@@ -1,8 +1,10 @@
 pub use self::call::CallInst;
+pub use self::store::StoreInst;
 pub use self::terminator::*;
 pub use self::unary::*;
 
 pub mod call;
+pub mod store;
 pub mod terminator;
 pub mod unary;
 
@@ -38,7 +40,6 @@ define_unimplemented_inst!(InsertValueInst);
 define_unimplemented_inst!(LandingPadInst);
 define_unimplemented_inst!(SelectInst);
 define_unimplemented_inst!(ShuffleVectorInst);
-define_unimplemented_inst!(StoreInst);
 define_unimplemented_inst!(CatchReturnInst);
 define_unimplemented_inst!(CatchSwitchInst);
 define_unimplemented_inst!(CleanupReturnInst);

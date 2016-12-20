@@ -46,6 +46,29 @@ pub enum Linkage
     Common,
 }
 
+/// Atomic ordering.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(C)]
+pub enum AtomicOrdering
+{
+    NotAtomic,
+    Unordered,
+    Monotonic,
+    Acquire,
+    Release,
+    AcquireRelease,
+    SequentiallyConsistent,
+}
+
+/// Synchronization scope.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(C)]
+pub enum SynchronizationScope
+{
+    SingleThread,
+    CrossThread,
+}
+
 #[cfg(test)]
 mod test
 {

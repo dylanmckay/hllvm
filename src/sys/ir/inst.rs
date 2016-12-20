@@ -1,4 +1,4 @@
-use {ContextRef, ValueRef, TypeRef};
+use {ContextRef, ValueRef, TypeRef, AtomicOrdering, SynchronizationScope};
 use libc;
 
 cpp! {
@@ -48,5 +48,15 @@ cpp! {
                                     array_size: ValueRef as "llvm::Value*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::AllocaInst(ty, array_size);
+    }
+
+    pub fn LLVMRustCreateStoreInst(value: ValueRef as "llvm::Value*",
+                                   ptr: ValueRef as "llvm::Value*",
+                                   is_volatile: bool as "bool",
+                                   align: libc::c_uint as "unsigned",
+                                   atomic_ordering: AtomicOrdering as "llvm::AtomicOrdering",
+                                   sync_scope: SynchronizationScope as "llvm::SynchronizationScope")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::StoreInst(value, ptr, is_volatile, align, atomic_ordering, sync_scope);
     }
 }

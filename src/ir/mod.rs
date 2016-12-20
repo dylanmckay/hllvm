@@ -7,7 +7,7 @@ pub use self::ty::*;
 pub use self::value::*;
 
 // Reexports
-pub use sys::Linkage;
+pub use sys::{Linkage, SynchronizationScope, AtomicOrdering};
 
 pub mod context;
 pub mod module;
