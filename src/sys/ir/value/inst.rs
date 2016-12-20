@@ -172,4 +172,17 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::IntToPtrInst(value, ty);
     }
+
+    // FIXME: add bundle support
+    pub fn LLVMRustCreateInvokeInst(func: ValueRef as "llvm::Value*",
+                                    args: &[ValueRef] as "support::Slice<llvm::Value*>",
+                                    on_success: ValueRef as "llvm::Value*",
+                                    on_error: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        auto bundles = llvm::None;
+        return llvm::InvokeInst::Create(
+            support::cast<llvm::Function>(func),
+            support::cast<llvm::BasicBlock>(on_success), support::cast<llvm::BasicBlock>(on_error),
+            args.ref(), bundles);
+    }
 }

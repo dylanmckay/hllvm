@@ -12,6 +12,7 @@ impl<'ctx> CallInst<'ctx>
     /// Creates a new call instruction.
     pub fn new(func: &Function,
                args: &[&Value],
+               // FIXME: remove this argument
                name: &str) -> Self {
         let args: Vec<_> = args.iter().map(|v| v.inner()).collect();
         let name = ffi::CString::new(name).unwrap();
