@@ -1,4 +1,5 @@
 use {ContextRef, ValueRef};
+use libc;
 
 cpp! {
     #include "support.h"
@@ -31,5 +32,15 @@ cpp! {
         return llvm::BranchInst::Create(
             support::cast<llvm::BasicBlock>(on_true), support::cast<llvm::BasicBlock>(on_false),
             condition);
+    }
+
+    // FIXME: add bundle support
+    pub fn LLVMRustCreateCallInst(func: ValueRef as "llvm::Value*",
+                                  args: &[ValueRef] as "support::Slice<llvm::Value*>",
+                                  name: *const libc::c_char as "const char*")
+        -> ValueRef as "llvm::Value*" {
+        auto bundles = llvm::None;
+        return llvm::CallInst::Create(
+            support::cast<llvm::Function>(func), args.ref(), bundles, name);
     }
 }

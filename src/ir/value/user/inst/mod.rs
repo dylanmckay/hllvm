@@ -1,5 +1,7 @@
+pub use self::call::CallInst;
 pub use self::terminator::*;
 
+pub mod call;
 pub mod terminator;
 
 use ir::User;
@@ -19,7 +21,6 @@ macro_rules! define_unimplemented_inst {
 define_unimplemented_inst!(AtomicCmpXchgInst);
 define_unimplemented_inst!(AtomicRMWInst);
 define_unimplemented_inst!(BinaryOperator);
-define_unimplemented_inst!(CallInst);
 define_unimplemented_inst!(IntrinsicInst);
 define_unimplemented_inst!(CmpInst);
 define_unimplemented_inst!(FCmpInst);
