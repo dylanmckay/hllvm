@@ -51,7 +51,6 @@ define_unimplemented_inst!(IndirectBrInst);
 define_unimplemented_inst!(InvokeInst);
 define_unimplemented_inst!(ResumeInst);
 define_unimplemented_inst!(SwitchInst);
-define_unimplemented_inst!(UnreachableInst);
 define_unimplemented_inst!(AddrSpaceCastInst);
 define_unimplemented_inst!(BitCastInst);
 define_unimplemented_inst!(FPExtInst);

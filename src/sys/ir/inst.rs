@@ -106,4 +106,9 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::InsertValueInst::Create(aggregate, new_value, indices.ref());
     }
+
+    pub fn LLVMRustCreateUnreachableInst(context: ContextRef as "llvm::LLVMContext*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::UnreachableInst(*context);
+    }
 }
