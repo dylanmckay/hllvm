@@ -118,4 +118,10 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::SelectInst::Create(condition, on_true, on_false);
     }
+
+    pub fn LLVMRustCreateAddrSpaceCastInst(value: ValueRef as "llvm::Value*",
+                                           ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::AddrSpaceCastInst(value, ty);
+    }
 }
