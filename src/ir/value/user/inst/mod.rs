@@ -4,6 +4,7 @@ pub use self::gep::GetElementPtrInst;
 pub use self::extract_elem::ExtractElementInst;
 pub use self::insert_elem::InsertElementInst;
 pub use self::insert_value::InsertValueInst;
+pub use self::select::*;
 pub use self::terminator::*;
 pub use self::unary::*;
 
@@ -13,6 +14,7 @@ pub mod gep;
 pub mod extract_elem;
 pub mod insert_elem;
 pub mod insert_value;
+pub mod select;
 pub mod terminator;
 pub mod unary;
 
@@ -42,7 +44,6 @@ define_unimplemented_inst!(FuncletPadInst);
 define_unimplemented_inst!(CatchPadInst);
 define_unimplemented_inst!(CleanupPadInst);
 define_unimplemented_inst!(LandingPadInst);
-define_unimplemented_inst!(SelectInst);
 define_unimplemented_inst!(ShuffleVectorInst);
 define_unimplemented_inst!(CatchReturnInst);
 define_unimplemented_inst!(CatchSwitchInst);

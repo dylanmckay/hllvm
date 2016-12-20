@@ -111,4 +111,11 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::UnreachableInst(*context);
     }
+
+    pub fn LLVMRustCreateSelectInst(condition: ValueRef as "llvm::Value*",
+                                    on_true: ValueRef as "llvm::Value*",
+                                    on_false: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::SelectInst::Create(condition, on_true, on_false);
+    }
 }
