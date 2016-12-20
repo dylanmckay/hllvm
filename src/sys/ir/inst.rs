@@ -124,4 +124,12 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::AddrSpaceCastInst(value, ty);
     }
+
+    pub fn LLVMRustCreateFenceInst(context: ContextRef as "llvm::LLVMContext*",
+                                   ordering: AtomicOrdering as "unsigned",
+                                   sync_scope: SynchronizationScope as "unsigned")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::FenceInst(*context, (llvm::AtomicOrdering)ordering,
+            (llvm::SynchronizationScope)sync_scope);
+    }
 }
