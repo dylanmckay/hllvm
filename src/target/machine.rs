@@ -33,3 +33,12 @@ impl SafeWrapper for Machine
 
     fn inner(&self) -> sys::TargetMachineRef { self.0 }
 }
+
+impl Drop for Machine
+{
+    fn drop(&mut self) {
+        unsafe {
+            sys::LLVMRustDestroyTargetMachine(self.0);
+        }
+    }
+}

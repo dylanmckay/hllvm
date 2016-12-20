@@ -42,6 +42,10 @@ cpp! {
         return target->createTargetMachine(tt, cpu, features, opts, rm);
     }
 
+    pub fn LLVMRustDestroyTargetMachine(tm: TargetMachineRef as "llvm::TargetMachine*") {
+        delete tm;
+    }
+
     pub fn LLVMRustTargetMachineAddPassesToEmitFile(tm: TargetMachineRef as "llvm::TargetMachine*",
                                                     pm: PassManagerRef as "llvm::legacy::PassManager*",
                                                     stream: RawPWriteStreamRef as "llvm::raw_pwrite_stream*",

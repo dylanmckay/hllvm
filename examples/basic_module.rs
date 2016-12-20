@@ -28,6 +28,7 @@ fn compile_module(module: ir::Module, file_type: target::FileType) {
 
     machine.add_passes_to_emit_file(&pm, stdout.as_ref(), file_type);
     pm.run(module);
+    drop(machine);
 }
 
 fn main() {
