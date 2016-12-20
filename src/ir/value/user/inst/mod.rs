@@ -1,8 +1,10 @@
 pub use self::call::CallInst;
 pub use self::terminator::*;
+pub use self::unary::*;
 
 pub mod call;
 pub mod terminator;
+pub mod unary;
 
 use ir::User;
 
@@ -45,7 +47,6 @@ define_unimplemented_inst!(InvokeInst);
 define_unimplemented_inst!(ResumeInst);
 define_unimplemented_inst!(SwitchInst);
 define_unimplemented_inst!(UnreachableInst);
-define_unimplemented_inst!(AllocaInst);
 define_unimplemented_inst!(AddrSpaceCastInst);
 define_unimplemented_inst!(BitCastInst);
 define_unimplemented_inst!(FPExtInst);

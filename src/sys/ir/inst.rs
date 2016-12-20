@@ -1,4 +1,4 @@
-use {ContextRef, ValueRef};
+use {ContextRef, ValueRef, TypeRef};
 use libc;
 
 cpp! {
@@ -42,5 +42,11 @@ cpp! {
         auto bundles = llvm::None;
         return llvm::CallInst::Create(
             support::cast<llvm::Function>(func), args.ref(), bundles, name);
+    }
+
+    pub fn LLVMRustCreateAllocaInst(ty: TypeRef as "llvm::Type*",
+                                    array_size: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::AllocaInst(ty, array_size);
     }
 }
