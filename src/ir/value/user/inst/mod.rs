@@ -6,6 +6,8 @@ pub use self::insert_value::InsertValueInst;
 pub use self::select::SelectInst;
 pub use self::fence::FenceInst;
 pub use self::binop::BinaryOperatorInst;
+pub use self::catchpad::CatchPadInst;
+pub use self::cleanuppad::CleanupPadInst;
 pub use self::call::*;
 pub use self::cmp::*;
 pub use self::terminator::*;
@@ -19,6 +21,8 @@ pub mod insert_value;
 pub mod select;
 pub mod fence;
 pub mod binop;
+pub mod catchpad;
+pub mod cleanuppad;
 pub mod call;
 pub mod cmp;
 pub mod terminator;
@@ -40,9 +44,6 @@ macro_rules! define_unimplemented_inst {
 
 define_unimplemented_inst!(AtomicCmpXchgInst);
 define_unimplemented_inst!(AtomicRMWInst);
-define_unimplemented_inst!(FuncletPadInst);
-define_unimplemented_inst!(CatchPadInst);
-define_unimplemented_inst!(CleanupPadInst);
 define_unimplemented_inst!(LandingPadInst);
 define_unimplemented_inst!(ShuffleVectorInst);
 define_unimplemented_inst!(CatchReturnInst);

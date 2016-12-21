@@ -278,4 +278,17 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::ResumeInst::Create(exception);
     }
+
+    pub fn LLVMRustCreateCatchPadInst(catch_switch: ValueRef as "llvm::Value*",
+                                      arguments: &[ValueRef] as "support::Slice<llvm::Value*>")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::CatchPadInst::Create(support::cast<llvm::CatchSwitchInst>(catch_switch),
+            arguments.ref());
+    }
+
+    pub fn LLVMRustCreateCleanupPadInst(parent_pad: ValueRef as "llvm::Value*",
+                                        arguments: &[ValueRef] as "support::Slice<llvm::Value*>")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::CleanupPadInst::Create(parent_pad, arguments.ref());
+    }
 }
