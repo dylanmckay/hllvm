@@ -1,5 +1,6 @@
 pub use self::br::BranchInst;
 pub use self::catchreturn::CatchReturnInst;
+pub use self::catchswitch::CatchSwitchInst;
 pub use self::cleanupreturn::CleanupReturnInst;
 pub use self::indirectbr::IndirectBrInst;
 pub use self::invoke::InvokeInst;
@@ -10,6 +11,7 @@ pub use self::unreachable::UnreachableInst;
 
 pub mod br;
 pub mod catchreturn;
+pub mod catchswitch;
 pub mod cleanupreturn;
 pub mod indirectbr;
 pub mod invoke;

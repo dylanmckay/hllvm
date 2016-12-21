@@ -324,6 +324,19 @@ cpp! {
             support::cast<llvm::BasicBlock>(block));
     }
 
+    pub fn LLVMRustCreateCatchSwitchInst(parent_pad: ValueRef as "llvm::Value*",
+                                         unwind_dest: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::CatchSwitchInst::Create(support::cast<llvm::CatchPadInst>(parent_pad),
+            support::cast<llvm::BasicBlock>(unwind_dest), 0);
+    }
+
+    pub fn LLVMRustCatchSwitchInstAddHandler(catch_switch: ValueRef as "llvm::Value*",
+                                             dest_block: ValueRef as "llvm::Value*") {
+        support::cast<llvm::CatchSwitchInst>(catch_switch)->addHandler(
+            support::cast<llvm::BasicBlock>(dest_block));
+    }
+
     pub fn LLVMRustCreateCleanupReturnInst(cleanup_pad: ValueRef as "llvm::Value*",
                                            unwind_block: ValueRef as "llvm::Value*")
         -> ValueRef as "llvm::Value*" {
