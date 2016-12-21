@@ -185,4 +185,16 @@ cpp! {
             support::cast<llvm::BasicBlock>(on_success), support::cast<llvm::BasicBlock>(on_error),
             args.ref(), bundles);
     }
+
+    pub fn LLVMRustCreateTruncInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::TruncInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateFPTruncInst(value: ValueRef as "llvm::Value*",
+                                     ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::FPTruncInst(value, ty);
+    }
 }
