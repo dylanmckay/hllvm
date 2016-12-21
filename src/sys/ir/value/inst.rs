@@ -311,4 +311,9 @@ cpp! {
             support::cast<llvm::ConstantInt>(constant_int),
             support::cast<llvm::BasicBlock>(dest));
     }
+
+    pub fn LLVMRustCreateLandingPadInst(ret_ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::LandingPadInst::Create(ret_ty, 0);
+    }
 }
