@@ -197,4 +197,16 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::FPTruncInst(value, ty);
     }
+
+    pub fn LLVMRustCreateZExtInst(value: ValueRef as "llvm::Value*",
+                                     ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::ZExtInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateSExtInst(value: ValueRef as "llvm::Value*",
+                                     ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::SExtInst(value, ty);
+    }
 }

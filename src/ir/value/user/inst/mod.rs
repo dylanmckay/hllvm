@@ -57,8 +57,6 @@ define_unimplemented_inst!(BitCastInst);
 define_unimplemented_inst!(FPExtInst);
 define_unimplemented_inst!(FPToSIInst);
 define_unimplemented_inst!(FPToUIInst);
-define_unimplemented_inst!(SExtInst);
 define_unimplemented_inst!(SIToFPInst);
 define_unimplemented_inst!(UIToFPInst);
-define_unimplemented_inst!(ZExtInst);
 define_unimplemented_inst!(VAArgInst);
