@@ -1,22 +1,38 @@
-pub use self::addrspacecast::AddrSpaceCastInst;
-pub use self::fpext::FPExtInst;
-pub use self::fptrunc::FPTruncInst;
-pub use self::inttoptr::IntToPtrInst;
-pub use self::ptrtoint::PtrToIntInst;
-pub use self::sext::SExtInst;
-pub use self::trunc::TruncInst;
-pub use self::zext::ZExtInst;
-
-pub mod addrspacecast;
-pub mod fpext;
-pub mod fptrunc;
-pub mod inttoptr;
-pub mod ptrtoint;
-pub mod sext;
-pub mod trunc;
-pub mod zext;
-
 use ir::UnaryInst;
 
 pub struct CastInst<'ctx>(UnaryInst<'ctx>);
 impl_upcast!(CastInst => UnaryInst);
+
+/// Define a generic cast instruction.
+macro_rules! define_cast_instruction {
+    ($name:ident => $ctor:ident) => {
+        pub struct $name<'ctx>($crate::ir::CastInst<'ctx>);
+
+        impl<'ctx> $name<'ctx>
+        {
+            /// Creates a new instruction.
+            pub fn new(value: &$crate::ir::Value,
+                       ty: &$crate::ir::Type) -> Self {
+                use $crate::SafeWrapper;
+
+                unsafe {
+                    let inner = $crate::sys::$ctor(value.inner(), ty.inner());
+                    $name($crate::ir::CastInst(
+                        $crate::ir::UnaryInst($crate::ir::Instruction(
+                                $crate::ir::User($crate::ir::Value::from_inner(inner))))))
+                }
+            }
+        }
+
+        impl_upcast!($name => CastInst);
+    }
+}
+
+define_cast_instruction!(AddrSpaceCastInst => LLVMRustCreateAddrSpaceCastInst);
+define_cast_instruction!(IntToPtrInst => LLVMRustCreateIntToPtrInst);
+define_cast_instruction!(FPExtInst => LLVMRustCreateFPExtInst);
+define_cast_instruction!(FPTruncInst => LLVMRustCreateFPTruncInst);
+define_cast_instruction!(PtrToIntInst => LLVMRustCreatePtrToIntInst);
+define_cast_instruction!(SExtInst => LLVMRustCreateSExtInst);
+define_cast_instruction!(TruncInst => LLVMRustCreateTruncInst);
+define_cast_instruction!(ZExtInst => LLVMRustCreateZExtInst);
