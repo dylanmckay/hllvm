@@ -199,14 +199,20 @@ cpp! {
     }
 
     pub fn LLVMRustCreateZExtInst(value: ValueRef as "llvm::Value*",
-                                     ty: TypeRef as "llvm::Type*")
+                                  ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::ZExtInst(value, ty);
     }
 
     pub fn LLVMRustCreateSExtInst(value: ValueRef as "llvm::Value*",
-                                     ty: TypeRef as "llvm::Type*")
+                                  ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::SExtInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateFPExtInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::FPExtInst(value, ty);
     }
 }
