@@ -273,4 +273,9 @@ cpp! {
         support::cast<llvm::IndirectBrInst>(indirect_br)->addDestination(
             support::cast<llvm::BasicBlock>(block));
     }
+
+    pub fn LLVMRustCreateResumeInst(exception: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::ResumeInst::Create(exception);
+    }
 }
