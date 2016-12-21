@@ -40,7 +40,6 @@ macro_rules! define_unimplemented_inst {
 
 define_unimplemented_inst!(AtomicCmpXchgInst);
 define_unimplemented_inst!(AtomicRMWInst);
-define_unimplemented_inst!(IntrinsicInst);
 define_unimplemented_inst!(FuncletPadInst);
 define_unimplemented_inst!(CatchPadInst);
 define_unimplemented_inst!(CleanupPadInst);
