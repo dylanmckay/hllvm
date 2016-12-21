@@ -47,6 +47,4 @@ macro_rules! define_unimplemented_inst {
 define_unimplemented_inst!(AtomicCmpXchgInst);
 define_unimplemented_inst!(AtomicRMWInst);
 define_unimplemented_inst!(ShuffleVectorInst);
-define_unimplemented_inst!(CatchReturnInst);
 define_unimplemented_inst!(CatchSwitchInst);
-define_unimplemented_inst!(CleanupReturnInst);

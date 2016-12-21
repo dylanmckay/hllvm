@@ -316,4 +316,18 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::LandingPadInst::Create(ret_ty, 0);
     }
+
+    pub fn LLVMRustCreateCatchReturnInst(catch_pad: ValueRef as "llvm::Value*",
+                                         block: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::CatchReturnInst::Create(support::cast<llvm::CatchPadInst>(catch_pad),
+            support::cast<llvm::BasicBlock>(block));
+    }
+
+    pub fn LLVMRustCreateCleanupReturnInst(cleanup_pad: ValueRef as "llvm::Value*",
+                                           unwind_block: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::CleanupReturnInst::Create(support::cast<llvm::CatchPadInst>(cleanup_pad),
+            support::cast<llvm::BasicBlock>(unwind_block));
+    }
 }
