@@ -82,6 +82,46 @@ pub enum ThreadLocalMode
     LocalExec,
 }
 
+/// Float predicate kind.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(C)]
+pub enum FloatPredicateKind
+{
+    False = 0,
+    OrderedAndEqual = 1,
+    OrderedGreaterThan = 2,
+    OrderedGreaterThanOrEqual = 3,
+    OrderedLessThan = 4,
+    OrderedLessThanOrEqual = 5,
+    OrderedUnequal = 6,
+    Ordered = 7,
+    Unordered = 8,
+    UnorderedOrEqual = 9,
+    UnorderedOrGreaterThan = 10,
+    UnorderedOrGreaterThanOrEqual = 11,
+    UnorderedOrLessThan = 12,
+    UnorderedOrLessThanOrEqual = 13,
+    UnorderedOrNotEqual = 14,
+    True = 15,
+}
+
+/// Integer predicate kind.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(C)]
+pub enum IntegerPredicateKind
+{
+    Equal = 32,
+    NotEqual = 33,
+    UnsignedGreaterThan = 34,
+    UnsignedGreaterThanOrEqual = 35,
+    UnsignedLessThan = 36,
+    UnsignedLessThanOrEqual = 37,
+    SignedGreaterThan = 38,
+    SignedGreaterThanOrEqual = 39,
+    SignedLessThan = 40,
+    SignedLessThanOrEqual = 41,
+}
+
 #[cfg(test)]
 mod test
 {

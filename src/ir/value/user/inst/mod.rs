@@ -7,6 +7,7 @@ pub use self::select::SelectInst;
 pub use self::fence::FenceInst;
 pub use self::binop::BinaryOperatorInst;
 pub use self::call::*;
+pub use self::cmp::*;
 pub use self::terminator::*;
 pub use self::unary::*;
 
@@ -19,6 +20,7 @@ pub mod select;
 pub mod fence;
 pub mod binop;
 pub mod call;
+pub mod cmp;
 pub mod terminator;
 pub mod unary;
 
@@ -39,9 +41,6 @@ macro_rules! define_unimplemented_inst {
 define_unimplemented_inst!(AtomicCmpXchgInst);
 define_unimplemented_inst!(AtomicRMWInst);
 define_unimplemented_inst!(IntrinsicInst);
-define_unimplemented_inst!(CmpInst);
-define_unimplemented_inst!(FCmpInst);
-define_unimplemented_inst!(ICmpInst);
 define_unimplemented_inst!(FuncletPadInst);
 define_unimplemented_inst!(CatchPadInst);
 define_unimplemented_inst!(CleanupPadInst);

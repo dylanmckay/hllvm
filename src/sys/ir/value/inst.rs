@@ -1,4 +1,5 @@
-use {ContextRef, ValueRef, TypeRef, AtomicOrdering, SynchronizationScope};
+use {ContextRef, ValueRef, TypeRef, AtomicOrdering, SynchronizationScope,
+     IntegerPredicateKind, FloatPredicateKind};
 use libc;
 
 cpp! {
@@ -217,32 +218,48 @@ cpp! {
     }
 
     pub fn LLVMRustCreateBitCastInst(value: ValueRef as "llvm::Value*",
-                                   ty: TypeRef as "llvm::Type*")
+                                    ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::BitCastInst(value, ty);
     }
 
     pub fn LLVMRustCreateFPToSIInst(value: ValueRef as "llvm::Value*",
-                                   ty: TypeRef as "llvm::Type*")
+                                    ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::FPToSIInst(value, ty);
     }
 
     pub fn LLVMRustCreateFPToUIInst(value: ValueRef as "llvm::Value*",
-                                   ty: TypeRef as "llvm::Type*")
+                                    ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::FPToUIInst(value, ty);
     }
 
     pub fn LLVMRustCreateSIToFPInst(value: ValueRef as "llvm::Value*",
-                                   ty: TypeRef as "llvm::Type*")
+                                    ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::SIToFPInst(value, ty);
     }
 
     pub fn LLVMRustCreateUIToFPInst(value: ValueRef as "llvm::Value*",
-                                   ty: TypeRef as "llvm::Type*")
+                                    ty: TypeRef as "llvm::Type*")
         -> ValueRef as "llvm::Value*" {
         return new llvm::UIToFPInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateICmpInst(predicate_kind: IntegerPredicateKind as "unsigned",
+                                  lhs: ValueRef as "llvm::Value*",
+                                  rhs: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::ICmpInst(nullptr, (llvm::CmpInst::Predicate)predicate_kind,
+            lhs, rhs);
+    }
+
+    pub fn LLVMRustCreateFCmpInst(predicate_kind: FloatPredicateKind as "unsigned",
+                                  lhs: ValueRef as "llvm::Value*",
+                                  rhs: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::FCmpInst(nullptr, (llvm::CmpInst::Predicate)predicate_kind,
+            lhs, rhs);
     }
 }
