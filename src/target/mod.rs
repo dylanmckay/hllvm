@@ -2,17 +2,25 @@
 
 pub use self::registry::Registry;
 pub use self::machine::Machine;
+pub use self::compilation::Compilation;
 
 // Reexports.
 pub use sys::target::FileType;
 
 pub mod registry;
 pub mod machine;
+pub mod compilation;
 
 use SafeWrapper;
 use sys;
 
 use std::{ffi, fmt};
+
+/// A target triple.
+pub struct Triple(pub String);
+
+/// A CPU name.
+pub struct CPU(pub String);
 
 /// An LLVM target.
 pub struct Target(sys::TargetRef);
@@ -80,4 +88,20 @@ impl fmt::Debug for Target
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
         write!(fmt, "Target({} - \"{}\")", self.name(), self.short_description())
     }
+}
+
+impl CPU
+{
+    /// Gets the CPU name of the host CPU.
+    pub fn native() -> Self { CPU("native".to_owned()) }
+}
+
+impl Default for Triple
+{
+    fn default() -> Self { Triple("".to_owned()) }
+}
+
+impl Default for CPU
+{
+    fn default() -> Self { CPU("".to_owned()) }
 }
