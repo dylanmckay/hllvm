@@ -3,7 +3,7 @@ extern crate hllvm;
 use hllvm::{ir, target, support};
 
 fn build_module(context: &ir::Context) -> ir::Module {
-    let module = ir::Module::new("mymodule", context);
+    let mut module = ir::Module::new("mymodule", context);
 
     let int8 = ir::IntegerType::new(8, &context);
     let stru = ir::StructType::new(&[&int8.as_ref()], false, context);
@@ -13,7 +13,7 @@ fn build_module(context: &ir::Context) -> ir::Module {
     {
         let func = module.get_or_insert_function("my_func", &func_ty, &[]);
 
-        let block = ir::Block::new(&context, Some("entry"), Some(&func), None);
+        let mut block = ir::Block::new(&context, Some("entry"), Some(&func), None);
         block.append(ir::ReturnInst::new(None, context).as_ref().as_ref());
     }
 

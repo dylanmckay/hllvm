@@ -10,13 +10,6 @@ pub struct OutputStream(sys::RawPWriteStreamRef);
 /// An output stream backed by a file descriptor.
 pub struct FileOutputStream(OutputStream);
 
-impl OutputStream
-{
-    pub unsafe fn from_ref(inner: sys::RawPWriteStreamRef) -> Self {
-        OutputStream(inner)
-    }
-}
-
 impl FileOutputStream {
     /// Gets an output stream for standard output.
     pub fn stdout(unbuffered: bool) -> Self {
@@ -46,7 +39,7 @@ impl FileOutputStream {
                           should_close: bool,
                           unbuffered: bool) -> Self {
         let inner = sys::LLVMRustCreateRawFdOStream(fd, should_close, unbuffered);
-        FileOutputStream(OutputStream::from_ref(inner))
+        FileOutputStream(OutputStream::from_inner(inner))
     }
 }
 

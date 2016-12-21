@@ -82,7 +82,7 @@ impl Compilation
                       stream: S,
                       file_type: target::FileType)
         where S: AsRef<support::OutputStream> {
-        let pm = pass::Manager::new();
+        let mut pm = pass::Manager::new();
 
         self.machine.add_passes_to_emit_file(&pm, stream.as_ref(), file_type);
         pm.run(module);

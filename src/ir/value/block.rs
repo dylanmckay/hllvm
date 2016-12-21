@@ -10,6 +10,7 @@ pub struct Block<'ctx>(Value<'ctx>);
 
 impl<'ctx> Block<'ctx>
 {
+    /// Creates a new basic block.
     pub fn new(context: &Context,
                name: Option<&str>,
                parent: Option<&Function>,
@@ -25,7 +26,8 @@ impl<'ctx> Block<'ctx>
         }
     }
 
-    pub fn append(&self, inst: &Instruction) {
+    /// Adds an instruction to a basic block.
+    pub fn append(&mut self, inst: &Instruction) {
         unsafe {
             sys::LLVMRustInstructionAppend(inst.upcast_ref().inner(), self.0.inner());
         }

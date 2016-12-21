@@ -27,7 +27,7 @@ impl<'ctx> Module<'ctx>
         }
     }
 
-    pub fn get_or_insert_function(&self,
+    pub fn get_or_insert_function(&mut self,
                                   name: &str,
                                   func_ty: &FunctionType,
                                   attributes: &[Attribute]) -> Function {

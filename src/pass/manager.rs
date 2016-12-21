@@ -16,7 +16,7 @@ impl Manager
     }
 
     /// Run passes on a module.
-    pub fn run<'ctx>(&self, module: ir::Module<'ctx>) -> ir::Module<'ctx> {
+    pub fn run<'ctx>(&mut self, module: ir::Module<'ctx>) -> ir::Module<'ctx> {
         unsafe {
             sys::LLVMRustLegacyPassManagerRun(self.0, module.inner());
         }
