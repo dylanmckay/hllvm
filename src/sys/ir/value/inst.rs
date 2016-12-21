@@ -297,4 +297,18 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::VAArgInst(list, ty);
     }
+
+    pub fn LLVMRustCreateSwitchInst(value: ValueRef as "llvm::Value*",
+                                    default_block: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::SwitchInst::Create(value, support::cast<llvm::BasicBlock>(default_block), 0);
+    }
+
+    pub fn LLVMRustSwitchInstAddCase(switch_inst: ValueRef as "llvm::Value*",
+                                     constant_int: ValueRef as "llvm::Value*",
+                                     dest: ValueRef as "llvm::Value*") {
+        support::cast<llvm::SwitchInst>(switch_inst)->addCase(
+            support::cast<llvm::ConstantInt>(constant_int),
+            support::cast<llvm::BasicBlock>(dest));
+    }
 }
