@@ -50,4 +50,3 @@ define_unimplemented_inst!(CatchReturnInst);
 define_unimplemented_inst!(CatchSwitchInst);
 define_unimplemented_inst!(CleanupReturnInst);
 define_unimplemented_inst!(SwitchInst);
-define_unimplemented_inst!(VAArgInst);

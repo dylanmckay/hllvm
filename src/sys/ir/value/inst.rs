@@ -291,4 +291,10 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return llvm::CleanupPadInst::Create(parent_pad, arguments.ref());
     }
+
+    pub fn LLVMRustCreateVAArgInst(list: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::VAArgInst(list, ty);
+    }
 }
