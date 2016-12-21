@@ -330,4 +330,15 @@ cpp! {
         return llvm::CleanupReturnInst::Create(support::cast<llvm::CatchPadInst>(cleanup_pad),
             support::cast<llvm::BasicBlock>(unwind_block));
     }
+
+    pub fn LLVMRustCreateAtomicCmpXchgInst(pointer: ValueRef as "llvm::Value*",
+                                           cmp: ValueRef as "llvm::Value*",
+                                           new_value: ValueRef as "llvm::Value*",
+                                           success_ordering: AtomicOrdering as "unsigned",
+                                           failure_ordering: AtomicOrdering as "unsigned",
+                                           sync_scope: SynchronizationScope as "unsigned")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::AtomicCmpXchgInst(pointer, cmp, new_value, (llvm::AtomicOrdering)success_ordering,
+            (llvm::AtomicOrdering)failure_ordering, (llvm::SynchronizationScope)sync_scope);
+    }
 }
