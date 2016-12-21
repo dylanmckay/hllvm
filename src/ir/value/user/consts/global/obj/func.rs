@@ -1,5 +1,6 @@
 use SafeWrapper;
-use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject, Linkage, User};
+use ir::{Value, Constant, FunctionType, Module, GlobalValue, GlobalObject, Linkage, User,
+         Block};
 use sys;
 
 use std::ffi;
@@ -21,6 +22,10 @@ impl<'ctx> Function<'ctx>
                             linkage, name.as_ptr(), module.inner());
             Function::from_value(Value::from_inner(inner))
         }
+    }
+
+    pub fn append(&mut self, block: &mut Block) {
+        unsafe { sys::LLVMRustFunctionAddBlock(self.inner(), block.inner()) }
     }
 
     pub unsafe fn from_value(val: Value<'ctx>) -> Self {

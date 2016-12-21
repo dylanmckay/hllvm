@@ -45,14 +45,14 @@ mod test
     #[test]
     fn can_create_unconditional() {
         let context = ir::Context::new();
-        let bb = ir::Block::new(&context, None, None, None);
+        let bb = ir::Block::new(&context);
         ir::BranchInst::unconditional(&bb);
     }
 
     #[test]
     fn can_create_conditional() {
         let context = ir::Context::new();
-        let bb = ir::Block::new(&context, None, None, None);
+        let bb = ir::Block::new(&context);
         let t = ir::ConstantInt::boolean_true(&context);
         ir::BranchInst::conditional(&t, &bb, None);
     }
@@ -60,8 +60,8 @@ mod test
     #[test]
     fn can_create_conditional_else() {
         let context = ir::Context::new();
-        let bbtrue = ir::Block::new(&context, None, None, None);
-        let bbfalse = ir::Block::new(&context, None, None, None);
+        let bbtrue = ir::Block::new(&context);
+        let bbfalse = ir::Block::new(&context);
 
         let t = ir::ConstantInt::boolean_true(&context);
         ir::BranchInst::conditional(&t, &bbtrue, Some(&bbfalse));

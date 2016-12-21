@@ -11,10 +11,12 @@ fn build_module(context: &ir::Context) -> ir::Module {
     let func_ty = ir::FunctionType::new(&stru.as_ref(), &[], false);
 
     {
-        let func = module.get_or_insert_function("my_func", &func_ty, &[]);
+        let mut func = module.get_or_insert_function("my_func", &func_ty, &[]);
 
-        let mut block = ir::Block::new(&context, Some("entry"), Some(&func), None);
+        let mut block = ir::Block::new(&context);
         block.append(ir::ReturnInst::new(None, context).as_ref().as_ref());
+
+        func.append(&mut block);
     }
 
     module

@@ -14,4 +14,10 @@ cpp! {
         return llvm::Function::Create(support::cast<llvm::FunctionType>(ty),
             (llvm::GlobalValue::LinkageTypes)linkage, name, module);
     }
+
+    pub fn LLVMRustFunctionAddBlock(func: ValueRef as "llvm::Value*",
+                                    block: ValueRef as "llvm::Value*") {
+        support::cast<llvm::Function>(func)->getBasicBlockList().addNodeToList(
+            support::cast<llvm::BasicBlock>(block));
+    }
 }
