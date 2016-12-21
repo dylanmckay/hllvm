@@ -37,12 +37,10 @@ cpp! {
 
     // FIXME: add bundle support
     pub fn LLVMRustCreateCallInst(func: ValueRef as "llvm::Value*",
-                                  args: &[ValueRef] as "support::Slice<llvm::Value*>",
-                                  name: *const libc::c_char as "const char*")
+                                  args: &[ValueRef] as "support::Slice<llvm::Value*>")
         -> ValueRef as "llvm::Value*" {
         auto bundles = llvm::None;
-        return llvm::CallInst::Create(
-            support::cast<llvm::Function>(func), args.ref(), bundles, name);
+        return llvm::CallInst::Create(support::cast<llvm::Function>(func), args.ref(), bundles);
     }
 
     pub fn LLVMRustCreateAllocaInst(ty: TypeRef as "llvm::Type*",
