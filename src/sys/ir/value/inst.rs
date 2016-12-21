@@ -364,4 +364,11 @@ cpp! {
         return new llvm::AtomicRMWInst((llvm::AtomicRMWInst::BinOp)op, ptr, value,
             (llvm::AtomicOrdering)ordering, (llvm::SynchronizationScope)sync_scope);
     }
+
+    pub fn LLVMRustCreateShuffleVectorInst(v1: ValueRef as "llvm::Value*",
+                                           v2: ValueRef as "llvm::Value*",
+                                           mask: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::ShuffleVectorInst(v1, v2, mask);
+    }
 }

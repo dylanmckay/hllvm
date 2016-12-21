@@ -33,19 +33,9 @@ pub mod call;
 pub mod cmp;
 pub mod terminator;
 pub mod unary;
+pub mod shufflevec;
 
 use ir::User;
 
 pub struct Instruction<'ctx>(User<'ctx>);
 impl_upcast!(Instruction => User);
-
-macro_rules! define_unimplemented_inst {
-    ($name:ident) => {
-        /// Unimplemented instruction.
-        pub struct $name<'ctx>(Instruction<'ctx>);
-
-        impl_upcast!($name => Instruction);
-    }
-}
-
-define_unimplemented_inst!(ShuffleVectorInst);
