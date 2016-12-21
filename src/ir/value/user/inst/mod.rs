@@ -1,4 +1,5 @@
 pub use self::atomiccmp::AtomicCmpXchgInst;
+pub use self::atomicrmw::AtomicRMWInst;
 pub use self::store::StoreInst;
 pub use self::gep::GetElementPtrInst;
 pub use self::extract_elem::ExtractElementInst;
@@ -16,6 +17,7 @@ pub use self::terminator::*;
 pub use self::unary::*;
 
 pub mod atomiccmp;
+pub mod atomicrmw;
 pub mod store;
 pub mod gep;
 pub mod extract_elem;
@@ -46,5 +48,4 @@ macro_rules! define_unimplemented_inst {
     }
 }
 
-define_unimplemented_inst!(AtomicRMWInst);
 define_unimplemented_inst!(ShuffleVectorInst);

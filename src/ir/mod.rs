@@ -8,7 +8,8 @@ pub use self::value::*;
 
 // Reexports
 pub use sys::{Linkage, SynchronizationScope, AtomicOrdering,
-              ThreadLocalMode, FloatPredicateKind, IntegerPredicateKind};
+              ThreadLocalMode, FloatPredicateKind, IntegerPredicateKind,
+              AtomicBinaryOp};
 pub use sys::ir::opcode::*;
 
 pub mod context;

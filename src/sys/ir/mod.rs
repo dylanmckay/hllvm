@@ -122,6 +122,25 @@ pub enum IntegerPredicateKind
     SignedLessThanOrEqual = 41,
 }
 
+/// Integer predicate kind.
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[repr(C)]
+pub enum AtomicBinaryOp
+{
+    Xchg,
+    Add,
+    Sub,
+    And,
+    Nand,
+    Or,
+    Xor,
+    Max,
+    Min,
+    UMax,
+    UMin,
+}
+
+
 #[cfg(test)]
 mod test
 {

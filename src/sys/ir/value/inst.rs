@@ -1,5 +1,5 @@
 use {ContextRef, ValueRef, TypeRef, AtomicOrdering, SynchronizationScope,
-     IntegerPredicateKind, FloatPredicateKind};
+     IntegerPredicateKind, FloatPredicateKind, AtomicBinaryOp};
 use libc;
 
 cpp! {
@@ -353,5 +353,15 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::AtomicCmpXchgInst(pointer, cmp, new_value, (llvm::AtomicOrdering)success_ordering,
             (llvm::AtomicOrdering)failure_ordering, (llvm::SynchronizationScope)sync_scope);
+    }
+
+    pub fn LLVMRustCreateAtomicRMWInst(op: AtomicBinaryOp as "unsigned",
+                                       ptr: ValueRef as "llvm::Value*",
+                                       value: ValueRef as "llvm::Value*",
+                                       ordering: AtomicOrdering as "unsigned",
+                                       sync_scope: SynchronizationScope as "unsigned")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::AtomicRMWInst((llvm::AtomicRMWInst::BinOp)op, ptr, value,
+            (llvm::AtomicOrdering)ordering, (llvm::SynchronizationScope)sync_scope);
     }
 }
