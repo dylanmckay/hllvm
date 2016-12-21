@@ -262,4 +262,15 @@ cpp! {
         return new llvm::FCmpInst(nullptr, (llvm::CmpInst::Predicate)predicate_kind,
             lhs, rhs);
     }
+
+    pub fn LLVMRustCreateIndirectBrInst(address: ValueRef as "llvm::Value*")
+        -> ValueRef as "llvm::Value*" {
+        return llvm::IndirectBrInst::Create(address, 0);
+    }
+
+    pub fn LLVMRustIndirectBrInstAddDestination(indirect_br: ValueRef as "llvm::Value*",
+                                                block: ValueRef as "llvm::Value*") {
+        support::cast<llvm::IndirectBrInst>(indirect_br)->addDestination(
+            support::cast<llvm::BasicBlock>(block));
+    }
 }
