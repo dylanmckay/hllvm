@@ -215,4 +215,34 @@ cpp! {
         -> ValueRef as "llvm::Value*" {
         return new llvm::FPExtInst(value, ty);
     }
+
+    pub fn LLVMRustCreateBitCastInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::BitCastInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateFPToSIInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::FPToSIInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateFPToUIInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::FPToUIInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateSIToFPInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::SIToFPInst(value, ty);
+    }
+
+    pub fn LLVMRustCreateUIToFPInst(value: ValueRef as "llvm::Value*",
+                                   ty: TypeRef as "llvm::Type*")
+        -> ValueRef as "llvm::Value*" {
+        return new llvm::UIToFPInst(value, ty);
+    }
 }

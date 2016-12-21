@@ -29,10 +29,15 @@ macro_rules! define_cast_instruction {
 }
 
 define_cast_instruction!(AddrSpaceCastInst => LLVMRustCreateAddrSpaceCastInst);
-define_cast_instruction!(IntToPtrInst => LLVMRustCreateIntToPtrInst);
+define_cast_instruction!(BitCastInst => LLVMRustCreateBitCastInst);
 define_cast_instruction!(FPExtInst => LLVMRustCreateFPExtInst);
+define_cast_instruction!(FPToSIInst => LLVMRustCreateFPToSIInst);
+define_cast_instruction!(FPToUIInst => LLVMRustCreateFPToUIInst);
 define_cast_instruction!(FPTruncInst => LLVMRustCreateFPTruncInst);
+define_cast_instruction!(IntToPtrInst => LLVMRustCreateIntToPtrInst);
 define_cast_instruction!(PtrToIntInst => LLVMRustCreatePtrToIntInst);
 define_cast_instruction!(SExtInst => LLVMRustCreateSExtInst);
+define_cast_instruction!(SIToFPInst => LLVMRustCreateSIToFPInst);
 define_cast_instruction!(TruncInst => LLVMRustCreateTruncInst);
+define_cast_instruction!(UIToFPInst => LLVMRustCreateUIToFPInst);
 define_cast_instruction!(ZExtInst => LLVMRustCreateZExtInst);
