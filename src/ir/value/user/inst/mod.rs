@@ -38,4 +38,4 @@ pub mod shufflevec;
 use ir::User;
 
 pub struct Instruction<'ctx>(User<'ctx>);
-impl_upcast!(Instruction => User);
+impl_subtype!(Instruction => User);

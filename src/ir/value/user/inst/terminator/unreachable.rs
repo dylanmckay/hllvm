@@ -16,4 +16,4 @@ impl<'ctx> UnreachableInst<'ctx>
     }
 }
 
-impl_upcast!(UnreachableInst => TerminatorInst);
+impl_subtype!(UnreachableInst => TerminatorInst);

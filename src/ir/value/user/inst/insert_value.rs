@@ -20,4 +20,4 @@ impl<'ctx> InsertValueInst<'ctx>
     }
 }
 
-impl_upcast!(InsertValueInst => Instruction);
+impl_subtype!(InsertValueInst => Instruction);

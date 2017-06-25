@@ -19,4 +19,4 @@ impl<'ctx> CleanupPadInst<'ctx>
     }
 }
 
-impl_upcast!(CleanupPadInst => Instruction);
+impl_subtype!(CleanupPadInst => Instruction);

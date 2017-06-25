@@ -15,4 +15,4 @@ impl<'ctx> VAArgInst<'ctx>
     }
 }
 
-impl_upcast!(VAArgInst => UnaryInst);
+impl_subtype!(VAArgInst => UnaryInst);

@@ -18,4 +18,4 @@ impl<'ctx> ExtractValueInst<'ctx>
     }
 }
 
-impl_upcast!(ExtractValueInst => UnaryInst);
+impl_subtype!(ExtractValueInst => UnaryInst);

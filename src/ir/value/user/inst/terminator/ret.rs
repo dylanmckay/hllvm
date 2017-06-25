@@ -19,4 +19,4 @@ impl<'ctx> ReturnInst<'ctx>
     }
 }
 
-impl_upcast!(ReturnInst => TerminatorInst);
+impl_subtype!(ReturnInst => TerminatorInst);

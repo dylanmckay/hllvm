@@ -18,4 +18,4 @@ impl<'ctx> FenceInst<'ctx>
     }
 }
 
-impl_upcast!(FenceInst => Instruction);
+impl_subtype!(FenceInst => Instruction);

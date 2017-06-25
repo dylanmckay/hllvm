@@ -16,4 +16,4 @@ impl<'ctx> ResumeInst<'ctx>
     }
 }
 
-impl_upcast!(ResumeInst => TerminatorInst);
+impl_subtype!(ResumeInst => TerminatorInst);

@@ -30,7 +30,7 @@ impl<'ctx> AllocaInst<'ctx>
     }
 }
 
-impl_upcast!(AllocaInst => UnaryInst);
+impl_subtype!(AllocaInst => UnaryInst);
 
 #[cfg(test)]
 mod test

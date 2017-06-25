@@ -22,4 +22,4 @@ impl<'ctx> InvokeInst<'ctx>
     }
 }
 
-impl_upcast!(InvokeInst => TerminatorInst);
+impl_subtype!(InvokeInst => TerminatorInst);

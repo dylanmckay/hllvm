@@ -7,4 +7,4 @@ pub mod variable;
 use ir::GlobalValue;
 
 pub struct GlobalObject<'ctx>(GlobalValue<'ctx>);
-impl_upcast!(GlobalObject => GlobalValue);
+impl_subtype!(GlobalObject => GlobalValue);

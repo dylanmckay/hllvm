@@ -17,4 +17,4 @@ impl<'ctx> VectorType<'ctx>
     }
 }
 
-impl_upcast!(VectorType => SequentialType);
+impl_subtype!(VectorType => SequentialType);

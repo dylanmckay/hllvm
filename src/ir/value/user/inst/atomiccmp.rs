@@ -20,4 +20,4 @@ impl<'ctx> AtomicCmpXchgInst<'ctx>
     }
 }
 
-impl_upcast!(AtomicCmpXchgInst => Instruction);
+impl_subtype!(AtomicCmpXchgInst => Instruction);

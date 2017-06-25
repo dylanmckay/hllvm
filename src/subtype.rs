@@ -1,5 +1,5 @@
 /// A trait for things that can be upcasted.
-pub trait Upcast
+pub trait Subtype
 {
     type Parent;
 
@@ -8,10 +8,10 @@ pub trait Upcast
     fn upcast(self) -> Self::Parent;
 }
 
-/// Implements `Upcast` for a type that is owned by an LLVM context.
-macro_rules! impl_upcast {
+/// Implements `Subtype` for a type that is owned by an LLVM context.
+macro_rules! impl_subtype {
     ($ty:ident => $parent:ident) => {
-        impl<'ctx> $crate::upcast::Upcast for $ty<'ctx> {
+        impl<'ctx> $crate::subtype::Subtype for $ty<'ctx> {
             type Parent = $parent<'ctx>;
 
             fn upcast_ref(&self) -> &Self::Parent { &self.0 }

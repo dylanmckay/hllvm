@@ -19,4 +19,4 @@ impl<'ctx> StructType<'ctx>
     }
 }
 
-impl_upcast!(StructType => CompositeType);
+impl_subtype!(StructType => CompositeType);

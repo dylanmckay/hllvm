@@ -16,4 +16,4 @@ impl<'ctx> ExtractElementInst<'ctx>
     }
 }
 
-impl_upcast!(ExtractElementInst => Instruction);
+impl_subtype!(ExtractElementInst => Instruction);

@@ -6,7 +6,7 @@ use std::ffi;
 
 /// A floating point constant.
 pub struct ConstantFP<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantFP => Constant);
+impl_subtype!(ConstantFP => Constant);
 
 impl<'ctx> ConstantFP<'ctx>
 {

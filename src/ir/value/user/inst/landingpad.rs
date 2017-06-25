@@ -16,4 +16,4 @@ impl<'ctx> LandingPadInst<'ctx>
     }
 }
 
-impl_upcast!(LandingPadInst => Instruction);
+impl_subtype!(LandingPadInst => Instruction);

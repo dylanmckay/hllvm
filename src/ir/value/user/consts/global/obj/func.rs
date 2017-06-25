@@ -33,4 +33,4 @@ impl<'ctx> Function<'ctx>
     }
 }
 
-impl_upcast!(Function => GlobalObject);
+impl_subtype!(Function => GlobalObject);

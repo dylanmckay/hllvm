@@ -16,4 +16,4 @@ impl<'ctx> CleanupReturnInst<'ctx>
     }
 }
 
-impl_upcast!(CleanupReturnInst => TerminatorInst);
+impl_subtype!(CleanupReturnInst => TerminatorInst);

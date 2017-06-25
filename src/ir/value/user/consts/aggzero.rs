@@ -4,7 +4,7 @@ use sys;
 
 /// A constant value of zero of any type.
 pub struct ConstantAggregateZero<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantAggregateZero => Constant);
+impl_subtype!(ConstantAggregateZero => Constant);
 
 impl<'ctx> ConstantAggregateZero<'ctx>
 {

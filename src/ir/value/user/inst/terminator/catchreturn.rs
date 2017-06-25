@@ -16,4 +16,4 @@ impl<'ctx> CatchReturnInst<'ctx>
     }
 }
 
-impl_upcast!(CatchReturnInst => TerminatorInst);
+impl_subtype!(CatchReturnInst => TerminatorInst);

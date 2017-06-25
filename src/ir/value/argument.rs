@@ -5,4 +5,4 @@ pub struct Argument<'ctx>(Value<'ctx>);
 
 impl<'ctx> Argument<'ctx> { }
 
-impl_upcast!(Argument => Value);
+impl_subtype!(Argument => Value);

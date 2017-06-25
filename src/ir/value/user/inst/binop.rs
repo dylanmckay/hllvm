@@ -48,4 +48,4 @@ impl<'ctx> BinaryOperatorInst<'ctx>
     }
 }
 
-impl_upcast!(BinaryOperatorInst => Instruction);
+impl_subtype!(BinaryOperatorInst => Instruction);

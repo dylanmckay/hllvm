@@ -19,4 +19,4 @@ impl<'ctx> SelectInst<'ctx>
     }
 }
 
-impl_upcast!(SelectInst => Instruction);
+impl_subtype!(SelectInst => Instruction);

@@ -1,6 +1,6 @@
 use SafeWrapper;
 use ir::{Value, Context, Instruction};
-use Upcast;
+use Subtype;
 use sys;
 
 /// A basic block.
@@ -23,4 +23,4 @@ impl<'ctx> Block<'ctx>
     }
 }
 
-impl_upcast!(Block => Value);
+impl_subtype!(Block => Value);

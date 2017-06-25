@@ -3,7 +3,7 @@ use ir::{Context, Value, Type, Constant, User};
 use sys;
 
 pub struct ConstantInt<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantInt => Constant);
+impl_subtype!(ConstantInt => Constant);
 
 impl<'ctx> ConstantInt<'ctx>
 {
@@ -44,7 +44,7 @@ impl<'ctx> ConstantInt<'ctx>
 mod test {
     use super::*;
     use ir::{Context, IntegerType};
-    use Upcast;
+    use Subtype;
 
     #[test]
     fn can_get_true_and_false() {

@@ -18,4 +18,4 @@ impl<'ctx> InsertElementInst<'ctx>
     }
 }
 
-impl_upcast!(InsertElementInst => Instruction);
+impl_subtype!(InsertElementInst => Instruction);

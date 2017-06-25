@@ -4,7 +4,7 @@ use sys;
 
 /// An undefined value.
 pub struct UndefValue<'ctx>(Constant<'ctx>);
-impl_upcast!(UndefValue => Constant);
+impl_subtype!(UndefValue => Constant);
 
 impl<'ctx> UndefValue<'ctx>
 {

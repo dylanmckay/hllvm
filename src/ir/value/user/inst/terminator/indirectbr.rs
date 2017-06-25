@@ -26,4 +26,4 @@ impl<'ctx> IndirectBrInst<'ctx>
     }
 }
 
-impl_upcast!(IndirectBrInst => TerminatorInst);
+impl_subtype!(IndirectBrInst => TerminatorInst);

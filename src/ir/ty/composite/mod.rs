@@ -10,4 +10,4 @@ use ir::Type;
 
 /// A composite type.
 pub struct CompositeType<'ctx>(Type<'ctx>);
-impl_upcast!(CompositeType => Type);
+impl_subtype!(CompositeType => Type);

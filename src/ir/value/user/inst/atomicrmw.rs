@@ -19,4 +19,4 @@ impl<'ctx> AtomicRMWInst<'ctx>
     }
 }
 
-impl_upcast!(AtomicRMWInst => Instruction);
+impl_subtype!(AtomicRMWInst => Instruction);

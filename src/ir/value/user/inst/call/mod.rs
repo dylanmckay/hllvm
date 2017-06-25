@@ -19,4 +19,4 @@ impl<'ctx> CallInst<'ctx>
     }
 }
 
-impl_upcast!(CallInst => Instruction);
+impl_subtype!(CallInst => Instruction);

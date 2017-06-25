@@ -38,4 +38,4 @@ impl<'ctx> StoreInst<'ctx>
     }
 }
 
-impl_upcast!(StoreInst => Instruction);
+impl_subtype!(StoreInst => Instruction);

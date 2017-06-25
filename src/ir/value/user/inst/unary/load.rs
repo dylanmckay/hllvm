@@ -37,4 +37,4 @@ impl<'ctx> LoadInst<'ctx>
     }
 }
 
-impl_upcast!(LoadInst => UnaryInst);
+impl_subtype!(LoadInst => UnaryInst);

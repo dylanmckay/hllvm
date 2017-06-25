@@ -18,4 +18,4 @@ impl<'ctx> FCmpInst<'ctx>
     }
 }
 
-impl_upcast!(FCmpInst => CmpInst);
+impl_subtype!(FCmpInst => CmpInst);

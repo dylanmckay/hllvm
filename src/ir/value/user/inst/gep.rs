@@ -36,4 +36,4 @@ impl<'ctx> GetElementPtrInst<'ctx>
     }
 }
 
-impl_upcast!(GetElementPtrInst => Instruction);
+impl_subtype!(GetElementPtrInst => Instruction);

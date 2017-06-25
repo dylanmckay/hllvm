@@ -19,4 +19,4 @@ impl<'ctx> CatchPadInst<'ctx>
     }
 }
 
-impl_upcast!(CatchPadInst => Instruction);
+impl_subtype!(CatchPadInst => Instruction);

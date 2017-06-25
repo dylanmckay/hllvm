@@ -36,4 +36,4 @@ impl<'ctx> GlobalVariable<'ctx>
     }
 }
 
-impl_upcast!(GlobalVariable => GlobalObject);
+impl_subtype!(GlobalVariable => GlobalObject);

@@ -23,4 +23,4 @@ pub mod unreachable;
 use ir::Instruction;
 
 pub struct TerminatorInst<'ctx>(Instruction<'ctx>);
-impl_upcast!(TerminatorInst => Instruction);
+impl_subtype!(TerminatorInst => Instruction);

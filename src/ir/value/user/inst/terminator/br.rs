@@ -35,7 +35,7 @@ impl<'ctx> BranchInst<'ctx>
     }
 }
 
-impl_upcast!(BranchInst => TerminatorInst);
+impl_subtype!(BranchInst => TerminatorInst);
 
 #[cfg(test)]
 mod test

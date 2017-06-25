@@ -16,4 +16,4 @@ impl<'ctx> ShuffleVectorInst<'ctx>
     }
 }
 
-impl_upcast!(ShuffleVectorInst => Instruction);
+impl_subtype!(ShuffleVectorInst => Instruction);

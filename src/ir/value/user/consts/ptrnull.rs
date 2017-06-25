@@ -4,7 +4,7 @@ use sys;
 
 /// A constant null pointer.
 pub struct ConstantPointerNull<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantPointerNull => Constant);
+impl_subtype!(ConstantPointerNull => Constant);
 
 impl<'ctx> ConstantPointerNull<'ctx>
 {

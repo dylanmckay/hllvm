@@ -16,4 +16,4 @@ impl<'ctx> ArrayType<'ctx>
     }
 }
 
-impl_upcast!(ArrayType => SequentialType);
+impl_subtype!(ArrayType => SequentialType);

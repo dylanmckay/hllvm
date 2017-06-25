@@ -6,7 +6,7 @@ use sys;
 
 /// The address of a basic block.
 pub struct BlockAddress<'ctx>(Constant<'ctx>);
-impl_upcast!(BlockAddress => Constant);
+impl_subtype!(BlockAddress => Constant);
 
 impl<'ctx> BlockAddress<'ctx>
 {

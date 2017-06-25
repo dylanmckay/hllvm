@@ -12,4 +12,4 @@ use ir::CompositeType;
 
 /// A sequential type.
 pub struct SequentialType<'ctx>(CompositeType<'ctx>);
-impl_upcast!(SequentialType => CompositeType);
+impl_subtype!(SequentialType => CompositeType);

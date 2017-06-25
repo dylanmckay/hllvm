@@ -7,4 +7,4 @@ pub mod icmp;
 use ir::Instruction;
 
 pub struct CmpInst<'ctx>(Instruction<'ctx>);
-impl_upcast!(CmpInst => Instruction);
+impl_subtype!(CmpInst => Instruction);

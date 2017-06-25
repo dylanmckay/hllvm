@@ -1,7 +1,7 @@
 use ir::UnaryInst;
 
 pub struct CastInst<'ctx>(UnaryInst<'ctx>);
-impl_upcast!(CastInst => UnaryInst);
+impl_subtype!(CastInst => UnaryInst);
 
 /// Define a generic cast instruction.
 macro_rules! define_cast_instruction {
@@ -24,7 +24,7 @@ macro_rules! define_cast_instruction {
             }
         }
 
-        impl_upcast!($name => CastInst);
+        impl_subtype!($name => CastInst);
     }
 }
 

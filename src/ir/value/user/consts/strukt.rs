@@ -4,7 +4,7 @@ use sys;
 
 /// A constant structure value.
 pub struct ConstantStruct<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantStruct => Constant);
+impl_subtype!(ConstantStruct => Constant);
 
 impl<'ctx> ConstantStruct<'ctx>
 {

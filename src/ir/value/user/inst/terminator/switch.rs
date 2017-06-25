@@ -28,4 +28,4 @@ impl<'ctx> SwitchInst<'ctx>
     }
 }
 
-impl_upcast!(SwitchInst => TerminatorInst);
+impl_subtype!(SwitchInst => TerminatorInst);

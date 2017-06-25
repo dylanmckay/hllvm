@@ -17,4 +17,4 @@ impl<'ctx> PointerType<'ctx>
     }
 }
 
-impl_upcast!(PointerType => SequentialType);
+impl_subtype!(PointerType => SequentialType);
