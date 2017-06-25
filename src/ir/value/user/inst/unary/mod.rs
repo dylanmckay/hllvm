@@ -15,4 +15,4 @@ pub mod cast;
 use ir::Instruction;
 
 pub struct UnaryInst<'ctx>(Instruction<'ctx>);
-impl_upcast!(UnaryInst => Instruction);
+impl_subtype!(UnaryInst => Instruction);

@@ -13,9 +13,9 @@ impl<'ctx> InsertElementInst<'ctx>
                index: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateInsertElementInst(vector.inner(), new_element.inner(), index.inner());
-            InsertElementInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => InsertElementInst)
         }
     }
 }
 
-impl_upcast!(InsertElementInst => Instruction);
+impl_subtype!(InsertElementInst => Instruction);

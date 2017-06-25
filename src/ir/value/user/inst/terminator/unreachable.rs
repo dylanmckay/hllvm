@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{User, Context, Instruction, Value, TerminatorInst};
+use ir::{User, Context, Instruction, TerminatorInst};
 use sys;
 
 /// An instruction which cannot be reached.
@@ -11,9 +11,9 @@ impl<'ctx> UnreachableInst<'ctx>
     pub fn new(context: &Context) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateUnreachableInst(context.inner());
-            UnreachableInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => UnreachableInst)
         }
     }
 }
 
-impl_upcast!(UnreachableInst => TerminatorInst);
+impl_subtype!(UnreachableInst => TerminatorInst);

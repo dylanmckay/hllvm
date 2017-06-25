@@ -3,7 +3,7 @@ use ir::{Constant, Value, User};
 use sys;
 
 pub struct ConstantVector<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantVector => Constant);
+impl_subtype!(ConstantVector => Constant);
 
 impl<'ctx> ConstantVector<'ctx>
 {
@@ -12,7 +12,7 @@ impl<'ctx> ConstantVector<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustConstantVectorGet(&values);
-            ConstantVector(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => ConstantVector)
         }
     }
 }

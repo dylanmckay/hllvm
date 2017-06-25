@@ -32,9 +32,9 @@ impl<'ctx> LoadInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateLoadInst(ptr.inner(),
                 is_volatile, align as _, ordering, sync_scope);
-            LoadInst(UnaryInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => UnaryInst => LoadInst)
         }
     }
 }
 
-impl_upcast!(LoadInst => UnaryInst);
+impl_subtype!(LoadInst => UnaryInst);

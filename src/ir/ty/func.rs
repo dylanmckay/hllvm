@@ -20,4 +20,4 @@ impl<'ctx> FunctionType<'ctx>
     }
 }
 
-impl_upcast!(FunctionType => Type);
+impl_subtype!(FunctionType => Type);

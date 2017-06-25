@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{User, Instruction, Value, TerminatorInst, CatchPadInst, Block};
+use ir::{User, Instruction, TerminatorInst, CatchPadInst, Block};
 use sys;
 
 pub struct CatchReturnInst<'ctx>(TerminatorInst<'ctx>);
@@ -11,9 +11,9 @@ impl<'ctx> CatchReturnInst<'ctx>
                block: &Block) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateCatchReturnInst(catch_pad.inner(), block.inner());
-            CatchReturnInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => CatchReturnInst)
         }
     }
 }
 
-impl_upcast!(CatchReturnInst => TerminatorInst);
+impl_subtype!(CatchReturnInst => TerminatorInst);

@@ -14,9 +14,9 @@ impl<'ctx> CallInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateCallInst(func.inner(), &args);
-            CallInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => CallInst)
         }
     }
 }
 
-impl_upcast!(CallInst => Instruction);
+impl_subtype!(CallInst => Instruction);

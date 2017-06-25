@@ -1,10 +1,10 @@
 //! LLVM bindings for Rust
 
-pub use self::upcast::Upcast;
+pub use self::subtype::Subtype;
 pub use self::safe_wrapper::SafeWrapper;
 
 #[macro_use]
-pub mod upcast;
+pub mod subtype;
 pub mod ir;
 pub mod target;
 pub mod pass;

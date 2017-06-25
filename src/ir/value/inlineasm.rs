@@ -5,4 +5,4 @@ pub struct InlineAsm<'ctx>(Value<'ctx>);
 
 impl<'ctx> InlineAsm<'ctx> { }
 
-impl_upcast!(InlineAsm => Value);
+impl_subtype!(InlineAsm => Value);

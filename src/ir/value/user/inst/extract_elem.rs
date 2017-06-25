@@ -11,9 +11,9 @@ impl<'ctx> ExtractElementInst<'ctx>
     pub fn new(vector: &Value, index: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateExtractElementInst(vector.inner(), index.inner());
-            ExtractElementInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => ExtractElementInst)
         }
     }
 }
 
-impl_upcast!(ExtractElementInst => Instruction);
+impl_subtype!(ExtractElementInst => Instruction);

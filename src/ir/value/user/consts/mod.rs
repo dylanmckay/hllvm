@@ -23,4 +23,4 @@ pub mod global;
 use ir::User;
 
 pub struct Constant<'ctx>(User<'ctx>);
-impl_upcast!(Constant => User);
+impl_subtype!(Constant => User);

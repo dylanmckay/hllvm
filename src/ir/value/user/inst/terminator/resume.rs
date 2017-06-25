@@ -11,9 +11,9 @@ impl<'ctx> ResumeInst<'ctx>
     pub fn new(exception: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateResumeInst(exception.inner());
-            ResumeInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => ResumeInst)
         }
     }
 }
 
-impl_upcast!(ResumeInst => TerminatorInst);
+impl_subtype!(ResumeInst => TerminatorInst);

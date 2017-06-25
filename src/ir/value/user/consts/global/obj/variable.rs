@@ -31,9 +31,10 @@ impl<'ctx> GlobalVariable<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateGlobalVariable(ty.inner(), is_constant,
                 linkage, initializer, tls_mode, address_space as _, is_externally_initialized);
-            GlobalVariable(GlobalObject(GlobalValue(Constant(User(Value::from_inner(inner))))))
+
+            wrap_value!(inner => User => Constant => GlobalValue => GlobalObject => GlobalVariable)
         }
     }
 }
 
-impl_upcast!(GlobalVariable => GlobalObject);
+impl_subtype!(GlobalVariable => GlobalObject);

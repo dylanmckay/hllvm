@@ -18,4 +18,4 @@ impl<'ctx> IntegerType<'ctx>
     }
 }
 
-impl_upcast!(IntegerType => Type);
+impl_subtype!(IntegerType => Type);

@@ -12,6 +12,8 @@ pub use sys::{Linkage, SynchronizationScope, AtomicOrdering,
               AtomicBinaryOp};
 pub use sys::ir::opcode::*;
 
+#[macro_use]
+pub mod macros;
 pub mod context;
 pub mod module;
 pub mod ty;

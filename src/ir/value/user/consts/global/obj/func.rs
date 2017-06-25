@@ -29,8 +29,8 @@ impl<'ctx> Function<'ctx>
     }
 
     pub unsafe fn from_value(val: Value<'ctx>) -> Self {
-        Function(GlobalObject(GlobalValue(Constant(User(val)))))
+        wrap_subtype!(val => User => Constant => GlobalValue => GlobalObject => Function)
     }
 }
 
-impl_upcast!(Function => GlobalObject);
+impl_subtype!(Function => GlobalObject);

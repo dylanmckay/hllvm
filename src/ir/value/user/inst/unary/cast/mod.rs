@@ -1,7 +1,7 @@
 use ir::UnaryInst;
 
 pub struct CastInst<'ctx>(UnaryInst<'ctx>);
-impl_upcast!(CastInst => UnaryInst);
+impl_subtype!(CastInst => UnaryInst);
 
 /// Define a generic cast instruction.
 macro_rules! define_cast_instruction {
@@ -14,17 +14,16 @@ macro_rules! define_cast_instruction {
             pub fn new(value: &$crate::ir::Value,
                        ty: &$crate::ir::Type) -> Self {
                 use $crate::SafeWrapper;
+                use $crate::ir::{User, Instruction, UnaryInst, CastInst};
 
                 unsafe {
                     let inner = $crate::sys::$ctor(value.inner(), ty.inner());
-                    $name($crate::ir::CastInst(
-                        $crate::ir::UnaryInst($crate::ir::Instruction(
-                                $crate::ir::User($crate::ir::Value::from_inner(inner))))))
+                    wrap_value!(inner => User => Instruction => UnaryInst => CastInst => $name)
                 }
             }
         }
 
-        impl_upcast!($name => CastInst);
+        impl_subtype!($name => CastInst);
     }
 }
 

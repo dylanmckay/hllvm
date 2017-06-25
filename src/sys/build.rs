@@ -13,7 +13,7 @@ fn find_llvm_include_dir() -> String { llvm_config(&["--includedir"]) }
 fn find_llvm_lib_dir() -> String { llvm_config(&["--libdir"]) }
 
 fn llvm_link_libraries() -> Vec<String> {
-    llvm_config(&["--libs"]).split_whitespace()
+    llvm_config(&["--link-static", "--libs"]).split_whitespace()
         .map(|l| l.trim_left_matches("-l").to_owned()) // Remove the '-l' linker arg
         .collect()
 }

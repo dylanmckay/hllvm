@@ -1,6 +1,5 @@
-use SafeWrapper;
+use {SafeWrapper, Subtype};
 use ir::{Context, FunctionType, Attribute, Value, Function, GlobalVariable};
-use Upcast;
 
 use sys;
 use std::marker;

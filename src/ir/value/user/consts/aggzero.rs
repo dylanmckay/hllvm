@@ -1,10 +1,10 @@
 use SafeWrapper;
-use ir::{Constant, Value, Type, User};
+use ir::{Constant, Type, User};
 use sys;
 
 /// A constant value of zero of any type.
 pub struct ConstantAggregateZero<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantAggregateZero => Constant);
+impl_subtype!(ConstantAggregateZero => Constant);
 
 impl<'ctx> ConstantAggregateZero<'ctx>
 {
@@ -12,7 +12,7 @@ impl<'ctx> ConstantAggregateZero<'ctx>
     pub fn new(ty: &Type) -> Self {
         unsafe {
             let inner = sys::LLVMRustConstantAggregateZeroGet(ty.inner());
-            ConstantAggregateZero(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => ConstantAggregateZero)
         }
     }
 }

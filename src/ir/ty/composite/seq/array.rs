@@ -11,9 +11,9 @@ impl<'ctx> ArrayType<'ctx>
     pub fn new(element_type: &Type, num_elements: u64) -> Self {
         unsafe {
             let inner = sys::LLVMRustArrayTypeGet(element_type.inner(), num_elements);
-            ArrayType(SequentialType(CompositeType(Type::from_inner(inner))))
+            wrap_type!(inner => CompositeType => SequentialType => ArrayType)
         }
     }
 }
 
-impl_upcast!(ArrayType => SequentialType);
+impl_subtype!(ArrayType => SequentialType);

@@ -15,9 +15,9 @@ impl<'ctx> InsertValueInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateInsertValueInst(aggregate.inner(), new_value.inner(), &indices);
-            InsertValueInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => InsertValueInst)
         }
     }
 }
 
-impl_upcast!(InsertValueInst => Instruction);
+impl_subtype!(InsertValueInst => Instruction);

@@ -1,12 +1,12 @@
 use SafeWrapper;
-use ir::{Constant, Type, Value, User};
+use ir::{Constant, Type, User};
 use sys;
 
 use std::ffi;
 
 /// A floating point constant.
 pub struct ConstantFP<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantFP => Constant);
+impl_subtype!(ConstantFP => Constant);
 
 impl<'ctx> ConstantFP<'ctx>
 {
@@ -17,7 +17,7 @@ impl<'ctx> ConstantFP<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustConstantFPGetString(ty.inner(), value.as_ptr());
-            ConstantFP(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => ConstantFP)
         }
     }
 
@@ -25,7 +25,7 @@ impl<'ctx> ConstantFP<'ctx>
     pub fn new(ty: &Type, value: f64) -> Self {
         unsafe {
             let inner = sys::LLVMRustConstantFPGetDouble(ty.inner(), value);
-            ConstantFP(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => ConstantFP)
         }
     }
 }

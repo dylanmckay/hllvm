@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{User, Instruction, Value, Type};
+use ir::{User, Instruction, Type};
 use sys;
 
 /// A landing pad.
@@ -11,9 +11,9 @@ impl<'ctx> LandingPadInst<'ctx>
     pub fn new(ret_ty: &Type) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateLandingPadInst(ret_ty.inner());
-            LandingPadInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => LandingPadInst)
         }
     }
 }
 
-impl_upcast!(LandingPadInst => Instruction);
+impl_subtype!(LandingPadInst => Instruction);

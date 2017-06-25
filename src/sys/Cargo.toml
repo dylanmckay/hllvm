@@ -18,6 +18,7 @@ path = "lib.rs"
 [dependencies]
 libc = "0.2"
 ncurses = "5.84" # Required to link LLVM
+libffi-sys = "0.5.2" # Required to link LLVM
 cpp = { version = "0.1.0", features = ["macro"] }
 
 [build-dependencies]

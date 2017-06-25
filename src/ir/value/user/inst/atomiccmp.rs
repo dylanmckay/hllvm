@@ -15,9 +15,9 @@ impl<'ctx> AtomicCmpXchgInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateAtomicCmpXchgInst(pointer.inner(), cmp.inner(),
                 new_value.inner(), success_ordering, failure_ordering, sync_scope);
-            AtomicCmpXchgInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => AtomicCmpXchgInst)
         }
     }
 }
 
-impl_upcast!(AtomicCmpXchgInst => Instruction);
+impl_subtype!(AtomicCmpXchgInst => Instruction);

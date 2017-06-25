@@ -12,9 +12,9 @@ impl<'ctx> PointerType<'ctx>
                address_space: u32) -> Self {
         unsafe {
             let inner = sys::LLVMRustPointerTypeGet(element_ty.inner(), address_space as _);
-            PointerType(SequentialType(CompositeType(Type::from_inner(inner))))
+            wrap_type!(inner => CompositeType => SequentialType => PointerType)
         }
     }
 }
 
-impl_upcast!(PointerType => SequentialType);
+impl_subtype!(PointerType => SequentialType);

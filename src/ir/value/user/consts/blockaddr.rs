@@ -1,12 +1,12 @@
 //! Basic block address.
 
 use SafeWrapper;
-use ir::{Constant, Value, Block, User};
+use ir::{Constant, Block, User};
 use sys;
 
 /// The address of a basic block.
 pub struct BlockAddress<'ctx>(Constant<'ctx>);
-impl_upcast!(BlockAddress => Constant);
+impl_subtype!(BlockAddress => Constant);
 
 impl<'ctx> BlockAddress<'ctx>
 {
@@ -14,7 +14,7 @@ impl<'ctx> BlockAddress<'ctx>
     pub fn new(block: &Block) -> Self {
         unsafe {
             let inner = sys::LLVMRustBlockAddressGet(block.inner());
-            BlockAddress(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => BlockAddress)
         }
     }
 }

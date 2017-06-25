@@ -1,10 +1,10 @@
 use SafeWrapper;
-use ir::{Value, Constant, StructType, User};
+use ir::{Constant, StructType, User};
 use sys;
 
 /// A constant structure value.
 pub struct ConstantStruct<'ctx>(Constant<'ctx>);
-impl_upcast!(ConstantStruct => Constant);
+impl_subtype!(ConstantStruct => Constant);
 
 impl<'ctx> ConstantStruct<'ctx>
 {
@@ -15,7 +15,7 @@ impl<'ctx> ConstantStruct<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustConstantStructGet(ty.inner(), &elements);
-            ConstantStruct(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => ConstantStruct)
         }
     }
 }
