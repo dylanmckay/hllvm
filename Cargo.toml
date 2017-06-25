@@ -5,11 +5,11 @@ authors = ["Dylan McKay <dylanmckay34@gmail.com>"]
 
 description = "Idiomatic bindings to the LLVM compiler suite"
 license = "MIT"
-documentation = "https://docs.rs/hllvm"
+documentation = "http://dylanmckay.io/hllvm/hllvm"
 repository = "https://github.com/dylanmckay/hllvm"
 readme = "README.md"
 
-keywords = ["llvm", "compiler"]
+keywords = ["llvm", "compiler", "machinecode", "assembly"]
 
 [workspace]
 
