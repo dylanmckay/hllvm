@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["GetElementPtrInst","An instruction which can read elements from a pointer."]]});

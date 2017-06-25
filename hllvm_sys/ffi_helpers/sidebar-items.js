@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CppBox","A boxed value, allocated from C++. We own the value and free it ourselves."],["CppString","An owned C string. NOT a `std::string`."]]});

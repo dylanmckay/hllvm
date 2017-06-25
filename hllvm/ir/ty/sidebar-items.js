@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["composite","Composite types."],["func","The `Function` type."],["integer","Integer type."]],"struct":[["Type","An LLVM type."]]});

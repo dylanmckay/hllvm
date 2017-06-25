@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["seq","Sequential types."],["strukt",""]],"struct":[["CompositeType","A composite type."]]});

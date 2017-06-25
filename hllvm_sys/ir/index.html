@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `ir` mod in crate `hllvm_sys`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, ir">
+
+    <title>hllvm_sys::ir - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Module ir</p><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#enums">Enums</a></li></ul></div><p class='location'><a href='../index.html'>hllvm_sys</a></p><script>window.sidebarCurrent = {name: 'ir', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>hllvm_sys</a>::<wbr><a class="mod" href=''>ir</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/hllvm_sys/ir/mod.rs.html#1-161' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/opcode/index.html" title="mod hllvm_sys::ir::opcode">opcode</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/ty/index.html" title="mod hllvm_sys::ir::ty">ty</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/value/index.html" title="mod hllvm_sys::ir::value">value</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/context/index.html" title="mod hllvm_sys::ir::context">context</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/module/index.html" title="mod hllvm_sys::ir::module">module</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/attributes/index.html" title="mod hllvm_sys::ir::attributes">attributes</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/block/index.html" title="mod hllvm_sys::ir::block">block</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/function/index.html" title="mod hllvm_sys::ir::function">function</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../hllvm_sys/ir/passes/index.html" title="mod hllvm_sys::ir::passes">passes</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="attributes/index.html"
+                                  title='mod hllvm_sys::ir::attributes'>attributes</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="block/index.html"
+                                  title='mod hllvm_sys::ir::block'>block</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="context/index.html"
+                                  title='mod hllvm_sys::ir::context'>context</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="function/index.html"
+                                  title='mod hllvm_sys::ir::function'>function</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="module/index.html"
+                                  title='mod hllvm_sys::ir::module'>module</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="opcode/index.html"
+                                  title='mod hllvm_sys::ir::opcode'>opcode</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="passes/index.html"
+                                  title='mod hllvm_sys::ir::passes'>passes</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="ty/index.html"
+                                  title='mod hllvm_sys::ir::ty'>ty</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="value/index.html"
+                                  title='mod hllvm_sys::ir::value'>value</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.AtomicBinaryOp.html"
+                                  title='enum hllvm_sys::ir::AtomicBinaryOp'>AtomicBinaryOp</a></td>
+                           <td class='docblock-short'>
+                                <p>Integer predicate kind.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.AtomicOrdering.html"
+                                  title='enum hllvm_sys::ir::AtomicOrdering'>AtomicOrdering</a></td>
+                           <td class='docblock-short'>
+                                <p>Atomic ordering.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.FloatPredicateKind.html"
+                                  title='enum hllvm_sys::ir::FloatPredicateKind'>FloatPredicateKind</a></td>
+                           <td class='docblock-short'>
+                                <p>Float predicate kind.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.IntegerPredicateKind.html"
+                                  title='enum hllvm_sys::ir::IntegerPredicateKind'>IntegerPredicateKind</a></td>
+                           <td class='docblock-short'>
+                                <p>Integer predicate kind.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.Linkage.html"
+                                  title='enum hllvm_sys::ir::Linkage'>Linkage</a></td>
+                           <td class='docblock-short'>
+                                <p>An enumeration for the kinds of linkage for global values.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.SynchronizationScope.html"
+                                  title='enum hllvm_sys::ir::SynchronizationScope'>SynchronizationScope</a></td>
+                           <td class='docblock-short'>
+                                <p>Synchronization scope.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ThreadLocalMode.html"
+                                  title='enum hllvm_sys::ir::ThreadLocalMode'>ThreadLocalMode</a></td>
+                           <td class='docblock-short'>
+                                <p>Thread local mode.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "hllvm_sys";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

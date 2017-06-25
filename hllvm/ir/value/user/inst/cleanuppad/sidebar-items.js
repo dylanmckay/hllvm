@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CleanupPadInst","A cleanup pad."]]});

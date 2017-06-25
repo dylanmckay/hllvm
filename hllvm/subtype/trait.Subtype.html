@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Subtype` trait in crate `hllvm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Subtype">
+
+    <title>hllvm::subtype::Subtype - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc trait">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Trait Subtype</p><div class="block items"><ul><li><a href="#associated-types">Associated Types</a></li><li><a href="#required-methods">Required Methods</a></li><li><a href="#implementors">Implementors</a></li></ul></div><p class='location'><a href='../index.html'>hllvm</a>::<wbr><a href='index.html'>subtype</a></p><script>window.sidebarCurrent = {name: 'Subtype', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>hllvm</a>::<wbr><a href='index.html'>subtype</a>::<wbr><a class="trait" href=''>Subtype</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../src/hllvm/subtype.rs.html#4-15' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Subtype {
+    type <a href='#associatedtype.Parent' class="type">Parent</a>;
+    unsafe fn <a href='#tymethod.from_parent' class='fnname'>from_parent</a>(parent: Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a>) -&gt; Self;
+    fn <a href='#tymethod.upcast_ref' class='fnname'>upcast_ref</a>(&amp;self) -&gt; &amp;Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a>;
+    fn <a href='#tymethod.upcast_mut' class='fnname'>upcast_mut</a>(&amp;mut self) -&gt; &amp;mut Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a>;
+    fn <a href='#tymethod.upcast' class='fnname'>upcast</a>(self) -&gt; Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a>;
+}</pre><div class='docblock'><p>A trait for things that can be upcasted.</p>
+</div>
+            <h2 id='associated-types'>Associated Types</h2>
+            <div class='methods'>
+        <h3 id='associatedtype.Parent' class='method'><span id='Parent.t' class='invisible'><code>type <a href='#associatedtype.Parent' class="type">Parent</a></code></span></h3><div class='docblock'><p>The parent of the type.</p>
+</div></div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.from_parent' class='method'><span id='from_parent.v' class='invisible'><code>unsafe fn <a href='#tymethod.from_parent' class='fnname'>from_parent</a>(parent: Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a>) -&gt; Self</code></span></h3><div class='docblock'><p>Creates a value of this type given the parent type.</p>
+</div><h3 id='tymethod.upcast_ref' class='method'><span id='upcast_ref.v' class='invisible'><code>fn <a href='#tymethod.upcast_ref' class='fnname'>upcast_ref</a>(&amp;self) -&gt; &amp;Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a></code></span></h3><h3 id='tymethod.upcast_mut' class='method'><span id='upcast_mut.v' class='invisible'><code>fn <a href='#tymethod.upcast_mut' class='fnname'>upcast_mut</a>(&amp;mut self) -&gt; &amp;mut Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a></code></span></h3><h3 id='tymethod.upcast' class='method'><span id='upcast.v' class='invisible'><code>fn <a href='#tymethod.upcast' class='fnname'>upcast</a>(self) -&gt; Self::<a class="type" href="../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a></code></span></h3></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/func/struct.FunctionType.html" title="struct hllvm::ir::ty::func::FunctionType">FunctionType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/integer/struct.IntegerType.html" title="struct hllvm::ir::ty::integer::IntegerType">IntegerType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/composite/strukt/struct.StructType.html" title="struct hllvm::ir::ty::composite::strukt::StructType">StructType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/composite/seq/array/struct.ArrayType.html" title="struct hllvm::ir::ty::composite::seq::array::ArrayType">ArrayType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/composite/seq/pointer/struct.PointerType.html" title="struct hllvm::ir::ty::composite::seq::pointer::PointerType">PointerType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/composite/seq/vector/struct.VectorType.html" title="struct hllvm::ir::ty::composite::seq::vector::VectorType">VectorType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/composite/seq/struct.SequentialType.html" title="struct hllvm::ir::ty::composite::seq::SequentialType">SequentialType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/ty/composite/struct.CompositeType.html" title="struct hllvm::ir::ty::composite::CompositeType">CompositeType</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/block/struct.Block.html" title="struct hllvm::ir::value::block::Block">Block</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/argument/struct.Argument.html" title="struct hllvm::ir::value::argument::Argument">Argument</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/inlineasm/struct.InlineAsm.html" title="struct hllvm::ir::value::inlineasm::InlineAsm">InlineAsm</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/atomiccmp/struct.AtomicCmpXchgInst.html" title="struct hllvm::ir::value::user::inst::atomiccmp::AtomicCmpXchgInst">AtomicCmpXchgInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/atomicrmw/struct.AtomicRMWInst.html" title="struct hllvm::ir::value::user::inst::atomicrmw::AtomicRMWInst">AtomicRMWInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/store/struct.StoreInst.html" title="struct hllvm::ir::value::user::inst::store::StoreInst">StoreInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/gep/struct.GetElementPtrInst.html" title="struct hllvm::ir::value::user::inst::gep::GetElementPtrInst">GetElementPtrInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/extract_elem/struct.ExtractElementInst.html" title="struct hllvm::ir::value::user::inst::extract_elem::ExtractElementInst">ExtractElementInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/insert_elem/struct.InsertElementInst.html" title="struct hllvm::ir::value::user::inst::insert_elem::InsertElementInst">InsertElementInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/insert_value/struct.InsertValueInst.html" title="struct hllvm::ir::value::user::inst::insert_value::InsertValueInst">InsertValueInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/select/struct.SelectInst.html" title="struct hllvm::ir::value::user::inst::select::SelectInst">SelectInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/fence/struct.FenceInst.html" title="struct hllvm::ir::value::user::inst::fence::FenceInst">FenceInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/landingpad/struct.LandingPadInst.html" title="struct hllvm::ir::value::user::inst::landingpad::LandingPadInst">LandingPadInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/binop/struct.BinaryOperatorInst.html" title="struct hllvm::ir::value::user::inst::binop::BinaryOperatorInst">BinaryOperatorInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/catchpad/struct.CatchPadInst.html" title="struct hllvm::ir::value::user::inst::catchpad::CatchPadInst">CatchPadInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/cleanuppad/struct.CleanupPadInst.html" title="struct hllvm::ir::value::user::inst::cleanuppad::CleanupPadInst">CleanupPadInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/call/struct.CallInst.html" title="struct hllvm::ir::value::user::inst::call::CallInst">CallInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/cmp/fcmp/struct.FCmpInst.html" title="struct hllvm::ir::value::user::inst::cmp::fcmp::FCmpInst">FCmpInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/cmp/icmp/struct.ICmpInst.html" title="struct hllvm::ir::value::user::inst::cmp::icmp::ICmpInst">ICmpInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/cmp/struct.CmpInst.html" title="struct hllvm::ir::value::user::inst::cmp::CmpInst">CmpInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/br/struct.BranchInst.html" title="struct hllvm::ir::value::user::inst::terminator::br::BranchInst">BranchInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/catchreturn/struct.CatchReturnInst.html" title="struct hllvm::ir::value::user::inst::terminator::catchreturn::CatchReturnInst">CatchReturnInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/catchswitch/struct.CatchSwitchInst.html" title="struct hllvm::ir::value::user::inst::terminator::catchswitch::CatchSwitchInst">CatchSwitchInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/cleanupreturn/struct.CleanupReturnInst.html" title="struct hllvm::ir::value::user::inst::terminator::cleanupreturn::CleanupReturnInst">CleanupReturnInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/indirectbr/struct.IndirectBrInst.html" title="struct hllvm::ir::value::user::inst::terminator::indirectbr::IndirectBrInst">IndirectBrInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/invoke/struct.InvokeInst.html" title="struct hllvm::ir::value::user::inst::terminator::invoke::InvokeInst">InvokeInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/resume/struct.ResumeInst.html" title="struct hllvm::ir::value::user::inst::terminator::resume::ResumeInst">ResumeInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/ret/struct.ReturnInst.html" title="struct hllvm::ir::value::user::inst::terminator::ret::ReturnInst">ReturnInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/switch/struct.SwitchInst.html" title="struct hllvm::ir::value::user::inst::terminator::switch::SwitchInst">SwitchInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/unreachable/struct.UnreachableInst.html" title="struct hllvm::ir::value::user::inst::terminator::unreachable::UnreachableInst">UnreachableInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/terminator/struct.TerminatorInst.html" title="struct hllvm::ir::value::user::inst::terminator::TerminatorInst">TerminatorInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/alloca/struct.AllocaInst.html" title="struct hllvm::ir::value::user::inst::unary::alloca::AllocaInst">AllocaInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/load/struct.LoadInst.html" title="struct hllvm::ir::value::user::inst::unary::load::LoadInst">LoadInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/extract_value/struct.ExtractValueInst.html" title="struct hllvm::ir::value::user::inst::unary::extract_value::ExtractValueInst">ExtractValueInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/vaarg/struct.VAArgInst.html" title="struct hllvm::ir::value::user::inst::unary::vaarg::VAArgInst">VAArgInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.CastInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::CastInst">CastInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.AddrSpaceCastInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::AddrSpaceCastInst">AddrSpaceCastInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.BitCastInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::BitCastInst">BitCastInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.FPExtInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::FPExtInst">FPExtInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.FPToSIInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::FPToSIInst">FPToSIInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.FPToUIInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::FPToUIInst">FPToUIInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.FPTruncInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::FPTruncInst">FPTruncInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.IntToPtrInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::IntToPtrInst">IntToPtrInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.PtrToIntInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::PtrToIntInst">PtrToIntInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.SExtInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::SExtInst">SExtInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.SIToFPInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::SIToFPInst">SIToFPInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.TruncInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::TruncInst">TruncInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.UIToFPInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::UIToFPInst">UIToFPInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/cast/struct.ZExtInst.html" title="struct hllvm::ir::value::user::inst::unary::cast::ZExtInst">ZExtInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/unary/struct.UnaryInst.html" title="struct hllvm::ir::value::user::inst::unary::UnaryInst">UnaryInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/shufflevec/struct.ShuffleVectorInst.html" title="struct hllvm::ir::value::user::inst::shufflevec::ShuffleVectorInst">ShuffleVectorInst</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/inst/struct.Instruction.html" title="struct hllvm::ir::value::user::inst::Instruction">Instruction</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/int/struct.ConstantInt.html" title="struct hllvm::ir::value::user::consts::int::ConstantInt">ConstantInt</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/fp/struct.ConstantFP.html" title="struct hllvm::ir::value::user::consts::fp::ConstantFP">ConstantFP</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/blockaddr/struct.BlockAddress.html" title="struct hllvm::ir::value::user::consts::blockaddr::BlockAddress">BlockAddress</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/aggzero/struct.ConstantAggregateZero.html" title="struct hllvm::ir::value::user::consts::aggzero::ConstantAggregateZero">ConstantAggregateZero</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/array/struct.ConstantArray.html" title="struct hllvm::ir::value::user::consts::array::ConstantArray">ConstantArray</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/vector/struct.ConstantVector.html" title="struct hllvm::ir::value::user::consts::vector::ConstantVector">ConstantVector</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/ptrnull/struct.ConstantPointerNull.html" title="struct hllvm::ir::value::user::consts::ptrnull::ConstantPointerNull">ConstantPointerNull</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/strukt/struct.ConstantStruct.html" title="struct hllvm::ir::value::user::consts::strukt::ConstantStruct">ConstantStruct</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/undef/struct.UndefValue.html" title="struct hllvm::ir::value::user::consts::undef::UndefValue">UndefValue</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/global/obj/func/struct.Function.html" title="struct hllvm::ir::value::user::consts::global::obj::func::Function">Function</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/global/obj/variable/struct.GlobalVariable.html" title="struct hllvm::ir::value::user::consts::global::obj::variable::GlobalVariable">GlobalVariable</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/global/obj/struct.GlobalObject.html" title="struct hllvm::ir::value::user::consts::global::obj::GlobalObject">GlobalObject</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/global/struct.GlobalValue.html" title="struct hllvm::ir::value::user::consts::global::GlobalValue">GlobalValue</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/consts/struct.Constant.html" title="struct hllvm::ir::value::user::consts::Constant">Constant</a>&lt;'ctx&gt;</code></li>
+<li><code>impl&lt;'ctx&gt; Subtype for <a class="struct" href="../../hllvm/ir/value/user/struct.User.html" title="struct hllvm::ir::value::user::User">User</a>&lt;'ctx&gt;</code></li>
+</ul><script type="text/javascript" async
+                         src="../../implementors/hllvm/subtype/trait.Subtype.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "hllvm";
+    </script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

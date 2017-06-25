@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["ir","The LLVM intermediate representation."],["pass","The pass infrastructure."],["safe_wrapper","Trait for types which wrap unsafe LLVM internals."],["subtype","Support code for the `Deref`-based C++ inheritance tree support."],["support","Supporting code."],["target","The backend target code."]]});

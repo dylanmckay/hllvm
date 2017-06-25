@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["SwitchInst","An switch instruction."]]});

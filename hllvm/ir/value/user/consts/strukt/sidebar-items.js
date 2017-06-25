@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ConstantStruct","A constant structure value."]]});

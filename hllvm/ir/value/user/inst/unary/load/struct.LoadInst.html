@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `LoadInst` struct in crate `hllvm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, LoadInst">
+
+    <title>hllvm::ir::value::user::inst::unary::load::LoadInst - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc struct">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Struct LoadInst</p><div class="block items"><ul><li><a href="#methods">Methods</a></li><li><a href="#deref-methods">Methods from Deref&lt;Target=UnaryInst<'a>&gt;</a></li><li><a href="#implementations">Trait Implementations</a></li></ul></div><p class='location'><a href='../../../../../../index.html'>hllvm</a>::<wbr><a href='../../../../../index.html'>ir</a>::<wbr><a href='../../../../index.html'>value</a>::<wbr><a href='../../../index.html'>user</a>::<wbr><a href='../../index.html'>inst</a>::<wbr><a href='../index.html'>unary</a>::<wbr><a href='index.html'>load</a></p><script>window.sidebarCurrent = {name: 'LoadInst', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../../../../../../index.html'>hllvm</a>::<wbr><a href='../../../../../index.html'>ir</a>::<wbr><a href='../../../../index.html'>value</a>::<wbr><a href='../../../index.html'>user</a>::<wbr><a href='../../index.html'>inst</a>::<wbr><a href='../index.html'>unary</a>::<wbr><a href='index.html'>load</a>::<wbr><a class="struct" href=''>LoadInst</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../../../../../src/hllvm/ir/value/user/inst/unary/load.rs.html#10' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct LoadInst&lt;'ctx&gt;(_);</pre><div class='docblock'><p>A instruction which loads a value from a pointer.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'ctx&gt; <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/load/struct.LoadInst.html" title="struct hllvm::ir::value::user::inst::unary::load::LoadInst">LoadInst</a>&lt;'ctx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../../../../src/hllvm/ir/value/user/inst/unary/load.rs.html#12-38' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.new' class="method"><span id='new.v' class='invisible'><code>fn <a href='#method.new' class='fnname'>new</a>(ptr: &amp;<a class="struct" href="../../../../../../../hllvm/ir/value/struct.Value.html" title="struct hllvm::ir::value::Value">Value</a>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Creates a new load instruction.</p>
+</div><h4 id='method.new_volatile' class="method"><span id='new_volatile.v' class='invisible'><code>fn <a href='#method.new_volatile' class='fnname'>new_volatile</a>(ptr: &amp;<a class="struct" href="../../../../../../../hllvm/ir/value/struct.Value.html" title="struct hllvm::ir::value::Value">Value</a>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Creates a new volatile load instruction.</p>
+</div><h4 id='method.new_generic' class="method"><span id='new_generic.v' class='invisible'><code>fn <a href='#method.new_generic' class='fnname'>new_generic</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;ptr: &amp;<a class="struct" href="../../../../../../../hllvm/ir/value/struct.Value.html" title="struct hllvm::ir::value::Value">Value</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;is_volatile: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;align: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;ordering: <a class="enum" href="../../../../../../../hllvm/ir/enum.AtomicOrdering.html" title="enum hllvm::ir::AtomicOrdering">AtomicOrdering</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;sync_scope: <a class="enum" href="../../../../../../../hllvm/ir/enum.SynchronizationScope.html" title="enum hllvm::ir::SynchronizationScope">SynchronizationScope</a><br>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Create a new load instruction.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl&lt;'ctx&gt; <a class="trait" href="../../../../../../../hllvm/subtype/trait.Subtype.html" title="trait hllvm::subtype::Subtype">Subtype</a> for <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/load/struct.LoadInst.html" title="struct hllvm::ir::value::user::inst::unary::load::LoadInst">LoadInst</a>&lt;'ctx&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../../../../src/hllvm/subtype.rs.html#20-30' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Parent' class="type"><span id='Parent.t' class='invisible'><code>type <a href='../../../../../../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent' class="type">Parent</a> = <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/struct.UnaryInst.html" title="struct hllvm::ir::value::user::inst::unary::UnaryInst">UnaryInst</a>&lt;'ctx&gt;</code></span></h4>
+<div class='docblock'><p>The parent of the type.</p>
+</div><h4 id='method.from_parent' class="method"><span id='from_parent.v' class='invisible'><code>unsafe fn <a href='../../../../../../../hllvm/subtype/trait.Subtype.html#tymethod.from_parent' class='fnname'>from_parent</a>(parent: Self::<a class="type" href="../../../../../../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a>) -&gt; Self</code></span></h4>
+<div class='docblock'><p>Creates a value of this type given the parent type.</p>
+</div><h4 id='method.upcast_ref' class="method"><span id='upcast_ref.v' class='invisible'><code>fn <a href='../../../../../../../hllvm/subtype/trait.Subtype.html#tymethod.upcast_ref' class='fnname'>upcast_ref</a>(&amp;self) -&gt; &amp;Self::<a class="type" href="../../../../../../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a></code></span></h4>
+<h4 id='method.upcast_mut' class="method"><span id='upcast_mut.v' class='invisible'><code>fn <a href='../../../../../../../hllvm/subtype/trait.Subtype.html#tymethod.upcast_mut' class='fnname'>upcast_mut</a>(&amp;mut self) -&gt; &amp;mut Self::<a class="type" href="../../../../../../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a></code></span></h4>
+<h4 id='method.upcast' class="method"><span id='upcast.v' class='invisible'><code>fn <a href='../../../../../../../hllvm/subtype/trait.Subtype.html#tymethod.upcast' class='fnname'>upcast</a>(self) -&gt; Self::<a class="type" href="../../../../../../../hllvm/subtype/trait.Subtype.html#associatedtype.Parent" title="type hllvm::subtype::Subtype::Parent">Parent</a></code></span></h4>
+</div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html" title="trait core::convert::AsRef">AsRef</a>&lt;<a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/struct.UnaryInst.html" title="struct hllvm::ir::value::user::inst::unary::UnaryInst">UnaryInst</a>&lt;'a&gt;&gt; for <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/load/struct.LoadInst.html" title="struct hllvm::ir::value::user::inst::unary::load::LoadInst">LoadInst</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../../../../src/hllvm/subtype.rs.html#32-35' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.as_ref' class="method"><span id='as_ref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref' class='fnname'>as_ref</a>(&amp;self) -&gt; &amp;<a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/struct.UnaryInst.html" title="struct hllvm::ir::value::user::inst::unary::UnaryInst">UnaryInst</a>&lt;'a&gt;</code></span></h4>
+<div class='docblock'><p>Performs the conversion.</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a> for <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/load/struct.LoadInst.html" title="struct hllvm::ir::value::user::inst::unary::load::LoadInst">LoadInst</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../../../../src/hllvm/subtype.rs.html#37-41' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='associatedtype.Target' class="type"><span id='Target.t' class='invisible'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target' class="type">Target</a> = <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/struct.UnaryInst.html" title="struct hllvm::ir::value::user::inst::unary::UnaryInst">UnaryInst</a>&lt;'a&gt;</code></span></h4>
+<div class='docblock'><p>The resulting type after dereferencing</p>
+</div><h4 id='method.deref' class="method"><span id='deref.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#tymethod.deref' class='fnname'>deref</a>(&amp;self) -&gt; &amp;Self::<a class="type" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target" title="type core::ops::deref::Deref::Target">Target</a></code></span></h4>
+<div class='docblock'><p>The method called to dereference a value</p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl&lt;'a&gt; <a class="trait" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html" title="trait core::ops::deref::DerefMut">DerefMut</a> for <a class="struct" href="../../../../../../../hllvm/ir/value/user/inst/unary/load/struct.LoadInst.html" title="struct hllvm::ir::value::user::inst::unary::load::LoadInst">LoadInst</a>&lt;'a&gt;</code></span><span class='out-of-band'><div class='ghost'></div><a class='srclink' href='../../../../../../../src/hllvm/subtype.rs.html#43-45' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.deref_mut' class="method"><span id='deref_mut.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html#tymethod.deref_mut' class='fnname'>deref_mut</a>(&amp;mut self) -&gt; &amp;mut Self::<a class="type" href="https://doc.rust-lang.org/nightly/core/ops/deref/trait.Deref.html#associatedtype.Target" title="type core::ops::deref::Deref::Target">Target</a></code></span></h4>
+<div class='docblock'><p>The method called to mutably dereference a value</p>
+</div></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../../../../";
+        window.currentCrate = "hllvm";
+    </script>
+    <script src="../../../../../../../main.js"></script>
+    <script defer src="../../../../../../../search-index.js"></script>
+</body>
+</html>

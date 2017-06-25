@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ResumeInst","Resume the propogation of an exception."]]});

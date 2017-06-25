@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["StructType","A type representing a structure."]]});

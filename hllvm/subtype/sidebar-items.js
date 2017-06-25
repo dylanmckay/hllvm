@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["Subtype","A trait for things that can be upcasted."]]});

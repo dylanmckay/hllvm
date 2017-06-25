@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ConstantPointerNull","A constant null pointer."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["InlineAsm","A piece of inline assembly."]]});

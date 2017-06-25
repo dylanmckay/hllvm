@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["SafeWrapper","A type which wraps an underlying LLVM FFI type."]]});

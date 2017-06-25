@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FenceInst","An atomic fence instruction."]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Attribute","An LLVM attribute. `'ctx` - the lifetime of the context."]]});

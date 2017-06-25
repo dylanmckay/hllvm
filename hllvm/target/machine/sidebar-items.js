@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Machine","An LLVM target machine."]]});

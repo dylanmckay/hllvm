@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FunctionType","A type representing a function."]]});

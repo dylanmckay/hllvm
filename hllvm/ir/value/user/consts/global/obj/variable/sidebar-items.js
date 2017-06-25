@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["GlobalVariable","A global variable."]]});

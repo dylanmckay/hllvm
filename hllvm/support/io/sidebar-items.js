@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["FileOutputStream","An output stream backed by a file descriptor."],["OutputStream","An abstract output stream."]]});

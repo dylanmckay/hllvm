@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CatchPadInst","A catch pad."]]});

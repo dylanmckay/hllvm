@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["CallInst","A instruction which calls a fuction."]]});

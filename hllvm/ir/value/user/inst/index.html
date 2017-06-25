@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `inst` mod in crate `hllvm`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, inst">
+
+    <title>hllvm::ir::value::user::inst - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../../../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Module inst</p><div class="block items"><ul><li><a href="#reexports">Reexports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li></ul></div><p class='location'><a href='../../../../index.html'>hllvm</a>::<wbr><a href='../../../index.html'>ir</a>::<wbr><a href='../../index.html'>value</a>::<wbr><a href='../index.html'>user</a></p><script>window.sidebarCurrent = {name: 'inst', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../../../index.html'>hllvm</a>::<wbr><a href='../../../index.html'>ir</a>::<wbr><a href='../../index.html'>value</a>::<wbr><a href='../index.html'>user</a>::<wbr><a class="mod" href=''>inst</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../../../../../src/hllvm/ir/value/user/inst/mod.rs.html#1-41' title='goto source code'>[src]</a></span></h1>
+<h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use self::<a class="mod" href="./atomiccmp/index.html">atomiccmp</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/atomiccmp/struct.AtomicCmpXchgInst.html" title="struct hllvm::ir::value::user::inst::atomiccmp::AtomicCmpXchgInst">AtomicCmpXchgInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./atomicrmw/index.html">atomicrmw</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/atomicrmw/struct.AtomicRMWInst.html" title="struct hllvm::ir::value::user::inst::atomicrmw::AtomicRMWInst">AtomicRMWInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./store/index.html">store</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/store/struct.StoreInst.html" title="struct hllvm::ir::value::user::inst::store::StoreInst">StoreInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./gep/index.html">gep</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/gep/struct.GetElementPtrInst.html" title="struct hllvm::ir::value::user::inst::gep::GetElementPtrInst">GetElementPtrInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./extract_elem/index.html">extract_elem</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/extract_elem/struct.ExtractElementInst.html" title="struct hllvm::ir::value::user::inst::extract_elem::ExtractElementInst">ExtractElementInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./insert_elem/index.html">insert_elem</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/insert_elem/struct.InsertElementInst.html" title="struct hllvm::ir::value::user::inst::insert_elem::InsertElementInst">InsertElementInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./insert_value/index.html">insert_value</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/insert_value/struct.InsertValueInst.html" title="struct hllvm::ir::value::user::inst::insert_value::InsertValueInst">InsertValueInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./select/index.html">select</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/select/struct.SelectInst.html" title="struct hllvm::ir::value::user::inst::select::SelectInst">SelectInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./fence/index.html">fence</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/fence/struct.FenceInst.html" title="struct hllvm::ir::value::user::inst::fence::FenceInst">FenceInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./landingpad/index.html">landingpad</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/landingpad/struct.LandingPadInst.html" title="struct hllvm::ir::value::user::inst::landingpad::LandingPadInst">LandingPadInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./binop/index.html">binop</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/binop/struct.BinaryOperatorInst.html" title="struct hllvm::ir::value::user::inst::binop::BinaryOperatorInst">BinaryOperatorInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./catchpad/index.html">catchpad</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/catchpad/struct.CatchPadInst.html" title="struct hllvm::ir::value::user::inst::catchpad::CatchPadInst">CatchPadInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="./cleanuppad/index.html">cleanuppad</a>::<a class="struct" href="../../../../../hllvm/ir/value/user/inst/cleanuppad/struct.CleanupPadInst.html" title="struct hllvm::ir::value::user::inst::cleanuppad::CleanupPadInst">CleanupPadInst</a>;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../../../../hllvm/ir/value/user/inst/call/index.html" title="mod hllvm::ir::value::user::inst::call">call</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../../../../hllvm/ir/value/user/inst/cmp/index.html" title="mod hllvm::ir::value::user::inst::cmp">cmp</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../../../../hllvm/ir/value/user/inst/terminator/index.html" title="mod hllvm::ir::value::user::inst::terminator">terminator</a>::*;</code></td></tr><tr><td><code>pub use self::<a class="mod" href="../../../../../hllvm/ir/value/user/inst/unary/index.html" title="mod hllvm::ir::value::user::inst::unary">unary</a>::*;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="atomiccmp/index.html"
+                                  title='mod hllvm::ir::value::user::inst::atomiccmp'>atomiccmp</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="atomicrmw/index.html"
+                                  title='mod hllvm::ir::value::user::inst::atomicrmw'>atomicrmw</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="binop/index.html"
+                                  title='mod hllvm::ir::value::user::inst::binop'>binop</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="call/index.html"
+                                  title='mod hllvm::ir::value::user::inst::call'>call</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="catchpad/index.html"
+                                  title='mod hllvm::ir::value::user::inst::catchpad'>catchpad</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="cleanuppad/index.html"
+                                  title='mod hllvm::ir::value::user::inst::cleanuppad'>cleanuppad</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="cmp/index.html"
+                                  title='mod hllvm::ir::value::user::inst::cmp'>cmp</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="extract_elem/index.html"
+                                  title='mod hllvm::ir::value::user::inst::extract_elem'>extract_elem</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="fence/index.html"
+                                  title='mod hllvm::ir::value::user::inst::fence'>fence</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="gep/index.html"
+                                  title='mod hllvm::ir::value::user::inst::gep'>gep</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="insert_elem/index.html"
+                                  title='mod hllvm::ir::value::user::inst::insert_elem'>insert_elem</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="insert_value/index.html"
+                                  title='mod hllvm::ir::value::user::inst::insert_value'>insert_value</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="landingpad/index.html"
+                                  title='mod hllvm::ir::value::user::inst::landingpad'>landingpad</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="select/index.html"
+                                  title='mod hllvm::ir::value::user::inst::select'>select</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="shufflevec/index.html"
+                                  title='mod hllvm::ir::value::user::inst::shufflevec'>shufflevec</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="store/index.html"
+                                  title='mod hllvm::ir::value::user::inst::store'>store</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="terminator/index.html"
+                                  title='mod hllvm::ir::value::user::inst::terminator'>terminator</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="mod" href="unary/index.html"
+                                  title='mod hllvm::ir::value::user::inst::unary'>unary</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.Instruction.html"
+                                  title='struct hllvm::ir::value::user::inst::Instruction'>Instruction</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../../../";
+        window.currentCrate = "hllvm";
+    </script>
+    <script src="../../../../../main.js"></script>
+    <script defer src="../../../../../search-index.js"></script>
+</body>
+</html>

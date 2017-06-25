@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["VectorType","A vector type."]]});

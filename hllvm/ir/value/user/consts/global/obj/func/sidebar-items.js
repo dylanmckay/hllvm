@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Function","A function."]]});

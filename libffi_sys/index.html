@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `libffi_sys` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, libffi_sys">
+
+    <title>libffi_sys - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../normalize.css">
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc mod">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'>Crate libffi_sys</p><div class="block items"><ul><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#constants">Constants</a></li><li><a href="#statics">Statics</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'libffi_sys', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content">
+<h1 class='fqn'><span class='in-band'>Crate <a class="mod" href=''>libffi_sys</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a class='srclink' href='../src/libffi_sys/lib.rs.html#1-37' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Low-level Rust bindings for <a href="https://sourceware.org/libffi/">libffi</a></p>
+
+<p>The C libffi library provides two main facilities: assembling calls
+to functions dynamically, and creating closures that can be called
+as ordinary C functions. This is an undocumented wrapper, generated
+by bindgen, intended as the basis for higher-level bindings, but you
+can see the <a href="http://www.atmark-techno.com/%7Eyashi/libffi.html">C libffi
+documentation</a>.</p>
+
+<p>See <a href="https://crates.io/crates/libffi/">the libffi crate</a> for a
+higher-level API.</p>
+
+<h1 id='usage' class='section-header'><a href='#usage'>Usage</a></h1>
+<p>Make sure you have a working make, C compiler, automake, and autoconf
+first. It’s <a href="https://crates.io/crates/libffi-sys">on crates.io</a>, so you
+can add</p>
+
+<pre><code class="language-toml">[dependencies]
+libffi-sys = &quot;0.5.2&quot;
+</code></pre>
+
+<p>to your <code>Cargo.toml</code> and</p>
+
+<pre class="rust rust-example-rendered">
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libffi_sys</span>;</pre>
+
+<p>to your crate root.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.__BindgenUnionField.html"
+                                  title='struct libffi_sys::__BindgenUnionField'>__BindgenUnionField</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct._ffi_type.html"
+                                  title='struct libffi_sys::_ffi_type'>_ffi_type</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ffi_cif.html"
+                                  title='struct libffi_sys::ffi_cif'>ffi_cif</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ffi_closure.html"
+                                  title='struct libffi_sys::ffi_closure'>ffi_closure</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ffi_java_raw_closure.html"
+                                  title='struct libffi_sys::ffi_java_raw_closure'>ffi_java_raw_closure</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ffi_raw.html"
+                                  title='struct libffi_sys::ffi_raw'>ffi_raw</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="struct" href="struct.ffi_raw_closure.html"
+                                  title='struct libffi_sys::ffi_raw_closure'>ffi_raw_closure</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ffi_abi.html"
+                                  title='enum libffi_sys::ffi_abi'>ffi_abi</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ffi_status.html"
+                                  title='enum libffi_sys::ffi_status'>ffi_status</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="enum" href="enum.ffi_type_enum.html"
+                                  title='enum libffi_sys::ffi_type_enum'>ffi_type_enum</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='constants' class='section-header'><a href="#constants">Constants</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ARG_MAX.html"
+                                  title='constant libffi_sys::ARG_MAX'>ARG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.BC_BASE_MAX.html"
+                                  title='constant libffi_sys::BC_BASE_MAX'>BC_BASE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.BC_DIM_MAX.html"
+                                  title='constant libffi_sys::BC_DIM_MAX'>BC_DIM_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.BC_SCALE_MAX.html"
+                                  title='constant libffi_sys::BC_SCALE_MAX'>BC_SCALE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.BC_STRING_MAX.html"
+                                  title='constant libffi_sys::BC_STRING_MAX'>BC_STRING_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.CHARCLASS_NAME_MAX.html"
+                                  title='constant libffi_sys::CHARCLASS_NAME_MAX'>CHARCLASS_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.CHAR_BIT.html"
+                                  title='constant libffi_sys::CHAR_BIT'>CHAR_BIT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.CHAR_MAX.html"
+                                  title='constant libffi_sys::CHAR_MAX'>CHAR_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.CHAR_MIN.html"
+                                  title='constant libffi_sys::CHAR_MIN'>CHAR_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.CHILD_MAX.html"
+                                  title='constant libffi_sys::CHILD_MAX'>CHILD_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.CLK_TCK.html"
+                                  title='constant libffi_sys::CLK_TCK'>CLK_TCK</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.COLL_WEIGHTS_MAX.html"
+                                  title='constant libffi_sys::COLL_WEIGHTS_MAX'>COLL_WEIGHTS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.EQUIV_CLASS_MAX.html"
+                                  title='constant libffi_sys::EQUIV_CLASS_MAX'>EQUIV_CLASS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.EXPR_NEST_MAX.html"
+                                  title='constant libffi_sys::EXPR_NEST_MAX'>EXPR_NEST_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_64_BIT_MAX.html"
+                                  title='constant libffi_sys::FFI_64_BIT_MAX'>FFI_64_BIT_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_CLOSURES.html"
+                                  title='constant libffi_sys::FFI_CLOSURES'>FFI_CLOSURES</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_NATIVE_RAW_API.html"
+                                  title='constant libffi_sys::FFI_NATIVE_RAW_API'>FFI_NATIVE_RAW_API</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_SIZEOF_ARG.html"
+                                  title='constant libffi_sys::FFI_SIZEOF_ARG'>FFI_SIZEOF_ARG</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_SIZEOF_JAVA_RAW.html"
+                                  title='constant libffi_sys::FFI_SIZEOF_JAVA_RAW'>FFI_SIZEOF_JAVA_RAW</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TRAMPOLINE_SIZE.html"
+                                  title='constant libffi_sys::FFI_TRAMPOLINE_SIZE'>FFI_TRAMPOLINE_SIZE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_COMPLEX.html"
+                                  title='constant libffi_sys::FFI_TYPE_COMPLEX'>FFI_TYPE_COMPLEX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_DOUBLE.html"
+                                  title='constant libffi_sys::FFI_TYPE_DOUBLE'>FFI_TYPE_DOUBLE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_FLOAT.html"
+                                  title='constant libffi_sys::FFI_TYPE_FLOAT'>FFI_TYPE_FLOAT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_INT.html"
+                                  title='constant libffi_sys::FFI_TYPE_INT'>FFI_TYPE_INT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_LAST.html"
+                                  title='constant libffi_sys::FFI_TYPE_LAST'>FFI_TYPE_LAST</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_LONGDOUBLE.html"
+                                  title='constant libffi_sys::FFI_TYPE_LONGDOUBLE'>FFI_TYPE_LONGDOUBLE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_POINTER.html"
+                                  title='constant libffi_sys::FFI_TYPE_POINTER'>FFI_TYPE_POINTER</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_SINT8.html"
+                                  title='constant libffi_sys::FFI_TYPE_SINT8'>FFI_TYPE_SINT8</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_SINT16.html"
+                                  title='constant libffi_sys::FFI_TYPE_SINT16'>FFI_TYPE_SINT16</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_SINT32.html"
+                                  title='constant libffi_sys::FFI_TYPE_SINT32'>FFI_TYPE_SINT32</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_SINT64.html"
+                                  title='constant libffi_sys::FFI_TYPE_SINT64'>FFI_TYPE_SINT64</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_STRUCT.html"
+                                  title='constant libffi_sys::FFI_TYPE_STRUCT'>FFI_TYPE_STRUCT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_UINT8.html"
+                                  title='constant libffi_sys::FFI_TYPE_UINT8'>FFI_TYPE_UINT8</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_UINT16.html"
+                                  title='constant libffi_sys::FFI_TYPE_UINT16'>FFI_TYPE_UINT16</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_UINT32.html"
+                                  title='constant libffi_sys::FFI_TYPE_UINT32'>FFI_TYPE_UINT32</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_UINT64.html"
+                                  title='constant libffi_sys::FFI_TYPE_UINT64'>FFI_TYPE_UINT64</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.FFI_TYPE_VOID.html"
+                                  title='constant libffi_sys::FFI_TYPE_VOID'>FFI_TYPE_VOID</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.GID_MAX.html"
+                                  title='constant libffi_sys::GID_MAX'>GID_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.INT_MAX.html"
+                                  title='constant libffi_sys::INT_MAX'>INT_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.INT_MIN.html"
+                                  title='constant libffi_sys::INT_MIN'>INT_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.IOV_MAX.html"
+                                  title='constant libffi_sys::IOV_MAX'>IOV_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LINE_MAX.html"
+                                  title='constant libffi_sys::LINE_MAX'>LINE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LINK_MAX.html"
+                                  title='constant libffi_sys::LINK_MAX'>LINK_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LLONG_MAX.html"
+                                  title='constant libffi_sys::LLONG_MAX'>LLONG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LLONG_MIN.html"
+                                  title='constant libffi_sys::LLONG_MIN'>LLONG_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LONG_BIT.html"
+                                  title='constant libffi_sys::LONG_BIT'>LONG_BIT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LONG_MAX.html"
+                                  title='constant libffi_sys::LONG_MAX'>LONG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.LONG_MIN.html"
+                                  title='constant libffi_sys::LONG_MIN'>LONG_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.MAX_CANON.html"
+                                  title='constant libffi_sys::MAX_CANON'>MAX_CANON</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.MAX_INPUT.html"
+                                  title='constant libffi_sys::MAX_INPUT'>MAX_INPUT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.MB_LEN_MAX.html"
+                                  title='constant libffi_sys::MB_LEN_MAX'>MB_LEN_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NAME_MAX.html"
+                                  title='constant libffi_sys::NAME_MAX'>NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NGROUPS_MAX.html"
+                                  title='constant libffi_sys::NGROUPS_MAX'>NGROUPS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NL_ARGMAX.html"
+                                  title='constant libffi_sys::NL_ARGMAX'>NL_ARGMAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NL_LANGMAX.html"
+                                  title='constant libffi_sys::NL_LANGMAX'>NL_LANGMAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NL_MSGMAX.html"
+                                  title='constant libffi_sys::NL_MSGMAX'>NL_MSGMAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NL_NMAX.html"
+                                  title='constant libffi_sys::NL_NMAX'>NL_NMAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NL_SETMAX.html"
+                                  title='constant libffi_sys::NL_SETMAX'>NL_SETMAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NL_TEXTMAX.html"
+                                  title='constant libffi_sys::NL_TEXTMAX'>NL_TEXTMAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.NZERO.html"
+                                  title='constant libffi_sys::NZERO'>NZERO</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.OFF_MAX.html"
+                                  title='constant libffi_sys::OFF_MAX'>OFF_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.OFF_MIN.html"
+                                  title='constant libffi_sys::OFF_MIN'>OFF_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.OPEN_MAX.html"
+                                  title='constant libffi_sys::OPEN_MAX'>OPEN_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PASS_MAX.html"
+                                  title='constant libffi_sys::PASS_MAX'>PASS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PATH_MAX.html"
+                                  title='constant libffi_sys::PATH_MAX'>PATH_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PIPE_BUF.html"
+                                  title='constant libffi_sys::PIPE_BUF'>PIPE_BUF</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PTHREAD_DESTRUCTOR_ITERATIONS.html"
+                                  title='constant libffi_sys::PTHREAD_DESTRUCTOR_ITERATIONS'>PTHREAD_DESTRUCTOR_ITERATIONS</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PTHREAD_KEYS_MAX.html"
+                                  title='constant libffi_sys::PTHREAD_KEYS_MAX'>PTHREAD_KEYS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.PTHREAD_STACK_MIN.html"
+                                  title='constant libffi_sys::PTHREAD_STACK_MIN'>PTHREAD_STACK_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.QUAD_MAX.html"
+                                  title='constant libffi_sys::QUAD_MAX'>QUAD_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.QUAD_MIN.html"
+                                  title='constant libffi_sys::QUAD_MIN'>QUAD_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.RE_DUP_MAX.html"
+                                  title='constant libffi_sys::RE_DUP_MAX'>RE_DUP_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.SCHAR_MAX.html"
+                                  title='constant libffi_sys::SCHAR_MAX'>SCHAR_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.SCHAR_MIN.html"
+                                  title='constant libffi_sys::SCHAR_MIN'>SCHAR_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.SHRT_MAX.html"
+                                  title='constant libffi_sys::SHRT_MAX'>SHRT_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.SHRT_MIN.html"
+                                  title='constant libffi_sys::SHRT_MIN'>SHRT_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.SIZE_T_MAX.html"
+                                  title='constant libffi_sys::SIZE_T_MAX'>SIZE_T_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.SSIZE_MAX.html"
+                                  title='constant libffi_sys::SSIZE_MAX'>SSIZE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.UCHAR_MAX.html"
+                                  title='constant libffi_sys::UCHAR_MAX'>UCHAR_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.UID_MAX.html"
+                                  title='constant libffi_sys::UID_MAX'>UID_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.UINT_MAX.html"
+                                  title='constant libffi_sys::UINT_MAX'>UINT_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ULLONG_MAX.html"
+                                  title='constant libffi_sys::ULLONG_MAX'>ULLONG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ULONG_MAX.html"
+                                  title='constant libffi_sys::ULONG_MAX'>ULONG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.UQUAD_MAX.html"
+                                  title='constant libffi_sys::UQUAD_MAX'>UQUAD_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.USHRT_MAX.html"
+                                  title='constant libffi_sys::USHRT_MAX'>USHRT_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.WORD_BIT.html"
+                                  title='constant libffi_sys::WORD_BIT'>WORD_BIT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._DARWIN_FEATURE_64_BIT_INODE.html"
+                                  title='constant libffi_sys::_DARWIN_FEATURE_64_BIT_INODE'>_DARWIN_FEATURE_64_BIT_INODE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE.html"
+                                  title='constant libffi_sys::_DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE'>_DARWIN_FEATURE_ONLY_UNIX_CONFORMANCE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._DARWIN_FEATURE_UNIX_CONFORMANCE.html"
+                                  title='constant libffi_sys::_DARWIN_FEATURE_UNIX_CONFORMANCE'>_DARWIN_FEATURE_UNIX_CONFORMANCE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_BC_BASE_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_BC_BASE_MAX'>_POSIX2_BC_BASE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_BC_DIM_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_BC_DIM_MAX'>_POSIX2_BC_DIM_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_BC_SCALE_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_BC_SCALE_MAX'>_POSIX2_BC_SCALE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_BC_STRING_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_BC_STRING_MAX'>_POSIX2_BC_STRING_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_CHARCLASS_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_CHARCLASS_NAME_MAX'>_POSIX2_CHARCLASS_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_COLL_WEIGHTS_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_COLL_WEIGHTS_MAX'>_POSIX2_COLL_WEIGHTS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_EQUIV_CLASS_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_EQUIV_CLASS_MAX'>_POSIX2_EQUIV_CLASS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_EXPR_NEST_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_EXPR_NEST_MAX'>_POSIX2_EXPR_NEST_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_LINE_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_LINE_MAX'>_POSIX2_LINE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX2_RE_DUP_MAX.html"
+                                  title='constant libffi_sys::_POSIX2_RE_DUP_MAX'>_POSIX2_RE_DUP_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_AIO_LISTIO_MAX.html"
+                                  title='constant libffi_sys::_POSIX_AIO_LISTIO_MAX'>_POSIX_AIO_LISTIO_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_AIO_MAX.html"
+                                  title='constant libffi_sys::_POSIX_AIO_MAX'>_POSIX_AIO_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_ARG_MAX.html"
+                                  title='constant libffi_sys::_POSIX_ARG_MAX'>_POSIX_ARG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_CHILD_MAX.html"
+                                  title='constant libffi_sys::_POSIX_CHILD_MAX'>_POSIX_CHILD_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_CLOCKRES_MIN.html"
+                                  title='constant libffi_sys::_POSIX_CLOCKRES_MIN'>_POSIX_CLOCKRES_MIN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_DELAYTIMER_MAX.html"
+                                  title='constant libffi_sys::_POSIX_DELAYTIMER_MAX'>_POSIX_DELAYTIMER_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_HOST_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_HOST_NAME_MAX'>_POSIX_HOST_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_LINK_MAX.html"
+                                  title='constant libffi_sys::_POSIX_LINK_MAX'>_POSIX_LINK_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_LOGIN_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_LOGIN_NAME_MAX'>_POSIX_LOGIN_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_MAX_CANON.html"
+                                  title='constant libffi_sys::_POSIX_MAX_CANON'>_POSIX_MAX_CANON</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_MAX_INPUT.html"
+                                  title='constant libffi_sys::_POSIX_MAX_INPUT'>_POSIX_MAX_INPUT</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_MQ_OPEN_MAX.html"
+                                  title='constant libffi_sys::_POSIX_MQ_OPEN_MAX'>_POSIX_MQ_OPEN_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_MQ_PRIO_MAX.html"
+                                  title='constant libffi_sys::_POSIX_MQ_PRIO_MAX'>_POSIX_MQ_PRIO_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_NAME_MAX'>_POSIX_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_NGROUPS_MAX.html"
+                                  title='constant libffi_sys::_POSIX_NGROUPS_MAX'>_POSIX_NGROUPS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_OPEN_MAX.html"
+                                  title='constant libffi_sys::_POSIX_OPEN_MAX'>_POSIX_OPEN_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_PATH_MAX.html"
+                                  title='constant libffi_sys::_POSIX_PATH_MAX'>_POSIX_PATH_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_PIPE_BUF.html"
+                                  title='constant libffi_sys::_POSIX_PIPE_BUF'>_POSIX_PIPE_BUF</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_RE_DUP_MAX.html"
+                                  title='constant libffi_sys::_POSIX_RE_DUP_MAX'>_POSIX_RE_DUP_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_RTSIG_MAX.html"
+                                  title='constant libffi_sys::_POSIX_RTSIG_MAX'>_POSIX_RTSIG_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SEM_NSEMS_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SEM_NSEMS_MAX'>_POSIX_SEM_NSEMS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SEM_VALUE_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SEM_VALUE_MAX'>_POSIX_SEM_VALUE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SIGQUEUE_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SIGQUEUE_MAX'>_POSIX_SIGQUEUE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SSIZE_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SSIZE_MAX'>_POSIX_SSIZE_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SS_REPL_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SS_REPL_MAX'>_POSIX_SS_REPL_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_STREAM_MAX.html"
+                                  title='constant libffi_sys::_POSIX_STREAM_MAX'>_POSIX_STREAM_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SYMLINK_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SYMLINK_MAX'>_POSIX_SYMLINK_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_SYMLOOP_MAX.html"
+                                  title='constant libffi_sys::_POSIX_SYMLOOP_MAX'>_POSIX_SYMLOOP_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_THREAD_DESTRUCTOR_ITERATIONS.html"
+                                  title='constant libffi_sys::_POSIX_THREAD_DESTRUCTOR_ITERATIONS'>_POSIX_THREAD_DESTRUCTOR_ITERATIONS</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_THREAD_KEYS_MAX.html"
+                                  title='constant libffi_sys::_POSIX_THREAD_KEYS_MAX'>_POSIX_THREAD_KEYS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_THREAD_THREADS_MAX.html"
+                                  title='constant libffi_sys::_POSIX_THREAD_THREADS_MAX'>_POSIX_THREAD_THREADS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TIMER_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TIMER_MAX'>_POSIX_TIMER_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TRACE_EVENT_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TRACE_EVENT_NAME_MAX'>_POSIX_TRACE_EVENT_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TRACE_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TRACE_NAME_MAX'>_POSIX_TRACE_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TRACE_SYS_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TRACE_SYS_MAX'>_POSIX_TRACE_SYS_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TRACE_USER_EVENT_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TRACE_USER_EVENT_MAX'>_POSIX_TRACE_USER_EVENT_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TTY_NAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TTY_NAME_MAX'>_POSIX_TTY_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._POSIX_TZNAME_MAX.html"
+                                  title='constant libffi_sys::_POSIX_TZNAME_MAX'>_POSIX_TZNAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._XOPEN_IOV_MAX.html"
+                                  title='constant libffi_sys::_XOPEN_IOV_MAX'>_XOPEN_IOV_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._XOPEN_NAME_MAX.html"
+                                  title='constant libffi_sys::_XOPEN_NAME_MAX'>_XOPEN_NAME_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant._XOPEN_PATH_MAX.html"
+                                  title='constant libffi_sys::_XOPEN_PATH_MAX'>_XOPEN_PATH_MAX</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_64_BIT_INO_T.html"
+                                  title='constant libffi_sys::__DARWIN_64_BIT_INO_T'>__DARWIN_64_BIT_INO_T</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_CLK_TCK.html"
+                                  title='constant libffi_sys::__DARWIN_CLK_TCK'>__DARWIN_CLK_TCK</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_C_ANSI.html"
+                                  title='constant libffi_sys::__DARWIN_C_ANSI'>__DARWIN_C_ANSI</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_C_FULL.html"
+                                  title='constant libffi_sys::__DARWIN_C_FULL'>__DARWIN_C_FULL</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_C_LEVEL.html"
+                                  title='constant libffi_sys::__DARWIN_C_LEVEL'>__DARWIN_C_LEVEL</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_NON_CANCELABLE.html"
+                                  title='constant libffi_sys::__DARWIN_NON_CANCELABLE'>__DARWIN_NON_CANCELABLE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_ONLY_64_BIT_INO_T.html"
+                                  title='constant libffi_sys::__DARWIN_ONLY_64_BIT_INO_T'>__DARWIN_ONLY_64_BIT_INO_T</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_ONLY_UNIX_CONFORMANCE.html"
+                                  title='constant libffi_sys::__DARWIN_ONLY_UNIX_CONFORMANCE'>__DARWIN_ONLY_UNIX_CONFORMANCE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_ONLY_VERS_1050.html"
+                                  title='constant libffi_sys::__DARWIN_ONLY_VERS_1050'>__DARWIN_ONLY_VERS_1050</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_SUF_1050.html"
+                                  title='constant libffi_sys::__DARWIN_SUF_1050'>__DARWIN_SUF_1050</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_SUF_64_BIT_INO_T.html"
+                                  title='constant libffi_sys::__DARWIN_SUF_64_BIT_INO_T'>__DARWIN_SUF_64_BIT_INO_T</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_SUF_EXTSN.html"
+                                  title='constant libffi_sys::__DARWIN_SUF_EXTSN'>__DARWIN_SUF_EXTSN</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_UNIX03.html"
+                                  title='constant libffi_sys::__DARWIN_UNIX03'>__DARWIN_UNIX03</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__DARWIN_VERS_1050.html"
+                                  title='constant libffi_sys::__DARWIN_VERS_1050'>__DARWIN_VERS_1050</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.__STDC_WANT_LIB_EXT1__.html"
+                                  title='constant libffi_sys::__STDC_WANT_LIB_EXT1__'>__STDC_WANT_LIB_EXT1__</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="constant" href="constant.ffi_abi_FFI_DEFAULT_ABI.html"
+                                  title='constant libffi_sys::ffi_abi_FFI_DEFAULT_ABI'>ffi_abi_FFI_DEFAULT_ABI</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='statics' class='section-header'><a href="#statics">Statics</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_complex_double.html"
+                                  title='static libffi_sys::ffi_type_complex_double'>ffi_type_complex_double</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_complex_float.html"
+                                  title='static libffi_sys::ffi_type_complex_float'>ffi_type_complex_float</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_complex_longdouble.html"
+                                  title='static libffi_sys::ffi_type_complex_longdouble'>ffi_type_complex_longdouble</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_double.html"
+                                  title='static libffi_sys::ffi_type_double'>ffi_type_double</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_float.html"
+                                  title='static libffi_sys::ffi_type_float'>ffi_type_float</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_longdouble.html"
+                                  title='static libffi_sys::ffi_type_longdouble'>ffi_type_longdouble</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_pointer.html"
+                                  title='static libffi_sys::ffi_type_pointer'>ffi_type_pointer</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_sint8.html"
+                                  title='static libffi_sys::ffi_type_sint8'>ffi_type_sint8</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_sint16.html"
+                                  title='static libffi_sys::ffi_type_sint16'>ffi_type_sint16</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_sint32.html"
+                                  title='static libffi_sys::ffi_type_sint32'>ffi_type_sint32</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_sint64.html"
+                                  title='static libffi_sys::ffi_type_sint64'>ffi_type_sint64</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_uint8.html"
+                                  title='static libffi_sys::ffi_type_uint8'>ffi_type_uint8</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_uint16.html"
+                                  title='static libffi_sys::ffi_type_uint16'>ffi_type_uint16</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_uint32.html"
+                                  title='static libffi_sys::ffi_type_uint32'>ffi_type_uint32</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_uint64.html"
+                                  title='static libffi_sys::ffi_type_uint64'>ffi_type_uint64</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="static" href="static.ffi_type_void.html"
+                                  title='static libffi_sys::ffi_type_void'>ffi_type_void</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_call.html"
+                                  title='fn libffi_sys::ffi_call'>ffi_call</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_closure_alloc.html"
+                                  title='fn libffi_sys::ffi_closure_alloc'>ffi_closure_alloc</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_closure_free.html"
+                                  title='fn libffi_sys::ffi_closure_free'>ffi_closure_free</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_java_ptrarray_to_raw.html"
+                                  title='fn libffi_sys::ffi_java_ptrarray_to_raw'>ffi_java_ptrarray_to_raw</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_java_raw_call.html"
+                                  title='fn libffi_sys::ffi_java_raw_call'>ffi_java_raw_call</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_java_raw_size.html"
+                                  title='fn libffi_sys::ffi_java_raw_size'>ffi_java_raw_size</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_java_raw_to_ptrarray.html"
+                                  title='fn libffi_sys::ffi_java_raw_to_ptrarray'>ffi_java_raw_to_ptrarray</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_cif.html"
+                                  title='fn libffi_sys::ffi_prep_cif'>ffi_prep_cif</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_cif_core.html"
+                                  title='fn libffi_sys::ffi_prep_cif_core'>ffi_prep_cif_core</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_cif_var.html"
+                                  title='fn libffi_sys::ffi_prep_cif_var'>ffi_prep_cif_var</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_closure.html"
+                                  title='fn libffi_sys::ffi_prep_closure'>ffi_prep_closure</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_closure_loc.html"
+                                  title='fn libffi_sys::ffi_prep_closure_loc'>ffi_prep_closure_loc</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_java_raw_closure.html"
+                                  title='fn libffi_sys::ffi_prep_java_raw_closure'>ffi_prep_java_raw_closure</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_java_raw_closure_loc.html"
+                                  title='fn libffi_sys::ffi_prep_java_raw_closure_loc'>ffi_prep_java_raw_closure_loc</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_raw_closure.html"
+                                  title='fn libffi_sys::ffi_prep_raw_closure'>ffi_prep_raw_closure</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_prep_raw_closure_loc.html"
+                                  title='fn libffi_sys::ffi_prep_raw_closure_loc'>ffi_prep_raw_closure_loc</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_ptrarray_to_raw.html"
+                                  title='fn libffi_sys::ffi_ptrarray_to_raw'>ffi_ptrarray_to_raw</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_raw_call.html"
+                                  title='fn libffi_sys::ffi_raw_call'>ffi_raw_call</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_raw_size.html"
+                                  title='fn libffi_sys::ffi_raw_size'>ffi_raw_size</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="fn" href="fn.ffi_raw_to_ptrarray.html"
+                                  title='fn libffi_sys::ffi_raw_to_ptrarray'>ffi_raw_to_ptrarray</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.FFI_TYPE.html"
+                                  title='type libffi_sys::FFI_TYPE'>FFI_TYPE</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.ffi_arg.html"
+                                  title='type libffi_sys::ffi_arg'>ffi_arg</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.ffi_java_raw.html"
+                                  title='type libffi_sys::ffi_java_raw'>ffi_java_raw</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.ffi_sarg.html"
+                                  title='type libffi_sys::ffi_sarg'>ffi_sarg</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.ffi_type.html"
+                                  title='type libffi_sys::ffi_type'>ffi_type</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class="type" href="type.wchar_t.html"
+                                  title='type libffi_sys::wchar_t'>wchar_t</a></td>
+                           <td class='docblock-short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "libffi_sys";
+    </script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

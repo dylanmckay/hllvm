@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ConstantAggregateZero","A constant value of zero of any type."]]});

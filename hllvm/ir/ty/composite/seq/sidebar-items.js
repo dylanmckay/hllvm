@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["array","The `ArrayType` struct."],["pointer","The pointer type."],["vector","The vector type."]],"struct":[["SequentialType","A sequential type."]]});

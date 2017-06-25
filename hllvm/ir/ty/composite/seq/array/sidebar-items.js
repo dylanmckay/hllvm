@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["ArrayType","An array type."]]});

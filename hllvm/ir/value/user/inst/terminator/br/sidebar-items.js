@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["BranchInst","A conditional or unconditional branch."]]});
