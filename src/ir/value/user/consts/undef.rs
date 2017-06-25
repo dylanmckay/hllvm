@@ -1,5 +1,5 @@
 use SafeWrapper;
-use ir::{Constant, Value, Type, User};
+use ir::{Constant, Type, User};
 use sys;
 
 /// An undefined value.
@@ -12,7 +12,7 @@ impl<'ctx> UndefValue<'ctx>
     pub fn new(ty: &Type) -> Self {
         unsafe {
             let inner = sys::LLVMRustUndefValueGet(ty.inner());
-            UndefValue(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => UndefValue)
         }
     }
 }

@@ -31,7 +31,7 @@ impl<'ctx> BranchInst<'ctx>
         let on_false = on_false.map(|b| b.inner()).unwrap_or(ptr::null_mut());
 
         let inner = sys::LLVMRustCreateBranchInst(on_true.inner(), on_false, condition);
-        BranchInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+        wrap_value!(inner => User => Instruction => TerminatorInst => BranchInst)
     }
 }
 

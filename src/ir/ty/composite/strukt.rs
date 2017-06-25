@@ -14,7 +14,7 @@ impl<'ctx> StructType<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustStructTypeGet(context.inner(), &elements, is_packed);
-            StructType(CompositeType(Type::from_inner(inner)))
+            wrap_type!(inner => CompositeType => StructType)
         }
     }
 }

@@ -10,7 +10,7 @@ impl<'ctx> VAArgInst<'ctx>
     pub fn new(list: &Value, ty: &Type) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateVAArgInst(list.inner(), ty.inner());
-            VAArgInst(UnaryInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => UnaryInst => VAArgInst)
         }
     }
 }

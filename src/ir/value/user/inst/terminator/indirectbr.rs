@@ -12,7 +12,7 @@ impl<'ctx> IndirectBrInst<'ctx>
                destinations: &[&Block]) -> Self {
         let mut br = unsafe {
             let inner = sys::LLVMRustCreateIndirectBrInst(address.inner());
-            IndirectBrInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => IndirectBrInst)
         };
 
         for dest in destinations { br.add_destination(dest) }

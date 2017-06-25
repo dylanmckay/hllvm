@@ -33,7 +33,7 @@ impl<'ctx> StoreInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateStoreInst(value.inner(), ptr.inner(),
                 is_volatile, align as _, ordering, sync_scope);
-            StoreInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => StoreInst)
         }
     }
 }

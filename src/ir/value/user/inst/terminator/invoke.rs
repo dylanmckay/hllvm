@@ -17,7 +17,7 @@ impl<'ctx> InvokeInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateInvokeInst(func.inner(), &args,
                 on_success.inner(), on_error.inner());
-            InvokeInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => InvokeInst)
         }
     }
 }

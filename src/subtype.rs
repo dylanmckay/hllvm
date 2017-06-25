@@ -1,7 +1,11 @@
 /// A trait for things that can be upcasted.
 pub trait Subtype
 {
+    /// The parent of the type.
     type Parent;
+
+    /// Creates a value of this type given the parent type.
+    unsafe fn from_parent(parent: Self::Parent) -> Self;
 
     fn upcast_ref(&self) -> &Self::Parent;
     fn upcast_mut(&mut self) -> &mut Self::Parent;
@@ -13,6 +17,10 @@ macro_rules! impl_subtype {
     ($ty:ident => $parent:ident) => {
         impl<'ctx> $crate::subtype::Subtype for $ty<'ctx> {
             type Parent = $parent<'ctx>;
+
+            unsafe fn from_parent(parent: Self::Parent) -> Self {
+                $ty(parent)
+            }
 
             fn upcast_ref(&self) -> &Self::Parent { &self.0 }
             fn upcast_mut(&mut self) -> &mut Self::Parent { &mut self.0 }
@@ -35,3 +43,17 @@ macro_rules! impl_subtype {
         }
     }
 }
+
+macro_rules! wrap_subtype {
+    ($value:expr $( => $parent:ident )+ ) => {
+        {
+            use $crate::Subtype;
+            let current = $value;
+
+            $( let current = $parent::from_parent(current); )+
+
+            current
+        }
+    }
+}
+

@@ -14,7 +14,7 @@ impl<'ctx> CleanupPadInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateCleanupPadInst(parent_pad.inner(), &arguments);
-            CleanupPadInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => CleanupPadInst)
         }
     }
 }

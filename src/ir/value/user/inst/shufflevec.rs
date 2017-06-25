@@ -11,7 +11,7 @@ impl<'ctx> ShuffleVectorInst<'ctx>
     pub fn new(v1: &Value, v2: &Value, mask: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateShuffleVectorInst(v1.inner(), v2.inner(), mask.inner());
-            ShuffleVectorInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => ShuffleVectorInst)
         }
     }
 }

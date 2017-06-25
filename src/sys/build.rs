@@ -29,8 +29,6 @@ fn main() {
         println!("cargo:rustc-link-lib=static={}", library);
     }
 
-    println!("cargo:rustc-link-lib=dylib={}", "ffi");
-
     println!("cargo:rustc-link-lib=dylib={}", "z");
 
     cpp::build("lib.rs", "llvm-sys", |cfg| {

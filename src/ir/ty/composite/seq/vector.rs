@@ -12,7 +12,7 @@ impl<'ctx> VectorType<'ctx>
         unsafe {
             let inner = sys::LLVMRustVectorTypeGet(element_type.inner(),
                 num_elements);
-            VectorType(SequentialType(CompositeType(Type::from_inner(inner))))
+            wrap_type!(inner => CompositeType => SequentialType => VectorType)
         }
     }
 }

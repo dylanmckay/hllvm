@@ -25,7 +25,7 @@ impl<'ctx> AllocaInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateAllocaInst(ty.inner(), array_size);
-            AllocaInst(UnaryInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => UnaryInst => AllocaInst)
         }
     }
 }

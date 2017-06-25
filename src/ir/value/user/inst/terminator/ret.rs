@@ -13,8 +13,8 @@ impl<'ctx> ReturnInst<'ctx>
         let ret_val = ret_val.map(Value::inner).unwrap_or(ptr::null_mut());
 
         unsafe {
-            let val = sys::LLVMRustCreateReturnInst(context.inner(), ret_val);
-            ReturnInst(TerminatorInst(Instruction(User(Value::from_inner(val)))))
+            let inner = sys::LLVMRustCreateReturnInst(context.inner(), ret_val);
+            wrap_value!(inner => User => Instruction => TerminatorInst => ReturnInst)
         }
     }
 }

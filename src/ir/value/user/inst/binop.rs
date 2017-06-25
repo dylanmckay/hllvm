@@ -13,7 +13,7 @@ impl<'ctx> BinaryOperatorInst<'ctx>
                rhs: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateBinaryOperator(opcode as _, lhs.inner(), rhs.inner());
-            BinaryOperatorInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => BinaryOperatorInst)
         }
     }
 
@@ -23,7 +23,7 @@ impl<'ctx> BinaryOperatorInst<'ctx>
                    rhs: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateBinaryOperatorNSW(opcode as _, lhs.inner(), rhs.inner());
-            BinaryOperatorInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => BinaryOperatorInst)
         }
     }
 
@@ -33,7 +33,7 @@ impl<'ctx> BinaryOperatorInst<'ctx>
                    rhs: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateBinaryOperatorNUW(opcode as _, lhs.inner(), rhs.inner());
-            BinaryOperatorInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => BinaryOperatorInst)
         }
     }
 
@@ -43,7 +43,7 @@ impl<'ctx> BinaryOperatorInst<'ctx>
                      rhs: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateBinaryOperatorExact(opcode as _, lhs.inner(), rhs.inner());
-            BinaryOperatorInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => BinaryOperatorInst)
         }
     }
 }

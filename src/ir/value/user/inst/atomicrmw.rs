@@ -14,7 +14,7 @@ impl<'ctx> AtomicRMWInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateAtomicRMWInst(op, pointer.inner(), value.inner(),
                 ordering, sync_scope);
-            AtomicRMWInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => AtomicRMWInst)
         }
     }
 }

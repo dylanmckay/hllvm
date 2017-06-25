@@ -14,7 +14,7 @@ impl<'ctx> CatchPadInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateCatchPadInst(catch_switch.inner(), &arguments);
-            CatchPadInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => CatchPadInst)
         }
     }
 }

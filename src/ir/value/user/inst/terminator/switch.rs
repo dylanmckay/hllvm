@@ -16,7 +16,7 @@ impl<'ctx> SwitchInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateSwitchInst(value.inner(), default);
-            SwitchInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => SwitchInst)
         }
     }
 

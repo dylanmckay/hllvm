@@ -13,7 +13,7 @@ impl<'ctx> FCmpInst<'ctx>
                rhs: &Value) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateFCmpInst(predicate_kind, lhs.inner(), rhs.inner());
-            FCmpInst(CmpInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => CmpInst => FCmpInst)
         }
     }
 }

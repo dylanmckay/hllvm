@@ -11,7 +11,7 @@ impl<'ctx> CatchSwitchInst<'ctx>
                unwind_dest: &Block) -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateCatchSwitchInst(parent_pad.inner(), unwind_dest.inner());
-            CatchSwitchInst(TerminatorInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => TerminatorInst => CatchSwitchInst)
         }
     }
 

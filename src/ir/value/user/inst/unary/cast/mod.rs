@@ -14,12 +14,11 @@ macro_rules! define_cast_instruction {
             pub fn new(value: &$crate::ir::Value,
                        ty: &$crate::ir::Type) -> Self {
                 use $crate::SafeWrapper;
+                use $crate::ir::{User, Instruction, UnaryInst, CastInst};
 
                 unsafe {
                     let inner = $crate::sys::$ctor(value.inner(), ty.inner());
-                    $name($crate::ir::CastInst(
-                        $crate::ir::UnaryInst($crate::ir::Instruction(
-                                $crate::ir::User($crate::ir::Value::from_inner(inner))))))
+                    wrap_value!(inner => User => Instruction => UnaryInst => CastInst => $name)
                 }
             }
         }

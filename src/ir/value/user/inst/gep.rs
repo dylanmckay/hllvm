@@ -31,7 +31,7 @@ impl<'ctx> GetElementPtrInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateGetElementPtrInst(pointee_ty.inner(), pointer.inner(),
                 &indices, in_bounds);
-            GetElementPtrInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => GetElementPtrInst)
         }
     }
 }

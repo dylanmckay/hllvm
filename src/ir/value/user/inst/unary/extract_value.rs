@@ -13,7 +13,7 @@ impl<'ctx> ExtractValueInst<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustCreateExtractValueInst(aggregate.inner(), &indices);
-            ExtractValueInst(UnaryInst(Instruction(User(Value::from_inner(inner)))))
+            wrap_value!(inner => User => Instruction => UnaryInst => ExtractValueInst)
         }
     }
 }

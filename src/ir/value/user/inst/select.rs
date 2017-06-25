@@ -14,7 +14,7 @@ impl<'ctx> SelectInst<'ctx>
         unsafe {
             let inner = sys::LLVMRustCreateSelectInst(condition.inner(),
                 if_true.inner(), if_false.inner());
-            SelectInst(Instruction(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Instruction => SelectInst)
         }
     }
 }

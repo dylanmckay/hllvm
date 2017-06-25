@@ -12,7 +12,7 @@ impl<'ctx> ConstantVector<'ctx>
 
         unsafe {
             let inner = sys::LLVMRustConstantVectorGet(&values);
-            ConstantVector(Constant(User(Value::from_inner(inner))))
+            wrap_value!(inner => User => Constant => ConstantVector)
         }
     }
 }
