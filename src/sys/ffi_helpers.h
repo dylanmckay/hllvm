@@ -4,6 +4,7 @@
 #include <llvm/Support/Casting.h>
 
 #include <stdint.h>
+#include <string.h>
 
 /// Whether or not we should perform expensive checks.
 #define SUPPORT_DO_EXPENSIVE_CHECKS 1
@@ -56,5 +57,11 @@ public:
 
   size_t len() const { return this->Len; }
 };
+
+/// Builds an owned `CppString` from a `std::string`.
+inline char* BuildCppString(std::string &str) {
+  char *owned = strdup(str.c_str());
+  return owned;
+}
 
 } // end namespace support

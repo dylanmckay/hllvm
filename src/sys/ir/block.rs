@@ -1,7 +1,7 @@
 use {ContextRef, ValueRef};
 
 cpp! {
-    #include "support.h"
+    #include "ffi_helpers.h"
 
     #include "llvm/IR/Module.h"
 

@@ -98,10 +98,25 @@ impl CPU
 
 impl Default for Triple
 {
-    fn default() -> Self { Triple("".to_owned()) }
+    fn default() -> Self {
+        let s = unsafe { sys::DefaultTargetTriple() };
+        Triple(s.as_string().expect("default target triple is not valid utf-8"))
+    }
 }
 
 impl Default for CPU
 {
     fn default() -> Self { CPU("".to_owned()) }
+}
+
+impl fmt::Display for Triple {
+    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
+        self.0.fmt(fmt)
+    }
+}
+
+impl fmt::Display for CPU {
+    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
+        self.0.fmt(fmt)
+    }
 }

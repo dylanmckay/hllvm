@@ -5,7 +5,7 @@ pub enum OpaqueModule { }
 pub type ModuleRef = *mut OpaqueModule;
 
 cpp! {
-    #include "support.h"
+    #include "ffi_helpers.h"
 
     #include "llvm/IR/Module.h"
 

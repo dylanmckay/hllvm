@@ -2,7 +2,7 @@ use {ValueRef, ContextRef, TypeRef, Linkage, ThreadLocalMode};
 use libc;
 
 cpp! {
-    #include "support.h"
+    #include "ffi_helpers.h"
 
     #include "llvm/IR/Constants.h"
     #include "llvm/IR/LLVMContext.h"

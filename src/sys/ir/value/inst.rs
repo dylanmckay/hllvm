@@ -3,7 +3,7 @@ use {ContextRef, ValueRef, TypeRef, AtomicOrdering, SynchronizationScope,
 use libc;
 
 cpp! {
-    #include "support.h"
+    #include "ffi_helpers.h"
 
     #include "llvm/IR/Instructions.h"
 

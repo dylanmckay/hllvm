@@ -1,11 +1,19 @@
-use {FileType, TargetRef, TargetMachineRef, PassManagerRef, RawPWriteStreamRef};
+use {FileType, TargetRef, TargetMachineRef, PassManagerRef,
+     RawPWriteStreamRef, CppString};
 use libc;
 
 cpp! {
+    #include "ffi_helpers.h"
     #include "llvm/IR/LegacyPassManager.h"
+    #include "llvm/Support/Host.h"
     #include "llvm/Support/TargetRegistry.h"
     #include "llvm/Target/TargetMachine.h"
     #include "llvm/Target/TargetOptions.h"
+
+    pub fn DefaultTargetTriple() -> CppString as "char*" {
+        std::string triple = llvm::sys::getDefaultTargetTriple();
+        return support::BuildCppString(triple);
+    }
 
     pub fn LLVMRustTargetGetName(target: TargetRef as "llvm::Target*")
         -> *const libc::c_char as "const char*" {

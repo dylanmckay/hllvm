@@ -2,7 +2,7 @@ use {Linkage, ValueRef, TypeRef, ModuleRef};
 use libc;
 
 cpp! {
-    #include "support.h"
+    #include "ffi_helpers.h"
 
     #include "llvm/IR/Module.h"
 
