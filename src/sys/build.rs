@@ -6,7 +6,9 @@ use std::env;
 fn llvm_config(args: &[&str]) -> String {
     let output = process::Command::new("llvm-config").args(args).output().unwrap();
     assert!(output.status.success(), "llvm-config was unsuccessful");
-    String::from_utf8(output.stdout).expect("invalid utf-8 from llvm-config")
+
+    String::from_utf8(output.stdout).
+        expect("invalid utf-8 from llvm-config").trim().to_owned()
 }
 
 fn find_llvm_include_dir() -> String { llvm_config(&["--includedir"]) }
