@@ -34,6 +34,11 @@ fn main() {
     println!("cargo:rustc-link-lib=dylib={}", "z");
 
     cpp::build("lib.rs", "llvm-sys", |cfg| {
+        // This line is required because on MacOS, the 'cstdint' header is under
+        // the 'tr1' directory on my machine.
+        // https://stackoverflow.com/questions/10116724/clang-os-x-lion-cannot-find-cstdint
+        cfg.cpp_set_stdlib(Some("c++"));
+
         cfg.flag("-std=c++11");
         cfg.include(find_llvm_include_dir());
         cfg.include(format!("{}", get_crate_root()));
