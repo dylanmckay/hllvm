@@ -1,6 +1,6 @@
 [package]
 name = "hllvm"
-version = "0.1.3"
+version = "0.1.4"
 authors = ["Dylan McKay <me@dylanmckay.io>"]
 
 description = "Idiomatic bindings to the LLVM compiler suite"
