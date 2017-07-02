@@ -1,3 +1,5 @@
+//! The `ArrayType` struct.
+
 use SafeWrapper;
 use ir::{SequentialType, CompositeType, Type};
 use sys;

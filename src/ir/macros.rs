@@ -1,3 +1,4 @@
+//! Useful macros.
 
 macro_rules! wrap_value {
     ($ffivalue:expr $( => $parent:ident )+ ) => {

@@ -1,3 +1,5 @@
+//! The vector type.
+
 use SafeWrapper;
 use ir::{SequentialType, CompositeType, Type};
 use sys;
@@ -18,3 +20,4 @@ impl<'ctx> VectorType<'ctx>
 }
 
 impl_subtype!(VectorType => SequentialType);
+

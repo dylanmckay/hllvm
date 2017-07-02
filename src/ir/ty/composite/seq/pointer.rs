@@ -1,3 +1,5 @@
+//! The pointer type.
+
 use SafeWrapper;
 use ir::{SequentialType, CompositeType, Type};
 use sys;
@@ -18,3 +20,4 @@ impl<'ctx> PointerType<'ctx>
 }
 
 impl_subtype!(PointerType => SequentialType);
+

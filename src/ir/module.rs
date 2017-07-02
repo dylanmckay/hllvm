@@ -1,3 +1,5 @@
+//! The module-related code.
+
 use {SafeWrapper, Subtype};
 use ir::{Context, FunctionType, Attribute, Value, Function, GlobalVariable};
 
@@ -6,7 +8,7 @@ use std::marker;
 
 use std::ffi;
 
-/// An LLVM module.
+/// A group of functions and globals representing a single compilation unit.
 /// `'ctx` - The lifetime of the context.
 pub struct Module<'ctx>
 {

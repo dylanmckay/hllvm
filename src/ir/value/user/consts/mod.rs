@@ -1,3 +1,5 @@
+//! Compile-time constant values.
+
 pub use self::int::ConstantInt;
 pub use self::fp::ConstantFP;
 pub use self::blockaddr::BlockAddress;
@@ -22,5 +24,6 @@ pub mod global;
 
 use ir::User;
 
+/// A value that is constant at compile time.
 pub struct Constant<'ctx>(User<'ctx>);
 impl_subtype!(Constant => User);

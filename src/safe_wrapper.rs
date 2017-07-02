@@ -1,3 +1,5 @@
+//! Trait for types which wrap unsafe LLVM internals.
+
 /// A type which wraps an underlying LLVM FFI type.
 pub trait SafeWrapper : Sized
 {

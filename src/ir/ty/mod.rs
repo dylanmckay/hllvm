@@ -1,3 +1,5 @@
+//! Definitions for all of the different types.
+
 pub use self::func::FunctionType;
 pub use self::integer::IntegerType;
 pub use self::composite::*;

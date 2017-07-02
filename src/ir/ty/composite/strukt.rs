@@ -1,3 +1,5 @@
+/// The `struct` type.
+
 use SafeWrapper;
 use ir::{Context, Type, CompositeType};
 use sys;
@@ -20,3 +22,4 @@ impl<'ctx> StructType<'ctx>
 }
 
 impl_subtype!(StructType => CompositeType);
+

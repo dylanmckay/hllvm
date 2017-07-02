@@ -1,3 +1,5 @@
+//! Integer type.
+
 use SafeWrapper;
 use ir::{Type, Context};
 use sys;
@@ -19,3 +21,4 @@ impl<'ctx> IntegerType<'ctx>
 }
 
 impl_subtype!(IntegerType => Type);
+

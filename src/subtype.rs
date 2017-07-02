@@ -1,3 +1,5 @@
+//! Support code for the `Deref`-based C++ inheritance tree support.
+
 /// A trait for things that can be upcasted.
 pub trait Subtype
 {
@@ -44,6 +46,7 @@ macro_rules! impl_subtype {
     }
 }
 
+/// Wrap subtypes into a tree of inherited types.
 macro_rules! wrap_subtype {
     ($value:expr $( => $parent:ident )+ ) => {
         {

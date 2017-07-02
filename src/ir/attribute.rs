@@ -1,3 +1,5 @@
+//! An attribute which can be placed on certain IR data structures.
+
 use SafeWrapper;
 use ir::Context;
 use sys;

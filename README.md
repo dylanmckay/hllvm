@@ -5,4 +5,5 @@
 
 [Documentation](http://dylanmckay.io/hllvm/hllvm)
 
-This library is a high-level and idiomatic wrapper over the C++ LLVM compiler suite.
+A high-level and idiomatic wrapper over the C++ LLVM compiler suite.
+

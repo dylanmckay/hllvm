@@ -1,3 +1,5 @@
+//! The main LLVM context type.
+
 use SafeWrapper;
 use sys;
 
@@ -6,6 +8,7 @@ pub struct Context(sys::ContextRef);
 
 impl Context
 {
+    /// Creates a new context.
     pub fn new() -> Self {
         unsafe {
             let inner = sys::LLVMRustCreateContext();

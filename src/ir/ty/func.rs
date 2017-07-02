@@ -1,3 +1,5 @@
+//! The `Function` type.
+
 use SafeWrapper;
 use ir::Type;
 use sys;
@@ -21,3 +23,4 @@ impl<'ctx> FunctionType<'ctx>
 }
 
 impl_subtype!(FunctionType => Type);
+

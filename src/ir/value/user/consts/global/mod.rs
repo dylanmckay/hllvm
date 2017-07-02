@@ -1,3 +1,5 @@
+//! Global values.
+
 pub use self::obj::*;
 
 pub mod obj;
